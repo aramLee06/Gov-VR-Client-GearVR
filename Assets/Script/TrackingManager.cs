@@ -14,9 +14,9 @@ public class TrackingManager : MonoBehaviour {
 		RaycastHit hit;
 		// aiming
 		if (Physics.Raycast (this.transform.position, this.transform.forward, out hit)) {
-			//if (hit.collider.name.CompareTo (this.name) > 0) {
+			if (hit.collider.name.CompareTo (this.name) > 0) {
 				trackedItem = hit.collider.gameObject;
-			//} 
+			} 
 		}
 	}
 }

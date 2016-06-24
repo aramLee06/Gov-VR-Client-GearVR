@@ -12,22 +12,30 @@ public class LobbyManager : MonoBehaviour {
 	public GameObject unitSelect;
 	public GameObject OVRCamera;
 
+	public GameObject CampaignLobby;
+	//public GameObject MultiLobby;
+	//public GameObject UnitSelectLobby;
+
 	// Use this for initialization
 	void Start () {
-		OVRTouchpad.Create();
-		OVRTouchpad.TouchHandler += GearTouchHandler;
-
 		trackingManager = GameObject.Find ("aim").GetComponent<TrackingManager> ();
+		CampaignLobby.SetActive (false);
 	}
 
+	void OnEnable() {
+		OVRTouchpad.Create();
+		OVRTouchpad.TouchHandler += GearTouchHandler;
+	}
+
+	void OnDisable() {
+		OVRTouchpad.TouchHandler -= GearTouchHandler;
+	}
 	void GearTouchHandler (object sender, System.EventArgs e)
 	{
 		OVRTouchpad.TouchArgs touchArgs = (OVRTouchpad.TouchArgs)e;
 
 		switch (touchArgs.TouchType) {
 		case OVRTouchpad.TouchEvent.SingleTap:
-
-
 			CheckSelectedMode (trackingManager.trackedItem.name);
 			break;
 		}
@@ -39,28 +47,28 @@ public class LobbyManager : MonoBehaviour {
 	}
 
 	void CheckSelectedMode(string itemName) {
-		GameObject.Find ("TextBox").GetComponent<TextMesh> ().text = itemName;
 
+		GameObject.Find ("TestText").GetComponent<TextMesh> ().text = itemName;
 		switch (itemName) {
 		case "Campaign_Board": 
 			multiBoard.transform.DOMoveX (2.0f, 2.0f);
+			campaignBoard.transform.DOMoveX (-2.0f, 2.0f);
+			CampaignLobby.SetActive (true);
 			break;
 		case "Multi_Board":
+			multiBoard.transform.DOMoveX (2.0f, 2.0f);
 			campaignBoard.transform.DOMoveX (-2.0f, 2.0f);
 			break;
 		case "UnitSelect":
-			OVRCamera.transform.DOMove (new Vector3 (0, 0.25f, -1.3f), 2.0f);
+			OVRCamera.transform.DOMove (new Vector3 (0, 0.45f, 0.2f), 2.0f);
 			break;
 		default :
-			multiBoard.transform.DOMove (new Vector3 (0.31f, 0.6f, -0.56f), 2.0f);
-			campaignBoard.transform.DOMove (new Vector3 (-0.31f, 0.6f, -0.56f), 2.0f);
-			OVRCamera.transform.DOMove (new Vector3 (0, 0.6f, -1.7f), 2.0f);
+			multiBoard.transform.DOMove (new Vector3 (0.4f, 0.85f, 2.0f), 2.0f);
+			campaignBoard.transform.DOMove (new Vector3 (-0.4f, 0.85f, 2.0f), 2.0f);
+			OVRCamera.transform.DOMove (new Vector3 (0, 0.85f, -0.73f), 2.0f);
+			CampaignLobby.SetActive (false);
 			break;
 		}
-
-	}
-
-	void MoveToCampaignLobby() {
 
 	}
 

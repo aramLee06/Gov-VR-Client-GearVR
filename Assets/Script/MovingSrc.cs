@@ -13,7 +13,8 @@ public class MovingSrc : MonoBehaviour {
 		Vector3 rotateSet = new Vector3 (0, 360.0f, 0);
 
 		//untiSelect.transform.DOLocalMoveY (offset, duration).SetLoops (-1, LoopType.Yoyo).SetRelative (true);
-		untiSelect.transform.DOBlendableRotateBy(rotateSet, 25.0f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Incremental).SetRelative(true);
+		//untiSelect.transform.DOBlendableRotateBy(rotateSet, 25.0f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Yoyo).SetRelative(true);
+		untiSelect.transform.DORotate(rotateSet, 25.0f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Yoyo).SetRelative(true);
 	}
 	
 	// Update is called once per frame
