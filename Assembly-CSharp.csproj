@@ -78,6 +78,8 @@
      <Compile Include="Assets\Script\LobbyManager.cs" />
      <Compile Include="Assets\Script\MovingSrc.cs" />
      <Compile Include="Assets\Script\MultiLobbyManager.cs" />
+     <Compile Include="Assets\Script\MultiMemberManager.cs" />
+     <Compile Include="Assets\Script\PlayerMemberSetting.cs" />
      <Compile Include="Assets\Script\TrackingManager.cs" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\OVR\Moonlight\Shaders\OVRColorRampAlpha.shader" />

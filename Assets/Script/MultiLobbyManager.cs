@@ -39,8 +39,8 @@ public class MultiLobbyManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
-		CreateRoom.SetActive (false);
-		WaitRoom.SetActive (false);
+		//CreateRoom.SetActive (false);
+		//WaitRoom.SetActive (false);
 	}
 	
 	// Update is called once per frame

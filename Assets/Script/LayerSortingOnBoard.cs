@@ -13,8 +13,6 @@ public class LayerSortingOnBoard : MonoBehaviour {
 	void OnEnable(){
 		campaignStageManager = GameObject.Find ("CampaignLobbyBoard").GetComponent<CampaignStageManager>();
 		campaignStageManager.OnChangeActiveStage += OnChangeActiveStage;
-
-
 	}
 
 	void OnDisable() {
@@ -33,7 +31,6 @@ public class LayerSortingOnBoard : MonoBehaviour {
 			Campaign02.sortingLayerName = "OtherCampaign";
 			Campaign03.sortingLayerName = "OtherCampaign";
 			this.GetComponent<Renderer> ().sortingLayerName = "OtherStage";
-
 		}
 	}
 

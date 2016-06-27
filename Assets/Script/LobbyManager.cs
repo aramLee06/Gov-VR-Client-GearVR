@@ -20,6 +20,7 @@ public class LobbyManager : MonoBehaviour {
 	void Start () {
 		trackingManager = GameObject.Find ("aim").GetComponent<TrackingManager> ();
 		CampaignLobby.SetActive (false);
+		MultiLobby.SetActive (false);
 	}
 
 	void OnEnable() {
