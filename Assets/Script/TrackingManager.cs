@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class TrackingManager : MonoBehaviour {
 
 	public GameObject trackedItem;
 	// Use this for initialization
 	void Start () {
+		this.GetComponent<Renderer> ().sortingLayerName = "LobbyAim";
 	
 	}
 	
@@ -13,10 +15,9 @@ public class TrackingManager : MonoBehaviour {
 	void Update () {
 		RaycastHit hit;
 		// aiming
-		if (Physics.Raycast (this.transform.position, this.transform.forward, out hit)) {
-			if (hit.collider.name.CompareTo (this.name) > 0) {
-				trackedItem = hit.collider.gameObject;
-			} 
+		if (Physics.Raycast (new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.z + 0.01f), this.transform.forward, out hit)) {
+			trackedItem = hit.collider.gameObject;
 		}
+			
 	}
 }

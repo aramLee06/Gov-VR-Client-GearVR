@@ -13,7 +13,7 @@ public class LobbyManager : MonoBehaviour {
 	public GameObject OVRCamera;
 
 	public GameObject CampaignLobby;
-	//public GameObject MultiLobby;
+	public GameObject MultiLobby;
 	//public GameObject UnitSelectLobby;
 
 	// Use this for initialization
@@ -58,15 +58,18 @@ public class LobbyManager : MonoBehaviour {
 		case "Multi_Board":
 			multiBoard.transform.DOMoveX (2.0f, 2.0f);
 			campaignBoard.transform.DOMoveX (-2.0f, 2.0f);
+			MultiLobby.SetActive (true);
 			break;
 		case "UnitSelect":
 			OVRCamera.transform.DOMove (new Vector3 (0, 0.45f, 0.2f), 2.0f);
 			break;
+	
 		default :
 			multiBoard.transform.DOMove (new Vector3 (0.4f, 0.85f, 2.0f), 2.0f);
 			campaignBoard.transform.DOMove (new Vector3 (-0.4f, 0.85f, 2.0f), 2.0f);
 			OVRCamera.transform.DOMove (new Vector3 (0, 0.85f, -0.73f), 2.0f);
 			CampaignLobby.SetActive (false);
+			MultiLobby.SetActive (true);
 			break;
 		}
 

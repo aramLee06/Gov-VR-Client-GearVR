@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: b84e5a5bef6684fcf9baa2cb250aeba7
+timeCreated: 1466754265
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: body
+    100002: body01
+    100004: body02
+    100006: Gun
+    100008: 'Gun '
+    100010: Object001
+    100012: //RootNode
+    100014: Wheel_006
+    100016: Wheel_007
+    100018: Wheel_008
+    100020: Wheel_009
+    100022: Wheel_01
+    100024: Wheel_010
+    100026: Wheel_02
+    100028: Wheel_03
+    100030: Wheel_04
+    100032: Wheel_05
+    100034: Whell
+    400000: body
+    400002: body01
+    400004: body02
+    400006: Gun
+    400008: 'Gun '
+    400010: Object001
+    400012: //RootNode
+    400014: Wheel_006
+    400016: Wheel_007
+    400018: Wheel_008
+    400020: Wheel_009
+    400022: Wheel_01
+    400024: Wheel_010
+    400026: Wheel_02
+    400028: Wheel_03
+    400030: Wheel_04
+    400032: Wheel_05
+    400034: Whell
+    2300000: body01
+    2300002: body02
+    2300004: Gun
+    2300006: 'Gun '
+    2300008: Wheel_006
+    2300010: Wheel_007
+    2300012: Wheel_008
+    2300014: Wheel_009
+    2300016: Wheel_01
+    2300018: Wheel_010
+    2300020: Wheel_02
+    2300022: Wheel_03
+    2300024: Wheel_04
+    2300026: Wheel_05
+    2300028: Whell
+    3300000: body01
+    3300002: body02
+    3300004: Gun
+    3300006: 'Gun '
+    3300008: Wheel_006
+    3300010: Wheel_007
+    3300012: Wheel_008
+    3300014: Wheel_009
+    3300016: Wheel_01
+    3300018: Wheel_010
+    3300020: Wheel_02
+    3300022: Wheel_03
+    3300024: Wheel_04
+    3300026: Wheel_05
+    3300028: Whell
+    4300000: body01
+    4300002: body02
+    4300004: 'Gun '
+    4300006: Gun
+    4300008: Whell
+    4300010: Wheel_03
+    4300012: Wheel_02
+    4300014: Wheel_01
+    4300016: Wheel_04
+    4300018: Wheel_05
+    4300020: Wheel_006
+    4300022: Wheel_007
+    4300024: Wheel_008
+    4300026: Wheel_009
+    4300028: Wheel_010
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
