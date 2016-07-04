@@ -42,7 +42,6 @@ public class MultiMemberManager : MonoBehaviour {
 
 	void SetActivition(int cnt) {
 		for (int i = 0; i < UnitList.Length; i++) {
-			Debug.Log (i + " / " + cnt);
 			if (i < cnt) {
 				UnitList [i].SetActive (true);
 			} else {
@@ -52,7 +51,7 @@ public class MultiMemberManager : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-	
+		OnChangePlayerMemberCount (1);
 	}	
 	// Update is called once per frame
 	void Update () {

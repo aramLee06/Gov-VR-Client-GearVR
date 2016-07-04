@@ -8,15 +8,25 @@ public class LayerSortingOnBoard : MonoBehaviour {
 	public Renderer Campaign02;
 	public Renderer Campaign03;
 
+	LobbyManager lobbyManager; 
+
 	CampaignStageManager campaignStageManager;
 
 	void OnEnable(){
 		campaignStageManager = GameObject.Find ("CampaignLobbyBoard").GetComponent<CampaignStageManager>();
 		campaignStageManager.OnChangeActiveStage += OnChangeActiveStage;
+		lobbyManager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lobbyManager.OnTapObject += OnTapObject;
 	}
 
 	void OnDisable() {
 		campaignStageManager.OnChangeActiveStage -= OnChangeActiveStage;
+		lobbyManager.OnTapObject -= OnTapObject;
+	}
+
+	void OnTapObject (string stageName)
+	{
+
 	}
 
 	void OnChangeActiveStage (string stageName)

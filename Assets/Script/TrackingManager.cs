@@ -18,6 +18,5 @@ public class TrackingManager : MonoBehaviour {
 		if (Physics.Raycast (new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.z + 0.01f), this.transform.forward, out hit)) {
 			trackedItem = hit.collider.gameObject;
 		}
-			
 	}
 }

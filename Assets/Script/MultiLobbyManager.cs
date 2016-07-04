@@ -1,69 +1,88 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class MultiLobbyManager : MonoBehaviour {
 
-	public GameObject CreateRoomBoard;
 	public GameObject CreateRoom;
-	public GameObject WaitRoomBoard;
 	public GameObject WaitRoom;
 
-	//public delegate void OnChangeActiveStageHandler(string stageName);
-	//public event OnChangeActiveStageHandler OnChangeActiveStage;
+	public GameObject CreateRoomBoard;
+	public GameObject WaitRoomBoard;
+	LobbyManager lobbyManager; 
 
 	void OnEnable() {
-		OVRTouchpad.Create();
-		OVRTouchpad.TouchHandler += GearTouchHandler;
+		lobbyManager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lobbyManager.OnTapObject += OnTapObject;
+
+		CreateRoom.SetActive (false);
+		WaitRoom.SetActive (false);
+
+		CreateRoomBoard.SetActive (true);
+		WaitRoomBoard.SetActive (true); 
 	}
 
-	void OnDisable() {
-		OVRTouchpad.TouchHandler -= GearTouchHandler;
-	}
 
-	void GearTouchHandler (object sender, System.EventArgs e) {
-		
-		OVRTouchpad.TouchArgs touchArgs = (OVRTouchpad.TouchArgs)e;
+	void OnTapObject (string boardName)
+	{
+		//GameObject.Find ("TestText").GetComponent<TextMesh> ().text = boardName;
+		switch (boardName) {
+		case "CreateRoomBoard": 
+			//CreateRoomBoard.transform.DOLocalMoveX (-2.0f, 2.0f);
+			//WaitRoomBoard.transform.DOLocalMoveX (2.0f, 2.0f);
 
-		switch (touchArgs.TouchType) {
-		case OVRTouchpad.TouchEvent.Left:
+			//StartCoroutine(SetNonActive());
+			CreateRoomBoard.SetActive (false);
+			WaitRoomBoard.SetActive (false);
+			CreateRoom.SetActive (true);
 			break;
-		case OVRTouchpad.TouchEvent.Right:
-			break;
-		case OVRTouchpad.TouchEvent.SingleTap:
-			LobbySelected ();
+		case "WaitRoomBoard":
+			//CreateRoomBoard.transform.DOLocalMoveX (-2.0f, 2.0f);
+			//WaitRoomBoard.transform.DOLocalMoveX (2.0f, 2.0f);
+
+			//StartCoroutine(SetNonActive());
+			CreateRoomBoard.SetActive (false);
+			WaitRoomBoard.SetActive (false);
+			WaitRoom.SetActive (true);
 			break;
 		}
 
 	}
 
+	IEnumerator SetNonActive() {
+		yield return new WaitForSeconds (2.0f);
+
+		CreateRoomBoard.SetActive (false);
+		WaitRoomBoard.SetActive (false);
+	}
+
+	void OnDisable() {
+		lobbyManager.OnTapObject -= OnTapObject;
+	}
+
+
 	// Use this for initialization
 	void Start () {
-	
-		//CreateRoom.SetActive (false);
-		//WaitRoom.SetActive (false);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
-
-	void LobbySelected() {
-		GameObject selectedBoard = GameObject.Find ("aim").GetComponent<TrackingManager> ().trackedItem;
-
-		switch (selectedBoard.name) {
-		case "CreateRoomBoard":
-			CreateRoom.SetActive (true);
-			WaitRoom.SetActive (false);
-
-
-			break;
-		case "WaitRoomBoard":
-			CreateRoom.SetActive (false);
-			WaitRoom.SetActive (true);
-			break;
+		if (Input.GetKey (KeyCode.Escape)) {
+			ToMainLobby ();
 		}
 	}
+
+	void ToMainLobby() {
+		//CreateRoomBoard.transform.localPosition = new Vector3 (-0.5f, 0.0f, 0.0f);
+		//WaitRoomBoard.transform.localPosition = new Vector3 (0.5f, 0.0f, 0.0f);
+		CreateRoomBoard.SetActive (true);
+		WaitRoomBoard.SetActive (true);
+		CreateRoom.SetActive (false);
+		WaitRoom.SetActive (false);
+	}
+
+
 }
 
 

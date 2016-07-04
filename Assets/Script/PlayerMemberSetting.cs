@@ -8,6 +8,8 @@ public class PlayerMemberSetting : MonoBehaviour {
 	public TextMesh blueMemberCnt;
 	int memberCnt = 1;
 
+	public GameObject MultiSelectBoard;
+
 	public delegate void OnChangePlayMemberCountHandler(int cnt);
 
 	public event OnChangePlayMemberCountHandler OnChangePlayerMemberCount;
@@ -15,10 +17,13 @@ public class PlayerMemberSetting : MonoBehaviour {
 	void OnEnable() {
 		OVRTouchpad.Create();
 		OVRTouchpad.TouchHandler += GearTouchHandler;
+
+		MultiSelectBoard.SetActive (false);
 	}
 
 	void OnDisable() {
 		OVRTouchpad.TouchHandler -= GearTouchHandler;
+		MultiSelectBoard.SetActive (true);
 	}
 	void GearTouchHandler (object sender, System.EventArgs e)
 	{
