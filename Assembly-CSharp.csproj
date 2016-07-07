@@ -85,6 +85,7 @@
      <Compile Include="Assets\Script\PUnitMoveTemp.cs" />
      <Compile Include="Assets\Script\PlayerMemberSetting.cs" />
      <Compile Include="Assets\Script\TrackingManager.cs" />
+     <Compile Include="Assets\WayPoints.cs" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\OVR\Moonlight\Shaders\OVRColorRampAlpha.shader" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
