@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearVR.CSharp.Plugins", "GearVR.CSharp.Plugins.csproj", "{827C6C76-E1C7-ED64-A38B-5A1699C86687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearVR.CSharp", "GearVR.CSharp.csproj", "{5DF68E39-4C25-3EA9-6E15-606C445DCD36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearVR.CSharp.Editor", "GearVR.CSharp.Editor.csproj", "{AC6CC736-E166-6CED-BC1E-D37A3F017404}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{827C6C76-E1C7-ED64-A38B-5A1699C86687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827C6C76-E1C7-ED64-A38B-5A1699C86687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{827C6C76-E1C7-ED64-A38B-5A1699C86687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827C6C76-E1C7-ED64-A38B-5A1699C86687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DF68E39-4C25-3EA9-6E15-606C445DCD36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF68E39-4C25-3EA9-6E15-606C445DCD36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF68E39-4C25-3EA9-6E15-606C445DCD36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF68E39-4C25-3EA9-6E15-606C445DCD36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC6CC736-E166-6CED-BC1E-D37A3F017404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC6CC736-E166-6CED-BC1E-D37A3F017404}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC6CC736-E166-6CED-BC1E-D37A3F017404}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC6CC736-E166-6CED-BC1E-D37A3F017404}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

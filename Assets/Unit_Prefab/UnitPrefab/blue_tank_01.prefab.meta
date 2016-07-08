@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: a8398c1522e264a4584a93d94f0945b9
-labels:
-- Vehicle
-- ScifiModernVehicles
-timeCreated: 1442347013
-licenseType: Store
+guid: 2bd29b04fb079f54ea98c023282caa58
+timeCreated: 1467882802
+licenseType: Free
 NativeFormatImporter:
   userData: 
-  assetBundleName: scifimodernvehicles
+  assetBundleName: 
   assetBundleVariant: 
