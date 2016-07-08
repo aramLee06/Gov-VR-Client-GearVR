@@ -7,6 +7,7 @@ public class WayPoints : MonoBehaviour
     public Transform[] wayPointList;
     public Transform waypointContainer;
     public GameObject tanks;
+	public int currentRoute;
 
 
     //public Transform[] wayPointList = new Transform[5];

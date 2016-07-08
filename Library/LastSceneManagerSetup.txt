@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/MapTest.unity
+- path: Assets/Scene/MapTest_WP.unity
   isLoaded: 1
   isActive: 1
