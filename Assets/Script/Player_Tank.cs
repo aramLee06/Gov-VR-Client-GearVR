@@ -33,6 +33,7 @@ public class Player_Tank : NetworkBehaviour {
         transform.Translate(0, 0, z);
         gunbody.transform.Rotate(Vector3.forward * ang2 * amtToRot); // moving gunbody
         gun.transform.Rotate(Vector3.forward * ang2 * amtToRot); // moving gun
+        spPoint.transform.Rotate(Vector3.forward * ang2 * amtToRot); // moving spPoint
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -45,7 +46,7 @@ public class Player_Tank : NetworkBehaviour {
     {
         
         GameObject bullet = (GameObject)Instantiate(bulletPrefab, spPoint.transform.position, spPoint.transform.rotation);
-        //bullet.GetComponent<Rigidbody>().AddForce(spPoint.transform.forward * power);
+        bullet.GetComponent<Rigidbody>().AddForce(spPoint.transform.forward * power);
         NetworkServer.Spawn(bullet);
     }
 
