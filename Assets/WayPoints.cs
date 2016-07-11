@@ -6,7 +6,7 @@ public class WayPoints : MonoBehaviour
 
     public Transform[] wayPointList;
     public Transform waypointContainer;
-    public GameObject tanks;
+    public GameObject tank;
 	public int currentRoute;
 
     //public Transform[] wayPointList = new Transform[5];
@@ -45,9 +45,12 @@ public class WayPoints : MonoBehaviour
         v.z = wayPointList[currentWayPoint].position.z;
 
         targetWayPoint = wayPointList[currentWayPoint];
-        GameObject tank = GameObject.Find("blue_tank_01_Test");
+        //GameObject tank = GameObject.Find("blue_tank_01_Test");
         tank.transform.position = wayPointList[1].position;
-        tank.transform.rotation = wayPointList[currentWayPoint].rotation;
+        Vector3 dir = wayPointList[2].transform.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(new Vector3(dir.x, dir.y, dir.z));
+        //Debug.Log(rotation);
+        tank.transform.rotation = rotation;
         //GameObject tank = (GameObject)Instantiate(tanks, wayPointList[1].position, waypointContainer.rotation);
     }
 

@@ -7,8 +7,10 @@ public class EnemySpawn : MonoBehaviour {
 
 	public GameObject enemy;
     private WayPoints wp;
-    Transform[] A;
-    private int currentcheck;
+    public Transform[] wayPointList;
+    private int currentSpawnPoint;
+    public GameObject targetObj;
+    public Transform waypointContainer;
 
     void Awake() {
 		instance = this;
@@ -16,29 +18,34 @@ public class EnemySpawn : MonoBehaviour {
 
 	void Start () {
         //InvokeRepeating ("CreateEnemy", 1f, 3f * (Random.Range (7, 10) / 10f));
-
-        A = GameObject.Find("SpawnPointA").GetComponentsInChildren<Transform>();
-        Debug.Log(A[0].transform.position);
-        Debug.Log(A[1].transform.position);
-        Debug.Log(A[2].transform.position);
-
+        GetWaypoints();
+        //wayPointList = GameObject.Find("SpawnPointA").GetComponentsInChildren<Transform>();
     }
 
-	void Update () {
-        CreateEnemy();
+    void GetWaypoints()
+    {
 
+        wayPointList = wp.wayPointList;
+           
+    }
+
+    void Update () {
+        CreateEnemy();
+        GetWaypoints();
     }
 
 	void CreateEnemy() {
-        wp = GameObject.Find("blue_tank_01_Test").GetComponent<WayPoints>();
-        if (wp.currentWayPoint == 3 && currentcheck != 3)
+        wp = targetObj.GetComponent<WayPoints>();
+        if (wp.currentWayPoint != currentSpawnPoint)
         {
+            //Debug.Log("타겟의웨이포인트"+wp.currentWayPoint);
+            //Debug.Log("현재스폰된포인트"+currentSpawnPoint);
             //A = GameObject.Find("A_RouteEnemySpawnPoint 1").transform;
-
             //Debug.Log(A.transform.position);
             //this.transform.position = A.transform.position;
-            currentcheck = 3;
-            Instantiate(enemy, A[1].transform.position, Quaternion.identity);
+            currentSpawnPoint = wp.currentWayPoint;
+            //Debug.Log(wayPointList[wp.currentWayPoint + 2].transform.position);
+            Instantiate(enemy, wayPointList[wp.currentWayPoint+2].transform.position, Quaternion.identity);
         }
 	}
 
