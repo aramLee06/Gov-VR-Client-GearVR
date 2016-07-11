@@ -21,7 +21,7 @@ public class CampaignStageManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		GamePadControl ();
 	}
 	void OnEnable() {
 		
@@ -59,6 +59,19 @@ public class CampaignStageManager : MonoBehaviour {
 
 	}
 
+	void GamePadControl(){
+		if (Input.GetAxis ("Oculus_GearVR_DpadX") < 0f) {
+			currentStage--;
+			SortStageBoard ();
+			System.Threading.Thread.Sleep (200);
+		} else if (Input.GetAxis ("Oculus_GearVR_DpadX") > 0f) {
+			currentStage++;
+			SortStageBoard ();
+			System.Threading.Thread.Sleep (200);
+		}
+
+	}
+
 	void SortStageBoard() {
 
 		if (currentStage > (stageBoardList.Length - 1)) {
@@ -72,15 +85,15 @@ public class CampaignStageManager : MonoBehaviour {
 		for ( int i = 0; i < stageBoardList.Length; i++) {
 			if (i == currentStage) {
 				stageBoardList [i].GetComponent<Renderer> ().sortingLayerName = "ActiveStage";
-				stageBoardList [i].transform.DOScale (new Vector3 (1.0f, 0.6f, 1.0f), 0.5f);
+				stageBoardList [i].transform.DOScale (new Vector3 (0.7f, 0.6f, 1.0f), 0.5f);
+				stageBoardList [i].transform.DOMoveZ (0.3f,0.5f);
 				OnChangeActiveStage (stageBoardList [i].name);
 				continue;
 			}
 
 			stageBoardList [i].GetComponent<Renderer> ().sortingLayerName = "OtherStage";
 			stageBoardList [i].transform.DOScale (new Vector3 (0.5f, 0.4f, 1.0f), 0.5f);
-
-
+			stageBoardList [i].transform.DOMoveZ (1.0f, 0.5f);
 
 		}
 

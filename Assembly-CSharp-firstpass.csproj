@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CA46DE5E-10D9-1955-4200-B013F4656492}</ProjectGuid>
+    <ProjectGuid>{D901A7EE-49A9-92BA-B0D4-58D2FD550C90}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -110,16 +110,16 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>/Users/ARL/Gov-VR/Gov-VR-Client-GearVR/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ <HintPath>/Users/Promonster/Downloads/GitHub/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTween43">
- <HintPath>/Users/ARL/Gov-VR/Gov-VR-Client-GearVR/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+ <HintPath>/Users/Promonster/Downloads/GitHub/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
  </Reference>
  <Reference Include="DOTween46">
- <HintPath>/Users/ARL/Gov-VR/Gov-VR-Client-GearVR/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+ <HintPath>/Users/Promonster/Downloads/GitHub/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
  </Reference>
  <Reference Include="DOTween50">
- <HintPath>/Users/ARL/Gov-VR/Gov-VR-Client-GearVR/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+ <HintPath>/Users/Promonster/Downloads/GitHub/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
