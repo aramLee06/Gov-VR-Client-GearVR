@@ -5,28 +5,29 @@ using DG.Tweening;
 
 public class CampaignStageManager : MonoBehaviour {
 
-	public GameObject[] stageBoardList;
 	LobbyManager lobbyManager; 
 	GameObject activeStage;
-	int currentStage = 0;
 
 	public delegate void OnChangeActiveStageHandler(string stageName);
-
 	public event OnChangeActiveStageHandler OnChangeActiveStage;
+
+	public GameObject[] stageBoardList;
+	public int currentStage = 0;
 
 	// Use this for initialization
 	void Start () {
-		SortStageBoard ();
+			SortStageBoard ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		GamePadControl ();
+			GamePadControl ();
 	}
 	void OnEnable() {
 		
 		OVRTouchpad.Create();
 		OVRTouchpad.TouchHandler += GearTouchHandler;
+
 		lobbyManager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
 		lobbyManager.OnTapObject += OnTapObject;
 

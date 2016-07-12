@@ -6,6 +6,7 @@ using VR = UnityEngine.VR;
 public class LobbyManager : MonoBehaviour {
 
 	GamepadConnectionManager gpdManager;
+	//CampaignSelect cpgSelect;
 	TrackingManager trackingManager;
 
 	public GameObject campaignBoard;
@@ -103,21 +104,11 @@ public class LobbyManager : MonoBehaviour {
 			StartCoroutine(SetNonActive());
 			MultiLobby.SetActive (true);
 			break;
-
+		/*
 		case "UnitSelect":
-			multiBoard.transform.DOMoveX (2.0f, 2.0f);
-			campaignBoard.transform.DOMoveX (-2.0f, 2.0f);
 
-			unitSelect.transform.DOScale (new Vector3 (0.8f, 0.8f, 0.8f), 1.0f);
-			OVRCamera.transform.DOMove (new Vector3 (0, 0.45f, 0.2f), 1.0f);
-
-			UnitsBoard.SetActive (true);
-			WeaponsBoard.SetActive (true);
-
-			UnitsBoard.transform.DOMoveX (-0.6f, 1.0f);
-			WeaponsBoard.transform.DOMoveX (0.6f, 1.0f);
 			break;
-
+		*/
 		default :
 			OnTapObject (itemName);
 			break;
@@ -130,8 +121,8 @@ public class LobbyManager : MonoBehaviour {
 		multiBoard.SetActive (true);
 		campaignBoard.SetActive (true);
 
-		multiBoard.transform.DOMove (new Vector3 (0.4f, 0.85f, 0.8f), 2.0f);
-		campaignBoard.transform.DOMove (new Vector3 (-0.4f, 0.85f, 0.8f), 2.0f);
+		multiBoard.transform.DOMove (new Vector3 (0.45f, 0.7f, 0.6f), 1.0f);
+		campaignBoard.transform.DOMove (new Vector3 (-0.45f, 0.7f, 0.6f), 1.0f);
 		OVRCamera.transform.DOMove (new Vector3 (0, 0.85f, -0.73f), 1.0f);
 
 		UnitsBoard.transform.DOMoveX (-2.0f, 1.0f);
@@ -149,9 +140,23 @@ public class LobbyManager : MonoBehaviour {
 		stageChk = true;
 	}
 
+	public void UnitSelectActive(){
+		multiBoard.transform.DOMoveX (2.0f, 1.0f);
+		campaignBoard.transform.DOMoveX (-2.0f, 1.0f);
+
+		unitSelect.transform.DOScale (new Vector3 (0.8f, 0.8f, 0.8f), 1.0f);
+		OVRCamera.transform.DOMove (new Vector3 (0, 0.45f, 0.2f), 1.0f);
+
+		CampaignLobby.SetActive (false);
+		UnitsBoard.SetActive (true);
+		WeaponsBoard.SetActive (true);
+
+		UnitsBoard.transform.DOMoveX (-0.65f, 1.0f);
+		WeaponsBoard.transform.DOMoveX (0.65f, 1.0f);
+	}
 
 	IEnumerator SetNonActive() {
-		yield return new WaitForSeconds (2.0f);
+		yield return new WaitForSeconds (1.0f);
 
 		multiBoard.SetActive (false);
 		campaignBoard.SetActive (false);

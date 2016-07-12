@@ -1,9 +1,7 @@
-﻿// No Use Anymore
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
-
+using VR = UnityEngine.VR;
 
 public class GamepadConnectionManager : MonoBehaviour {
 
@@ -12,13 +10,51 @@ public class GamepadConnectionManager : MonoBehaviour {
 	public GameObject curr_Select;
 	public GameObject old_Select;
 
+	public delegate void OnTapObjectHandler(string stageName);
+	public event OnTapObjectHandler OnTapObject;
+
 	private int m_uiCheck;
 
 	void Start () {
 		lb_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
-		m_uiCheck = 2;
+		m_uiCheck = 1;
 		//Initailize Selected Panel
 		InintSelect ();
+	}
+
+	void OnEnable() {
+		OVRTouchpad.Create();
+		OVRTouchpad.TouchHandler += GearTouchHandler;
+	}
+
+	void OnDisable() {
+		OVRTouchpad.TouchHandler -= GearTouchHandler;
+	}
+
+	void GearTouchHandler (object sender, System.EventArgs e)
+	{
+		OVRTouchpad.TouchArgs touchArgs = (OVRTouchpad.TouchArgs)e;
+
+		if (lb_Manager.stageChk == true) {
+			switch (touchArgs.TouchType) {
+			case OVRTouchpad.TouchEvent.Left:
+				if (m_uiCheck <= 0) {
+					m_uiCheck = 0;
+
+				} else {
+					LeftSelect ();
+				}
+				break;
+			case OVRTouchpad.TouchEvent.Right:
+				if (m_uiCheck >= 3) {
+					m_uiCheck = 3;
+
+				} else {
+					RightSelect ();
+				}
+				break;
+			}
+		}
 	}
 		
 	void Update(){
@@ -37,8 +73,8 @@ public class GamepadConnectionManager : MonoBehaviour {
 			} else if (Input.GetAxis ("Oculus_GearVR_DpadX") > 0f) {
 				//Move Right Panel using D-pad
 
-				if (m_uiCheck >= 4) {
-					m_uiCheck = 4;
+				if (m_uiCheck >= 3) {
+					m_uiCheck = 3;
 
 				} else {
 					RightSelect ();
@@ -55,7 +91,11 @@ public class GamepadConnectionManager : MonoBehaviour {
 		old_Select = UI_Board [m_uiCheck];
 
 		//Scale Change
-		curr_Select.transform.DOScale(new Vector3(1.3f,1.3f,1.3f), 0.5f);
+		if (curr_Select.name == "UnitSelect") {
+			curr_Select.transform.DOScale (new Vector3(1.3f,1.3f,1.3f), 0.5f);
+		} else {
+			curr_Select.transform.DOScale (new Vector3 (0.9f, 0.9f, 0.9f), 0.5f);
+		}
 		//Debug.Log (curr_Select.name);
 	}
 
