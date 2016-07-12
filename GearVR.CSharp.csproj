@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -87,37 +81,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Combat.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DAudioController.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DBeam.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DCurvedBeam.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DDespawn.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DFXController.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DFlameThrower.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DLightning.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DMissile.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DParticleScale.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DPool.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DPredictTrajectory.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DProjectile.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DPulsewave.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DRandomize.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DRift.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DShotgun.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DTime.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DTurret.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DWarpJump.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DWarpJumpTunnel.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\F3DWarpTunnel.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\MeshCombine\CombineChildren.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Code\MeshCombine\MeshCombineUtility.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Examples\Code\F3DBurnoutExample.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Examples\Code\F3DDummyEvent.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Examples\Code\F3DMissileLauncher.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Examples\Code\F3DNebula.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Examples\Code\F3DTrailExample.cs" />
-    <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Examples\Code\F3DTurnTable.cs" />
+    <Compile Include="Assets\HealthBar.cs" />
     <Compile Include="Assets\OVR\Moonlight\Scripts\OVRDebugHeadController.cs" />
     <Compile Include="Assets\OVR\Moonlight\Scripts\OVROverlay.cs" />
     <Compile Include="Assets\OVR\Moonlight\Scripts\OVRPlatformMenu.cs" />
@@ -158,6 +125,35 @@
     <Compile Include="Assets\Script\PlayerMemberSetting.cs" />
     <Compile Include="Assets\Script\Player_Tank.cs" />
     <Compile Include="Assets\Script\TrackingManager.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DAudioController.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DBeam.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DCurvedBeam.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DDespawn.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DFXController.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DFlameThrower.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DLightning.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DMissile.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DParticleScale.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DPool.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DPredictTrajectory.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DProjectile.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DPulsewave.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DRandomize.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DRift.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DShotgun.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DTime.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DTurret.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DWarpJump.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DWarpJumpTunnel.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\F3DWarpTunnel.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\MeshCombine\CombineChildren.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Code\MeshCombine\MeshCombineUtility.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Examples\Code\F3DBurnoutExample.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Examples\Code\F3DDummyEvent.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Examples\Code\F3DMissileLauncher.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Examples\Code\F3DNebula.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Examples\Code\F3DTrailExample.cs" />
+    <Compile Include="Assets\Unit_Prefab\MissileEffect\Examples\Code\F3DTurnTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Art_Resource\font\Readme.txt" />
@@ -167,23 +163,6 @@
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
     <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Additive.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\AlphaBlended.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Billboard.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Burnout.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Debris.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\ExhaustFlame.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Heat.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Holographic.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\NebulaStaticBoard.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\SmokeTurbulent.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Surface.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Trail.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\WarpJump.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\WarpJumpDistortion.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\WarpJumpTwist.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\WarpTunnel.shader" />
-    <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\WarpTunnelDistortion.shader" />
     <None Include="Assets\OVR\Moonlight\Resources\Unlit Transparent Color.shader" />
     <None Include="Assets\OVR\Moonlight\Shaders\OVRColorRampAlpha.shader" />
     <None Include="Assets\OVR\Moonlight\Shaders\Unlit Crosshair.shader" />
@@ -193,6 +172,23 @@
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Additive.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\AlphaBlended.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Billboard.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Burnout.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Debris.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\ExhaustFlame.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Heat.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Holographic.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\NebulaStaticBoard.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\SmokeTurbulent.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Surface.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Trail.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\WarpJump.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\WarpJumpDistortion.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\WarpJumpTwist.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\WarpTunnel.shader" />
+    <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\WarpTunnelDistortion.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
