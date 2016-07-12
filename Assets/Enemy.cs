@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public GameObject turret;
     public GameObject shot;
     public GameObject targetObj;
+    public GameObject SpawnPoint;
     public Transform[] wayPointList;
     public Transform waypointContainer;
     public int currentWayPoint;
@@ -43,7 +44,6 @@ public class Enemy : MonoBehaviour
         nma = GetComponent<NavMeshAgent>();
         state = State.idle;
 
-
         // 일정한 간격으로 상태를 체크
         StartCoroutine(this.CheckState());
 
@@ -60,10 +60,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void Aim()
+    {
+        transform.LookAt(targetTr);
+    }
+
 
     void Attack()
     {
-        Instantiate(shot, transform.position, turret.transform.rotation);
+
+        Transform myBullet = (Transform)Instantiate(shot, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
         //Vector3 difference = targetTr.position - transform.position;
         //float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         //turret.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
@@ -74,7 +80,6 @@ public class Enemy : MonoBehaviour
         if (coll.gameObject.tag == "MISSILE")
         {
             Die();
-            // IsHit Trigger를 발생시키면 Any State에서 gothit로 전이됨.
         }
         if (coll.gameObject.tag == "Player")
         {
@@ -119,6 +124,7 @@ public class Enemy : MonoBehaviour
                 case State.idle: // 휴면 상태.
                     //nma.Stop();
                     moving();
+                    Aim();
                     break;
 
                 case State.contact: // 플레이어 발견.
@@ -127,11 +133,13 @@ public class Enemy : MonoBehaviour
                                   // 추적을 재시작.
                                   //nma.Resume();
                     moving();
+                    Aim();
                     break;
 
                 case State.attack: // 공격 상태.
                                    //nma.Stop();
                     moving();
+                    Aim();
                     Attack();
                     break;
             }
@@ -166,12 +174,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    /*void Update () {
-
+   // void Update () {
         //nma.destination = targetTr.position;
-        Vector3 dir = targetTr.transform.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(new Vector3(dir.x, dir.y, dir.z));
+        // Vector3 dir = targetTr.transform.position - transform.position;
+        // Quaternion rotation = Quaternion.LookRotation(new Vector3(dir.x, dir.y, dir.z));
         //Debug.Log(rotation);
-        turret.transform.rotation = rotation;
-    }*/
+        //turret.transform.rotation = rotation;
+   // }
 }
