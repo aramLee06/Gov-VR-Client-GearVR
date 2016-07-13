@@ -5,24 +5,26 @@ using VR = UnityEngine.VR;
 
 public class UnitBoardManager : MonoBehaviour {
 
-	TrackingManager trk_manager;
+	TrackingManager trk_Manager;
 	LobbyManager lob_Manager;
+	WeaponBoardManager weap_Manager;
 
 	public GameObject tanks;
 	public GameObject airD;
 	public GameObject tankBoard;
 	public GameObject airDBoard;
+	public GameObject tankWBoard;
+	public GameObject airDWBoard;
 
-	public Renderer rend1;
-	public Renderer rend2;
+	public bool unitChk = true;
 
-	public delegate void OnTapObjectHandler(string stageName);
-	//public event OnTapObjectHandler OnTapObject;
+	Renderer rend1;
+	Renderer rend2;
 
-	// Use this for initialization
 	void Start () {
 
-		trk_manager = GameObject.Find ("aim").GetComponent<TrackingManager> ();
+		trk_Manager = GameObject.Find ("aim").GetComponent<TrackingManager> ();
+		weap_Manager = GameObject.Find ("WeaponBoard").GetComponent<WeaponBoardManager> ();
 		rend1 = tanks.GetComponent<Renderer> ();
 		rend2 = airD.GetComponent<Renderer> ();
 
@@ -31,34 +33,24 @@ public class UnitBoardManager : MonoBehaviour {
 
 		tankBoard.SetActive (true);
 		airDBoard.SetActive (false);
+		tankWBoard.SetActive (true);
+		airDWBoard.SetActive (false);
 	}
 	
 	void OnEnable(){
-		OVRTouchpad.Create ();
-		OVRTouchpad.TouchHandler += GearTouchHandler;
-
 		lob_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
 		lob_Manager.OnTapObject += OnTapObject;
 	}
 
 	void OnDisable(){
-		OVRTouchpad.TouchHandler -= GearTouchHandler;
 		lob_Manager.OnTapObject -= OnTapObject;
 	}
 
 	void OnTapObject (string unitName)
 	{
-
-	}
-
-	void GearTouchHandler(object sender, System.EventArgs e){
-		OVRTouchpad.TouchArgs touchArgs = (OVRTouchpad.TouchArgs)e;
-
-		switch (touchArgs.TouchType) {
-		case OVRTouchpad.TouchEvent.SingleTap:
-			CheckSelectUnit (trk_manager.trackedItem.name);
-			System.Threading.Thread.Sleep (150);
-			break;
+		if (unitName != null) {
+			CheckSelectUnit (trk_Manager.trackedItem.name);
+			//System.Threading.Thread.Sleep (150);
 		}
 	}
 
@@ -68,6 +60,12 @@ public class UnitBoardManager : MonoBehaviour {
 			rend1.material.mainTexture = Resources.Load ("Tank_Unit_on") as Texture;
 			rend2.material.mainTexture = Resources.Load ("Aircraft_Unit_off") as Texture;
 
+			unitChk = true;
+
+			if (weap_Manager.weapChk == true) {
+				tankWBoard.SetActive (true);
+				airDWBoard.SetActive (false);
+			}
 			tankBoard.SetActive (true);
 			airDBoard.SetActive (false);
 			break;
@@ -76,13 +74,20 @@ public class UnitBoardManager : MonoBehaviour {
 			rend1.material.mainTexture = Resources.Load ("Tank_Unit_off") as Texture;
 			rend2.material.mainTexture = Resources.Load ("Aircraft_Unit_on") as Texture;
 
+			unitChk = false;
+
+			if (weap_Manager.weapChk == true) {
+				tankWBoard.SetActive (false);
+				airDWBoard.SetActive (true);
+			}
 			tankBoard.SetActive (false);
 			airDBoard.SetActive (true);
 			break;
-
+			/*
 		default :
 			OnTapObject (unitName);
 			break;
+			*/
 		}
 	}
 }

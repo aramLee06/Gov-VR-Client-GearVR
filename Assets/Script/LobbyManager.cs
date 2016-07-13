@@ -151,8 +151,8 @@ public class LobbyManager : MonoBehaviour {
 		UnitsBoard.SetActive (true);
 		WeaponsBoard.SetActive (true);
 
-		UnitsBoard.transform.DOMoveX (-0.65f, 1.0f);
-		WeaponsBoard.transform.DOMoveX (0.65f, 1.0f);
+		UnitsBoard.transform.DOMoveX (-0.8f, 1.0f);
+		WeaponsBoard.transform.DOMoveX (0.8f, 1.0f);
 	}
 
 	IEnumerator SetNonActive() {
