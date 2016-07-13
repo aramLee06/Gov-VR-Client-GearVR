@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour
     void Attack()
     {
 
-        Transform myBullet = (Transform)Instantiate(shot, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+        Instantiate(shot, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
         //Vector3 difference = targetTr.position - transform.position;
         //float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         //turret.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
