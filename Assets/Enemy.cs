@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public GameObject SpawnPoint;
     public Transform[] wayPointList;
     public Transform waypointContainer;
+    public int myRouteNum;
     public int currentWayPoint;
     Transform targetWayPoint;
     private WayPoints wp;
@@ -32,31 +33,38 @@ public class Enemy : MonoBehaviour
     {
         //right = Random.Range (0, 2) == 1;
         //goalTr = GameObject.Find("RouteC_Goal").GetComponent<Transform>();
-        wp = GameObject.Find("blue_tank_01_Test").GetComponent<WayPoints>();
-        currentWayPoint = wp.currentWayPoint;
-        wayPointList = wp.wayPointList;
-        targetWayPoint = wayPointList[currentWayPoint];
+        //wp = GameObject.Find("blue_tank_01_Test").GetComponent<WayPoints>();
+        //wayPointList = wp.wayPointList;
         //targetTr = targetObj.GetComponent<Transform>();
         targetTr = GameObject.Find("blue_tank_01_Test").GetComponent<Transform>();
         // 타겟을 추적할 게임오브젝트
         thisTr = GetComponent<Transform>();
         // 지정된 오브젝트에 NavMeshAgent 를 nma 변수에 할당
-        nma = GetComponent<NavMeshAgent>();
+        //nma = GetComponent<NavMeshAgent>();
         state = State.idle;
-
+        GetWaypoints();
         // 일정한 간격으로 상태를 체크
         StartCoroutine(this.CheckState());
-
+        currentWayPoint = 1;
         // 상태에 따라 동작하는 루틴을 실행하는 코루틴 함수 실행.
         StartCoroutine(this.Action());
     }
 
     void GetWaypoints()
     {
-        if (waypointContainer != null)
+        Debug.Log(myRouteNum);
+        if (myRouteNum != 0)
         {
-            wayPointList = waypointContainer.gameObject.GetComponentsInChildren<Transform>();
+
+            if (myRouteNum == 1)
+                wayPointList = GameObject.Find("EnemyRouteA").GetComponentsInChildren<Transform>();
+            if (myRouteNum == 2)
+                wayPointList = GameObject.Find("EnemyRouteA (2)").GetComponentsInChildren<Transform>();
+            if (myRouteNum == 3)
+                wayPointList = GameObject.Find("EnemyRouteA (3)").GetComponentsInChildren<Transform>();
             //Debug.Log(wayPointList.Length);
+
+            targetWayPoint = wayPointList[2];
         }
     }
 
@@ -103,7 +111,7 @@ public class Enemy : MonoBehaviour
 
             //else if (dist <= traceDist) // 상태를 추적으로 설정.
             //state = State.trace;
-            Debug.Log(state);
+            // Debug.Log(state);
         }
     }
 
@@ -123,22 +131,21 @@ public class Enemy : MonoBehaviour
             {
                 case State.idle: // 휴면 상태.
                     //nma.Stop();
-                    moving();
-                    Aim();
+                    walk();
                     break;
 
                 case State.contact: // 플레이어 발견.
-                                  // 추적 대상의 위치를 넘겨줌.
-                                  //nma.destination = targetTr.position;
-                                  // 추적을 재시작.
-                                  //nma.Resume();
-                    moving();
+                                    // 추적 대상의 위치를 넘겨줌.
+                                    //nma.destination = targetTr.position;
+                                    // 추적을 재시작.
+                                    //nma.Resume();
+                    walk();
                     Aim();
                     break;
 
                 case State.attack: // 공격 상태.
                                    //nma.Stop();
-                    moving();
+                    walk();
                     Aim();
                     Attack();
                     break;
@@ -161,24 +168,24 @@ public class Enemy : MonoBehaviour
         //Debug.Log(currentWayPoint);
         //Debug.Log(targetWayPoint.position);
 
-        //        transform.forward = Vector3.RotateTowards(transform.forward, targetWayPoint.position - transform.position, 0.5f * Time.deltaTime, 0.0f);
+        transform.forward = Vector3.RotateTowards(transform.forward, targetWayPoint.position - transform.position, 0.5f * Time.deltaTime, 0.0f);
 
-        //       transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, 0.5f * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, 0.5f * Time.deltaTime);
 
         // if (targetWayPoint.position.x - 0.3f <= transform.position.x && transform.position.x <= targetWayPoint.position.x + 0.3f || targetWayPoint.position.z - 0.3f <= transform.position.z && transform.position.z + 0.3f <= targetWayPoint.position.z + 0.3f)
         //(targetWayPoint.position == transform.position)
+        if (targetWayPoint.position.x - 0.3f <= transform.position.x && transform.position.x <= targetWayPoint.position.x + 0.3f && targetWayPoint.position.z - 0.3f <= transform.position.z && transform.position.z + 0.3f <= targetWayPoint.position.z + 0.3f)
         {
-
-            currentWayPoint--;
+            currentWayPoint++;
             targetWayPoint = wayPointList[currentWayPoint];
         }
     }
 
-   // void Update () {
-        //nma.destination = targetTr.position;
-        // Vector3 dir = targetTr.transform.position - transform.position;
-        // Quaternion rotation = Quaternion.LookRotation(new Vector3(dir.x, dir.y, dir.z));
-        //Debug.Log(rotation);
-        //turret.transform.rotation = rotation;
-   // }
+    // void Update () {
+    //nma.destination = targetTr.position;
+    // Vector3 dir = targetTr.transform.position - transform.position;
+    // Quaternion rotation = Quaternion.LookRotation(new Vector3(dir.x, dir.y, dir.z));
+    //Debug.Log(rotation);
+    //turret.transform.rotation = rotation;
+    // }
 }

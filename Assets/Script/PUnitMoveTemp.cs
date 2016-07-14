@@ -18,8 +18,8 @@ public class PUnitMoveTemp : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        shaking = 1f;
-        movetime = 1f;
+       // shaking = 1f;
+       // movetime = 1f;
         targetTr = GameObject.Find("blue_tank_01_Test").GetComponent<Transform>();
         //iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath("New Path 1"), "time", 20, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.loop, "orienttopath", true));
     }
@@ -28,7 +28,7 @@ public class PUnitMoveTemp : MonoBehaviour
     void Update()
     {
         
-        transform.Translate(new Vector3(0, Input.GetAxis("Vertical"), 0) * Time.deltaTime);
+        //transform.Translate(new Vector3(0, Input.GetAxis("Vertical"), 0) * Time.deltaTime);
         turret.transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis("Horizontal") * Mathf.Rad2Deg) * Time.deltaTime);
         gun.transform.Rotate(new Vector3(Input.GetAxis("Vertical") * Mathf.Rad2Deg, 0.0f, 0.0f) * Time.deltaTime);
         if (Input.GetButton("Fire1") && Time.time > nextFire)
