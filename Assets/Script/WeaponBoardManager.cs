@@ -8,14 +8,14 @@ public class WeaponBoardManager : MonoBehaviour {
 	LobbyManager lob_Manager;
 	UnitBoardManager uni_Manager;
 
-	public GameObject weapOnOff;
+	//public GameObject weapOnOff;
 	public GameObject tankOnOff;
 	public GameObject airdOnOff;
 	public GameObject[] weap;
 
 	public bool weapChk;
 
-	Renderer onoffRend;
+	//Renderer onoffRend;
 	Renderer[] rend = new Renderer[6];
 
 	void OnEnable(){
@@ -41,8 +41,8 @@ public class WeaponBoardManager : MonoBehaviour {
 		trk_Manager = GameObject.Find ("aim").GetComponent<TrackingManager> ();
 		uni_Manager = GameObject.Find ("UnitBoard").GetComponent<UnitBoardManager> ();
 
-		onoffRend = weapOnOff.GetComponent<Renderer> ();
-		onoffRend.material.mainTexture = Resources.Load ("weapon_button_on") as Texture;
+		//onoffRend = weapOnOff.GetComponent<Renderer> ();
+		//onoffRend.material.mainTexture = Resources.Load ("weapon_button_on") as Texture;
 
 		for (int i = 0; i < 6; i++) {
 			rend[i] = weap[i].GetComponent<Renderer> ();
@@ -128,6 +128,7 @@ public class WeaponBoardManager : MonoBehaviour {
 				}
 			}
 			break;
+			/*
 		case "Weapons":
 			if (weapChk == true) {
 				onoffRend.material.mainTexture = Resources.Load ("weapon_select_off") as Texture;
@@ -146,7 +147,7 @@ public class WeaponBoardManager : MonoBehaviour {
 				weapChk = true;
 			}
 			break;
-			/*
+
 		default:
 			OnTapObject (weapName);
 			break;
