@@ -25,6 +25,7 @@ public class UnitBoardManager : MonoBehaviour {
 
 		trk_Manager = GameObject.Find ("aim").GetComponent<TrackingManager> ();
 		weap_Manager = GameObject.Find ("WeaponBoard").GetComponent<WeaponBoardManager> ();
+
 		rend1 = tanks.GetComponent<Renderer> ();
 		rend2 = airD.GetComponent<Renderer> ();
 
@@ -50,7 +51,6 @@ public class UnitBoardManager : MonoBehaviour {
 	{
 		if (unitName != null) {
 			CheckSelectUnit (trk_Manager.trackedItem.name);
-			//System.Threading.Thread.Sleep (150);
 		}
 	}
 
@@ -80,6 +80,7 @@ public class UnitBoardManager : MonoBehaviour {
 				tankWBoard.SetActive (false);
 				airDWBoard.SetActive (true);
 			}
+
 			tankBoard.SetActive (false);
 			airDBoard.SetActive (true);
 			break;

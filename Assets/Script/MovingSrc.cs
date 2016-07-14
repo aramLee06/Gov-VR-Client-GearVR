@@ -4,7 +4,7 @@ using DG.Tweening;
 
 public class MovingSrc : MonoBehaviour {
 
-	public GameObject unitSelect;
+	//public GameObject unitSelect;
 
 	void Start () {
 		//unitSelect = GameObject.Find ("blue_tank_01_ani");
@@ -15,6 +15,6 @@ public class MovingSrc : MonoBehaviour {
 	public void RotateUnit(){
 		Vector3 rotateSet = new Vector3 (0, 360.0f, 0);
 
-		unitSelect.transform.DORotate(rotateSet, 25.0f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Yoyo).SetRelative(true);
+		/*unitSelect*/this.transform.DORotate(rotateSet, 25.0f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Yoyo).SetRelative(true);
 	}
 }

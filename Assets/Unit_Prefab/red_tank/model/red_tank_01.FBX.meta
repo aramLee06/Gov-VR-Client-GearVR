@@ -22,6 +22,7 @@ ModelImporter:
     100032: Gun
     100034: 'Gun '
     100036: Whell
+    100038: Gun 1
     400000: Line234
     400002: Line238
     400004: Line247
@@ -41,6 +42,7 @@ ModelImporter:
     400032: Gun
     400034: 'Gun '
     400036: Whell
+    400038: Gun 1
     2300000: Line234
     2300002: Line238
     2300004: Line247
@@ -56,6 +58,7 @@ ModelImporter:
     2300024: Gun
     2300026: 'Gun '
     2300028: Whell
+    2300030: Gun 1
     3300000: Line234
     3300002: Line238
     3300004: Line247
@@ -71,6 +74,7 @@ ModelImporter:
     3300024: Gun
     3300026: 'Gun '
     3300028: Whell
+    3300030: Gun 1
     4300000: Line257
     4300002: Line252
     4300004: Line248
@@ -86,6 +90,8 @@ ModelImporter:
     4300024: Whell
     4300026: Gun
     4300028: 'Gun '
+    4300030: Gun
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1

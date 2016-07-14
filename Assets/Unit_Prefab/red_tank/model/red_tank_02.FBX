@@ -1,22 +1,22 @@
-; FBX 7.5.0 project file
+; FBX 7.4.0 project file
 ; Copyright (C) 1997-2010 Autodesk Inc. and/or its licensors.
 ; All rights reserved.
 ; ----------------------------------------------------
 
 FBXHeaderExtension:  {
 	FBXHeaderVersion: 1003
-	FBXVersion: 7500
+	FBXVersion: 7400
 	CreationTimeStamp:  {
 		Version: 1000
 		Year: 2016
-		Month: 5
-		Day: 23
-		Hour: 16
-		Minute: 54
-		Second: 48
-		Millisecond: 739
+		Month: 7
+		Day: 13
+		Hour: 14
+		Minute: 12
+		Second: 53
+		Millisecond: 956
 	}
-	Creator: "FBX SDK/FBX Plugins version 2016.0"
+	Creator: "FBX SDK/FBX Plugins version 2014.0.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
 		Type: "UserData"
 		Version: 100
@@ -30,19 +30,19 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "D:\Project\05.VR\Build\Tank_0513\Assets\red_tank\model\red_tank_02.FBX"
-			P: "SrcDocumentUrl", "KString", "Url", "", "D:\Project\05.VR\Build\Tank_0513\Assets\red_tank\model\red_tank_02.FBX"
+			P: "DocumentUrl", "KString", "Url", "", "D:\work\04.Unit\Unity\unit2\Assets\Unit_Prefab\red_tank\model\red_tank_02.FBX"
+			P: "SrcDocumentUrl", "KString", "Url", "", "D:\work\04.Unit\Unity\unit2\Assets\Unit_Prefab\red_tank\model\red_tank_02.FBX"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2014"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "23/05/2016 07:54:48.739"
-			P: "Original|FileName", "KString", "", "", "D:\Project\05.VR\Build\Tank_0513\Assets\red_tank\model\red_tank_02.FBX"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "13/07/2016 05:12:53.956"
+			P: "Original|FileName", "KString", "", "", "D:\work\04.Unit\Unity\unit2\Assets\Unit_Prefab\red_tank\model\red_tank_02.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2014"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "23/05/2016 07:54:48.739"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "13/07/2016 05:12:53.956"
 		}
 	}
 }
@@ -58,9 +58,9 @@ GlobalSettings:  {
 		P: "OriginalUpAxis", "int", "Integer", "",2
 		P: "OriginalUpAxisSign", "int", "Integer", "",1
 		P: "UnitScaleFactor", "double", "Number", "",1
-		P: "OriginalUnitScaleFactor", "double", "Number", "",1
+		P: "OriginalUnitScaleFactor", "double", "Number", "",2.54
 		P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
-		P: "DefaultCamera", "KString", "", "", "Producer Perspective"
+		P: "DefaultCamera", "KString", "", "", "Producer Front"
 		P: "TimeMode", "enum", "", "",6
 		P: "TimeProtocol", "enum", "", "",2
 		P: "SnapOnFrameMode", "enum", "", "",0
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1016134784, "", "Scene" {
+	Document: 1065991360, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -97,7 +97,7 @@ References:  {
 
 Definitions:  {
 	Version: 100
-	Count: 13
+	Count: 21
 	ObjectType: "GlobalSettings" {
 		Count: 1
 	}
@@ -272,6 +272,17 @@ Definitions:  {
 			}
 		}
 	}
+	ObjectType: "AnimationCurve" {
+		Count: 6
+	}
+	ObjectType: "AnimationCurveNode" {
+		Count: 2
+		PropertyTemplate: "FbxAnimCurveNode" {
+			Properties70:  {
+				P: "d", "Compound", "", ""
+			}
+		}
+	}
 	ObjectType: "Video" {
 		Count: 2
 		PropertyTemplate: "FbxVideo" {
@@ -300,9 +311,9 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 2171823936, "Geometry::", "Mesh" {
+	Geometry: 1050196544, "Geometry::", "Mesh" {
 		Properties70:  {
-			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.56078431372549,0.341176470588235
+			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.556862745098039,0.337254901960784
 		}
 		Vertices: *1530 {
 			a: 8.82296376403247e-007,-0.992414951324463,-0.226421058177948,-9.59520434662409e-007,0.592234671115875,-0.299015939235687,-1.24380937904789e-006,1.32853400707245,0.240253031253815,-1.12375698790856e-006,1.28585600852966,0.312841206789017,1.26487486795668e-006,-1.0617743730545,0.079510860145092,1.17997535653558e-006,-1.15248310565948,-0.107161469757557,0.516444504261017,-0.992414355278015,-0.22642157971859,0.516442596912384,0.592235207557678,-0.299016445875168,0.516442358493805,1.32853472232819,0.240252509713173,0.516442477703094,1.28585660457611,0.312840700149536,0.516444861888886,-1.06177377700806,0.0795103386044502,0.516444802284241,-1.15248239040375,-0.107161991298199,0.503600537776947,1.13808190822601,0.39197501540184,0.0128413001075387,1.13808143138886,0.391975522041321,0.0128434076905251,-0.933541715145111,0.186077445745468,0.503602683544159,-0.933541178703308,0.186076954007149,-0.456500470638275,1.5026478767395,-0.315888971090317,-0.456500649452209,2.37603831291199,-0.811295986175537,-0.456500679254532,2.61393070220947,-0.28286424279213,-0.456500649452209,2.6241250038147,-0.0318566001951694,-0.45650053024292,1.91725146770477,0.0110788308084011,-0.456500470638275,1.47886073589325,-0.210203275084496,0.958873331546783,1.50264811515808,-0.315889000892639,0.958873331546783,2.37603855133057,-0.811296045780182,0.958873093128204,2.61393070220947,-0.282864302396774,0.958873093128204,2.62412548065186,-0.0318566523492336,0.958873331546783,1.91725194454193,0.0110787786543369,0.958873331546783,1.47886085510254,-0.21020333468914,0.910613358020782,2.44148659706116,0.0917478576302528,-0.40824082493782,2.44148635864258,0.091747909784317,-0.408240765333176,2.11430549621582,0.111620850861073,0.910613536834717,2.1143057346344,0.111620798707008,-0.123322330415249,-3.16187119483948,0.193975493311882,-0.123322181403637,-4.16637372970581,0.228108748793602,-0.123321942985058,-5.55019807815552,0.0301358755677938,-0.123321995139122,-5.39565944671631,-0.393119782209396,-0.123322255909443,-3.7308566570282,-0.454559653997421,
@@ -469,9 +480,9 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2171840256, "Geometry::", "Mesh" {
+	Geometry: 1050184448, "Geometry::", "Mesh" {
 		Properties70:  {
-			P: "Color", "ColorRGB", "Color", "",0.72156862745098,0.607843137254902,0.898039215686275
+			P: "Color", "ColorRGB", "Color", "",0.717647058823529,0.607843137254902,0.898039215686275
 		}
 		Vertices: *1482 {
 			a: -3.67960834503174,1.51536440849304,-0.17924177646637,-3.67960834503174,1.86897969245911,0.0832086801528931,-3.67960786819458,1.55072617530823,0.870553493499756,-3.67960786819458,-1.82629311084747,1.63771283626556,-3.679607629776,-4.37231206893921,1.51658034324646,-3.67960786819458,-5.20330715179443,0.97149395942688,-3.67960786819458,-6.79456949234009,0.648480534553528,-3.679607629776,-7.16586303710938,0.910930991172791,-3.679607629776,-8.88089275360107,0.587917566299438,-3.679607629776,-8.96929550170898,0.264904141426086,-3.67960786819458,-7.74932670593262,-0.805083155632019,-3.67960834503174,0.153949499130249,-0.280182242393494,-3.67960834503174,0.542920827865601,-0.0177383720874786,3.65255260467529,1.51536440849304,-0.179242968559265,3.65255260467529,1.86898016929626,0.0832074880599976,3.65255260467529,1.55072665214539,0.87055230140686,3.65255260467529,-1.82629263401031,1.63771164417267,3.65255260467529,-4.37231206893921,1.51657915115356,3.65255260467529,-5.20330667495728,0.971492767333984,3.65255260467529,-6.79456901550293,0.648479342460632,3.65255260467529,-7.16586303710938,0.910929799079895,3.65255260467529,-8.88089275360107,0.587916374206543,3.65255260467529,-8.96929550170898,0.264902949333191,3.65255260467529,-7.7493257522583,-0.805084466934204,3.65255260467529,0.153949975967407,-0.280183434486389,3.65255260467529,0.542921304702759,-0.0177395641803741,4.07674169540405,1.48033356666565,0.0030788779258728,4.07674169540405,1.67460894584656,0.14726859331131,4.07674169540405,1.44447922706604,0.716599464416504,4.07674169540405,-1.83820080757141,1.46232759952545,4.07674169540405,-4.32855844497681,1.34384334087372,4.07674169540405,-5.15025234222412,0.804857730865479,4.07674169540405,-6.82536697387695,0.464823007583618,4.07674169540405,-7.19758749008179,0.727928638458252,4.07674169540405,-8.76299953460693,0.433094680309296,4.07674169540405,-8.79144287109375,0.329162001609802,4.07674169540405,-7.70132827758789,-0.626935482025146,4.07674169540405,0.108051538467407,-0.108270645141602,4.07674169540405,0.511549711227417,0.163974493741989,
@@ -640,55 +651,62 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2175496384, "Model::Gun", "Mesh" {
+	Model: 1054054080, "Model::Gun", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOffset", "Vector3D", "Vector", "",0,-9.70587794285336e-024,-2.2186712959341e-031
+			P: "RotationPivot", "Vector3D", "Vector", "",0,0,2.22044604925031e-016
+			P: "ScalingOffset", "Vector3D", "Vector", "",0,1.77635683940025e-015,-2.22044604925031e-016
+			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "GeometricTranslation", "Vector3D", "Vector", "",-0.225126534700394,3.19742774963379,6.39273071289063
+			P: "GeometricRotation", "Vector3D", "Vector", "",-90,-0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,10.3264384841919,-1.99216174006462
+			P: "Lcl Rotation", "Lcl Rotation", "", "A+",90.0000025044781,-0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",2.54,2.54,2.54
+			P: "mr displacement use global settings", "Bool", "", "AU",1
+			P: "mr displacement view dependent", "Bool", "", "AU",1
+			P: "mr displacement method", "Integer", "", "AU",6,0,100
+			P: "mr displacement smoothing on", "Bool", "", "AU",1
+			P: "mr displacement edge length", "Number", "", "AU",2,0,100
+			P: "mr displacement max displace", "Number", "", "AU",20,0,100
+			P: "mr displacement parametric subdivision level", "Integer", "", "AU",5,0,100
+			P: "UDP3DSMAX", "KString", "", "U", "LastPose = undefined&cr;&lf;"
+			P: "MaxHandle", "int", "Integer", "UH",1
+		}
+		Shading: T
+		Culling: "CullingOff"
+	}
+	Model: 1054086560, "Model::body", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
 			P: "RotationActive", "bool", "", "",1
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",-0.225126534700394,-6.39273071289063,3.19742774963379
+			P: "GeometricTranslation", "Vector3D", "Vector", "",-2.40530567907626e-007,2.66069173812866,0
+			P: "GeometricRotation", "Vector3D", "Vector", "",-90,-0,0
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",0,10.3264389038086,-1.99216175079346
-			P: "Lcl Scaling", "Lcl Scaling", "", "A",2.53999996185303,2.53999996185303,2.53999996185303
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,3.29347903942866e-038,3.814697179223e-006
+			P: "Lcl Rotation", "Lcl Rotation", "", "A+",90.0000025044781,-0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",2.54,2.54,2.54
 			P: "mr displacement use global settings", "Bool", "", "AU",1
 			P: "mr displacement view dependent", "Bool", "", "AU",1
-			P: "mr displacement method", "Integer", "", "AU",6,6,6
+			P: "mr displacement method", "Integer", "", "AU",6,0,100
 			P: "mr displacement smoothing on", "Bool", "", "AU",1
-			P: "mr displacement edge length", "Number", "", "AU",2,2,2
-			P: "mr displacement max displace", "Number", "", "AU",20,20,20
-			P: "mr displacement parametric subdivision level", "Integer", "", "AU",5,5,5
+			P: "mr displacement edge length", "Number", "", "AU",2,0,100
+			P: "mr displacement max displace", "Number", "", "AU",20,0,100
+			P: "mr displacement parametric subdivision level", "Integer", "", "AU",5,0,100
 			P: "UDP3DSMAX", "KString", "", "U", "LastPose = undefined&cr;&lf;"
-			P: "MaxHandle", "int", "Integer", "UH",10
+			P: "MaxHandle", "int", "Integer", "UH",2
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2175487616, "Model::body", "Mesh" {
-		Version: 232
-		Properties70:  {
-			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
-			P: "RotationActive", "bool", "", "",1
-			P: "InheritType", "enum", "", "",1
-			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",-2.40530567907626e-007,0,2.66069173812866
-			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",0,0,3.814697265625e-006
-			P: "Lcl Scaling", "Lcl Scaling", "", "A",2.53999996185303,2.53999996185303,2.53999996185303
-			P: "mr displacement use global settings", "Bool", "", "AU",1
-			P: "mr displacement view dependent", "Bool", "", "AU",1
-			P: "mr displacement method", "Integer", "", "AU",6,6,6
-			P: "mr displacement smoothing on", "Bool", "", "AU",1
-			P: "mr displacement edge length", "Number", "", "AU",2,2,2
-			P: "mr displacement max displace", "Number", "", "AU",20,20,20
-			P: "mr displacement parametric subdivision level", "Integer", "", "AU",5,5,5
-			P: "UDP3DSMAX", "KString", "", "U", "LastPose = undefined&cr;&lf;"
-			P: "MaxHandle", "int", "Integer", "UH",5
-		}
-		Shading: T
-		Culling: "CullingOff"
-	}
-	Material: 1938490064, "Material::red_tank02", "" {
+	Material: 577186288, "Material::red_tank02", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -710,7 +728,7 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Material: 1938488144, "Material::Omega_tank03", "" {
+	Material: 577184368, "Material::Omega_tank03", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -732,25 +750,25 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Video: 2121585072, "Video::Map #1", "Clip" {
+	Video: 577195248, "Video::Map #1", "Clip" {
 		Type: "Clip"
 		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "D:\Project\05.VR\Build\Tank_0513\Assets\red_tank\texture\red_tank_02.psd"
+			P: "Path", "KString", "XRefUrl", "", "D:\work\04.Unit\Unity\unit2\Assets\Unit_Prefab\red_tank\texture\red_tank_02.psd"
 		}
 		UseMipMap: 0
-		Filename: "D:\Project\05.VR\Build\Tank_0513\Assets\red_tank\texture\red_tank_02.psd"
+		Filename: "D:\work\04.Unit\Unity\unit2\Assets\Unit_Prefab\red_tank\texture\red_tank_02.psd"
 		RelativeFilename: "..\texture\red_tank_02.psd"
 	}
-	Video: 2121580272, "Video::Map #1", "Clip" {
+	Video: 577175408, "Video::Map #1", "Clip" {
 		Type: "Clip"
 		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "D:\Project\05.VR\Build\Tank_0513\Assets\red_tank\texture\red_tank_02.psd"
+			P: "Path", "KString", "XRefUrl", "", "D:\work\04.Unit\Unity\unit2\Assets\Unit_Prefab\red_tank\texture\red_tank_02.psd"
 		}
 		UseMipMap: 0
-		Filename: "D:\Project\05.VR\Build\Tank_0513\Assets\red_tank\texture\red_tank_02.psd"
+		Filename: "D:\work\04.Unit\Unity\unit2\Assets\Unit_Prefab\red_tank\texture\red_tank_02.psd"
 		RelativeFilename: "..\texture\red_tank_02.psd"
 	}
-	Texture: 1938489104, "Texture::Map #1", "" {
+	Texture: 576348464, "Texture::Map #1", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::Map #1"
@@ -759,14 +777,14 @@ Objects:  {
 			P: "UseMaterial", "bool", "", "",1
 		}
 		Media: "Video::Map #1"
-		FileName: "D:\Project\05.VR\Build\Tank_0513\Assets\red_tank\texture\red_tank_02.psd"
+		FileName: "D:\work\04.Unit\Unity\unit2\Assets\Unit_Prefab\red_tank\texture\red_tank_02.psd"
 		RelativeFilename: "..\texture\red_tank_02.psd"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	Texture: 1938488624, "Texture::Map #1", "" {
+	Texture: 576343856, "Texture::Map #1", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::Map #1"
@@ -775,20 +793,160 @@ Objects:  {
 			P: "UseMaterial", "bool", "", "",1
 		}
 		Media: "Video::Map #1"
-		FileName: "D:\Project\05.VR\Build\Tank_0513\Assets\red_tank\texture\red_tank_02.psd"
+		FileName: "D:\work\04.Unit\Unity\unit2\Assets\Unit_Prefab\red_tank\texture\red_tank_02.psd"
 		RelativeFilename: "..\texture\red_tank_02.psd"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	AnimationStack: 1735414240, "AnimStack::Tank", "" {
+	AnimationStack: 1056530016, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStop", "KTime", "Time", "",153953860000
 			P: "ReferenceStop", "KTime", "Time", "",153953860000
 		}
 	}
-	AnimationLayer: 1225296544, "AnimLayer::BaseLayer", "" {
+	AnimationLayer: 1056408320, "AnimLayer::BaseLayer", "" {
+	}
+	AnimationCurveNode: 1009220048, "AnimCurveNode::R", "" {
+		Properties70:  {
+			P: "d|X", "Number", "", "A",90.0000025044781
+			P: "d|Y", "Number", "", "A",-0
+			P: "d|Z", "Number", "", "A",0
+		}
+	}
+	AnimationCurveNode: 1009219312, "AnimCurveNode::R", "" {
+		Properties70:  {
+			P: "d|X", "Number", "", "A",90.0000025044781
+			P: "d|Y", "Number", "", "A",-0
+			P: "d|Z", "Number", "", "A",0
+		}
+	}
+	AnimationCurve: 1009121472, "AnimCurve::", "" {
+		Default: 0
+		KeyVer: 4008
+		KeyTime: *1 {
+			a: 0
+		} 
+		KeyValueFloat: *1 {
+			a: 90
+		} 
+		;KeyAttrFlags: Cubic|TangeantUser|WeightedRight
+		KeyAttrFlags: *1 {
+			a: 16778248
+		} 
+		;KeyAttrDataFloat: RightSlope:0, NextLeftSlope:0, RightWeight:0.333233, NextLeftWeight:0.333333, RightVelocity:0, NextLeftVelocity:0
+		KeyAttrDataFloat: *4 {
+			a: 0,0,218434820,0
+		} 
+		KeyAttrRefCount: *1 {
+			a: 1
+		} 
+	}
+	AnimationCurve: 1009124672, "AnimCurve::", "" {
+		Default: 0
+		KeyVer: 4008
+		KeyTime: *1 {
+			a: 0
+		} 
+		KeyValueFloat: *1 {
+			a: 0
+		} 
+		;KeyAttrFlags: Cubic|TangeantUser|WeightedRight
+		KeyAttrFlags: *1 {
+			a: 16778248
+		} 
+		;KeyAttrDataFloat: RightSlope:0, NextLeftSlope:0, RightWeight:0.333233, NextLeftWeight:0.333333, RightVelocity:0, NextLeftVelocity:0
+		KeyAttrDataFloat: *4 {
+			a: 0,0,218434820,0
+		} 
+		KeyAttrRefCount: *1 {
+			a: 1
+		} 
+	}
+	AnimationCurve: 1009125312, "AnimCurve::", "" {
+		Default: 0
+		KeyVer: 4008
+		KeyTime: *1 {
+			a: 0
+		} 
+		KeyValueFloat: *1 {
+			a: 0
+		} 
+		;KeyAttrFlags: Cubic|TangeantUser|WeightedRight
+		KeyAttrFlags: *1 {
+			a: 16778248
+		} 
+		;KeyAttrDataFloat: RightSlope:0, NextLeftSlope:0, RightWeight:0.333233, NextLeftWeight:0.333333, RightVelocity:0, NextLeftVelocity:0
+		KeyAttrDataFloat: *4 {
+			a: 0,0,218434820,0
+		} 
+		KeyAttrRefCount: *1 {
+			a: 1
+		} 
+	}
+	AnimationCurve: 1009123392, "AnimCurve::", "" {
+		Default: 0
+		KeyVer: 4008
+		KeyTime: *1 {
+			a: 0
+		} 
+		KeyValueFloat: *1 {
+			a: 90
+		} 
+		;KeyAttrFlags: Cubic|TangeantUser|WeightedRight
+		KeyAttrFlags: *1 {
+			a: 16778248
+		} 
+		;KeyAttrDataFloat: RightSlope:0, NextLeftSlope:0, RightWeight:0.333233, NextLeftWeight:0.333333, RightVelocity:0, NextLeftVelocity:0
+		KeyAttrDataFloat: *4 {
+			a: 0,0,218434820,0
+		} 
+		KeyAttrRefCount: *1 {
+			a: 1
+		} 
+	}
+	AnimationCurve: 1009118272, "AnimCurve::", "" {
+		Default: 0
+		KeyVer: 4008
+		KeyTime: *1 {
+			a: 0
+		} 
+		KeyValueFloat: *1 {
+			a: 0
+		} 
+		;KeyAttrFlags: Cubic|TangeantUser|WeightedRight
+		KeyAttrFlags: *1 {
+			a: 16778248
+		} 
+		;KeyAttrDataFloat: RightSlope:0, NextLeftSlope:0, RightWeight:0.333233, NextLeftWeight:0.333333, RightVelocity:0, NextLeftVelocity:0
+		KeyAttrDataFloat: *4 {
+			a: 0,0,218434820,0
+		} 
+		KeyAttrRefCount: *1 {
+			a: 1
+		} 
+	}
+	AnimationCurve: 1009121152, "AnimCurve::", "" {
+		Default: 0
+		KeyVer: 4008
+		KeyTime: *1 {
+			a: 0
+		} 
+		KeyValueFloat: *1 {
+			a: 0
+		} 
+		;KeyAttrFlags: Cubic|TangeantUser|WeightedRight
+		KeyAttrFlags: *1 {
+			a: 16778248
+		} 
+		;KeyAttrDataFloat: RightSlope:0, NextLeftSlope:0, RightWeight:0.333233, NextLeftWeight:0.333333, RightVelocity:0, NextLeftVelocity:0
+		KeyAttrDataFloat: *4 {
+			a: 0,0,218434820,0
+		} 
+		KeyAttrRefCount: *1 {
+			a: 1
+		} 
 	}
 }
 
@@ -798,45 +956,75 @@ Objects:  {
 Connections:  {
 	
 	;Model::Gun, Model::RootNode
-	C: "OO",2175496384,0
+	C: "OO",1054054080,0
 	
 	;Model::body, Model::RootNode
-	C: "OO",2175487616,0
+	C: "OO",1054086560,0
 	
-	;AnimLayer::BaseLayer, AnimStack::Tank
-	C: "OO",1225296544,1735414240
+	;AnimLayer::BaseLayer, AnimStack::Take 001
+	C: "OO",1056408320,1056530016
+	
+	;AnimCurveNode::R, AnimLayer::BaseLayer
+	C: "OO",1009220048,1056408320
+	
+	;AnimCurveNode::R, AnimLayer::BaseLayer
+	C: "OO",1009219312,1056408320
 	
 	;Geometry::, Model::Gun
-	C: "OO",2171823936,2175496384
+	C: "OO",1050196544,1054054080
 	
 	;Material::red_tank02, Model::Gun
-	C: "OO",1938490064,2175496384
+	C: "OO",577186288,1054054080
+	
+	;AnimCurveNode::R, Model::Gun
+	C: "OP",1009220048,1054054080, "Lcl Rotation"
 	
 	;Geometry::, Model::body
-	C: "OO",2171840256,2175487616
+	C: "OO",1050184448,1054086560
 	
 	;Material::Omega_tank03, Model::body
-	C: "OO",1938488144,2175487616
+	C: "OO",577184368,1054086560
+	
+	;AnimCurveNode::R, Model::body
+	C: "OP",1009219312,1054086560, "Lcl Rotation"
 	
 	;Texture::Map #1, Material::red_tank02
-	C: "OP",1938489104,1938490064, "DiffuseColor"
+	C: "OP",576348464,577186288, "DiffuseColor"
 	
 	;Video::Map #1, Texture::Map #1
-	C: "OO",2121585072,1938489104
+	C: "OO",577195248,576348464
 	
 	;Texture::Map #1, Material::Omega_tank03
-	C: "OP",1938488624,1938488144, "DiffuseColor"
+	C: "OP",576343856,577184368, "DiffuseColor"
 	
 	;Video::Map #1, Texture::Map #1
-	C: "OO",2121580272,1938488624
+	C: "OO",577175408,576343856
+	
+	;AnimCurve::, AnimCurveNode::R
+	C: "OP",1009121472,1009220048, "d|X"
+	
+	;AnimCurve::, AnimCurveNode::R
+	C: "OP",1009124672,1009220048, "d|Y"
+	
+	;AnimCurve::, AnimCurveNode::R
+	C: "OP",1009125312,1009220048, "d|Z"
+	
+	;AnimCurve::, AnimCurveNode::R
+	C: "OP",1009123392,1009219312, "d|X"
+	
+	;AnimCurve::, AnimCurveNode::R
+	C: "OP",1009118272,1009219312, "d|Y"
+	
+	;AnimCurve::, AnimCurveNode::R
+	C: "OP",1009121152,1009219312, "d|Z"
 }
 ;Takes section
 ;----------------------------------------------------
 
 Takes:  {
 	Current: ""
-	Take: "Tank" {
-		FileName: "Tank.tak"
+	Take: "Take 001" {
+		FileName: "Take_001.tak"
 		LocalTime: 0,153953860000
 		ReferenceTime: 0,153953860000
 	}
