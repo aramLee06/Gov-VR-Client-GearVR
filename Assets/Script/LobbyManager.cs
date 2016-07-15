@@ -27,11 +27,17 @@ public class LobbyManager : MonoBehaviour {
 
 	private string beforeBoard;
 
+	Renderer c_Rend;
+	Renderer m_Rend;
+
 	// Use this for initialization
 	void Start () {
 
 		gpdManager = GameObject.Find ("GameManager").GetComponent<GamepadConnectionManager> ();
 		trackingManager = GameObject.Find ("aim").GetComponent<TrackingManager> ();
+
+		c_Rend = campaignBoard.GetComponent<Renderer> ();
+		m_Rend = multiBoard.GetComponent<Renderer> ();
 
 		CampaignLobby.SetActive (false);
 		MultiLobby.SetActive (false);
@@ -93,6 +99,9 @@ public class LobbyManager : MonoBehaviour {
 			multiBoard.transform.DOMoveX (2.0f, 2.0f);
 			campaignBoard.transform.DOMoveX (-2.0f, 2.0f);
 
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_on") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_off") as Texture;
+
 			StartCoroutine(SetNonActive());
 			CampaignLobby.SetActive (true);
 			break;
@@ -101,8 +110,11 @@ public class LobbyManager : MonoBehaviour {
 			multiBoard.transform.DOMoveX (2.0f, 2.0f);
 			campaignBoard.transform.DOMoveX (-2.0f, 2.0f);
 
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_off") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_on") as Texture;
+
 			StartCoroutine(SetNonActive());
-			MultiLobby.SetActive (true);
+			//MultiLobby.SetActive (true);
 			break;
 		/*
 		case "UnitSelect":

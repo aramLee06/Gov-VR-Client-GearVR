@@ -14,7 +14,7 @@ public class UnitSelection : MonoBehaviour {
 		units = new List<GameObject> ();
 
 		foreach(Transform t in this.transform){
-			if (t.gameObject.name != "Spotlight" && t.gameObject.name != "UnitBoard" && t.gameObject.name != "WeaponBoard") {
+			if (t.gameObject.name != "Spotlight" && t.gameObject.name != "UnitBoard" && t.gameObject.name != "WeaponBoard"/* && t.gameObject.name.Substring(7) != "missile"*/) {
 				units.Add (t.gameObject);
 				t.gameObject.SetActive (false);
 			}
@@ -27,7 +27,6 @@ public class UnitSelection : MonoBehaviour {
 	}
 
 	public void Selections(){
-
 		if (ub_Manager.unitChk == true) {
 			for (int i = 0; i < 8; i++) {
 				if (i == GameObject.Find ("TankUnits").GetComponent<TankBoardManager> ().t_Chk) {

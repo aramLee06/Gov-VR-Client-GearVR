@@ -7,6 +7,7 @@ public class UnitBoardManager : MonoBehaviour {
 
 	TrackingManager trk_Manager;
 	LobbyManager lob_Manager;
+	CampaignStageManager cs_Manager;
 	WeaponBoardManager weap_Manager;
 
 	public GameObject tanks;
@@ -16,7 +17,7 @@ public class UnitBoardManager : MonoBehaviour {
 	public GameObject tankWBoard;
 	public GameObject airDWBoard;
 
-	public bool unitChk = true;
+	public bool unitChk;
 
 	Renderer rend1;
 	Renderer rend2;
@@ -24,18 +25,17 @@ public class UnitBoardManager : MonoBehaviour {
 	void Start () {
 
 		trk_Manager = GameObject.Find ("aim").GetComponent<TrackingManager> ();
+		cs_Manager = GameObject.Find ("CampaignLobbyBoard").GetComponent<CampaignStageManager> ();
 		weap_Manager = GameObject.Find ("WeaponBoard").GetComponent<WeaponBoardManager> ();
 
 		rend1 = tanks.GetComponent<Renderer> ();
 		rend2 = airD.GetComponent<Renderer> ();
 
-		rend1.material.mainTexture = Resources.Load ("Tank_Unit_on") as Texture;
-		rend2.material.mainTexture = Resources.Load ("Aircraft_Unit_off") as Texture;
+		SettingUnitBoard ();
+	}
 
-		tankBoard.SetActive (true);
-		airDBoard.SetActive (false);
-		tankWBoard.SetActive (true);
-		airDWBoard.SetActive (false);
+	void Update(){
+		SettingUnitBoard ();
 	}
 	
 	void OnEnable(){
@@ -54,35 +54,63 @@ public class UnitBoardManager : MonoBehaviour {
 		}
 	}
 
-	public void CheckSelectUnit(string unitName){
-		switch (unitName) {
-		case "Tanks":
+	public void SettingUnitBoard(){
+		if (cs_Manager.currentStage == 0) {
+			unitChk = true;
+
 			rend1.material.mainTexture = Resources.Load ("Tank_Unit_on") as Texture;
 			rend2.material.mainTexture = Resources.Load ("Aircraft_Unit_off") as Texture;
 
-			unitChk = true;
-
-			if (weap_Manager.weapChk == true) {
-				tankWBoard.SetActive (true);
-				airDWBoard.SetActive (false);
-			}
 			tankBoard.SetActive (true);
 			airDBoard.SetActive (false);
-			break;
+			tankWBoard.SetActive (true);
+			airDWBoard.SetActive (false);
+		} else if (cs_Manager.currentStage == 1) {
+			unitChk = false;
 
-		case "AirDrons":
 			rend1.material.mainTexture = Resources.Load ("Tank_Unit_off") as Texture;
 			rend2.material.mainTexture = Resources.Load ("Aircraft_Unit_on") as Texture;
 
-			unitChk = false;
-
-			if (weap_Manager.weapChk == true) {
-				tankWBoard.SetActive (false);
-				airDWBoard.SetActive (true);
-			}
-
 			tankBoard.SetActive (false);
 			airDBoard.SetActive (true);
+			tankWBoard.SetActive (false);
+			airDWBoard.SetActive (true);
+		}
+	}
+
+	public void CheckSelectUnit(string unitName){
+		switch (unitName) {
+		case "Tanks":
+			if (cs_Manager.currentStage == 0) {
+				rend1.material.mainTexture = Resources.Load ("Tank_Unit_on") as Texture;
+				rend2.material.mainTexture = Resources.Load ("Aircraft_Unit_off") as Texture;
+
+				unitChk = true;
+
+				if (weap_Manager.weapChk == true) {
+					tankWBoard.SetActive (true);
+					airDWBoard.SetActive (false);
+				}
+				tankBoard.SetActive (true);
+				airDBoard.SetActive (false);
+			}
+			break;
+
+		case "AirDrons":
+			if (cs_Manager.currentStage == 1) {
+				rend1.material.mainTexture = Resources.Load ("Tank_Unit_off") as Texture;
+				rend2.material.mainTexture = Resources.Load ("Aircraft_Unit_on") as Texture;
+
+				unitChk = false;
+
+				if (weap_Manager.weapChk == true) {
+					tankWBoard.SetActive (false);
+					airDWBoard.SetActive (true);
+				}
+
+				tankBoard.SetActive (false);
+				airDBoard.SetActive (true);
+			}
 			break;
 			/*
 		default :

@@ -15,9 +15,15 @@ public class GamepadConnectionManager : MonoBehaviour {
 
 	private int m_uiCheck;
 
+	Renderer c_Rend;
+	Renderer m_Rend;
+
 	void Start () {
 		lb_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
 		m_uiCheck = 1;
+
+		c_Rend = GameObject.Find ("Campaign_Board").GetComponent<Renderer>();
+		m_Rend = GameObject.Find ("Multi_Board").GetComponent<Renderer> ();
 		//Initailize Selected Panel
 		InintSelect ();
 	}
@@ -37,7 +43,7 @@ public class GamepadConnectionManager : MonoBehaviour {
 
 		if (lb_Manager.stageChk == true) {
 			switch (touchArgs.TouchType) {
-			case OVRTouchpad.TouchEvent.Left:
+			case OVRTouchpad.TouchEvent.Right:
 				if (m_uiCheck <= 0) {
 					m_uiCheck = 0;
 
@@ -45,7 +51,7 @@ public class GamepadConnectionManager : MonoBehaviour {
 					LeftSelect ();
 				}
 				break;
-			case OVRTouchpad.TouchEvent.Right:
+			case OVRTouchpad.TouchEvent.Left:
 				if (m_uiCheck >= 3) {
 					m_uiCheck = 3;
 
@@ -91,9 +97,17 @@ public class GamepadConnectionManager : MonoBehaviour {
 		old_Select = UI_Board [m_uiCheck];
 
 		//Scale Change
-		if (curr_Select.name == "UnitSelect") {
-			curr_Select.transform.DOScale (new Vector3(1.3f,1.3f,1.3f), 0.5f);
+		if (curr_Select.name == "Campaign_Board") {
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_on") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_off") as Texture;
+			curr_Select.transform.DOScale (new Vector3 (0.9f, 0.9f, 0.9f), 0.5f);
+		} else if (curr_Select.name == "Multi_Board") {
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_off") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_on") as Texture;
+			curr_Select.transform.DOScale (new Vector3 (0.9f, 0.9f, 0.9f), 0.5f);
 		} else {
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_off") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_off") as Texture;
 			curr_Select.transform.DOScale (new Vector3 (0.9f, 0.9f, 0.9f), 0.5f);
 		}
 		//Debug.Log (curr_Select.name);
@@ -105,19 +119,23 @@ public class GamepadConnectionManager : MonoBehaviour {
 		m_uiCheck--;
 
 		//Old Scale Change
-		if (old_Select.name == "UnitSelect") {
-			old_Select.transform.DOScale(new Vector3(1.0f,1.0f,1.0f), 0.5f);
-		} else {
-			old_Select.transform.DOScale(new Vector3(0.7f,0.7f,0.7f), 0.5f);
-		}
+		old_Select.transform.DOScale(new Vector3(0.7f,0.7f,0.7f), 0.5f);
 
 		//Change Current Select Value
 		curr_Select = UI_Board[m_uiCheck];
 
 		//Current Scale Change
-		if (curr_Select.name == "UnitSelect") {
-			curr_Select.transform.DOScale(new Vector3(1.3f,1.3f,1.3f), 0.5f);
+		if (curr_Select.name == "Campaign_Board") {
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_on") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_off") as Texture;
+			curr_Select.transform.DOScale (new Vector3 (0.9f, 0.9f, 0.9f), 0.5f);
+		} else if (curr_Select.name == "Multi_Board") {
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_off") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_on") as Texture;
+			curr_Select.transform.DOScale (new Vector3 (0.9f, 0.9f, 0.9f), 0.5f);
 		} else {
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_off") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_off") as Texture;
 			curr_Select.transform.DOScale (new Vector3 (0.9f, 0.9f, 0.9f), 0.5f);
 		}
 
@@ -133,20 +151,24 @@ public class GamepadConnectionManager : MonoBehaviour {
 		m_uiCheck++;
 
 		//Old Scale Change
-		if (old_Select.name == "UnitSelect") {
-			old_Select.transform.DOScale(new Vector3(1.0f,1.0f,1.0f), 0.5f);
-		} else {
-			old_Select.transform.DOScale(new Vector3(0.7f,0.7f,0.7f), 0.5f);
-		}
+		old_Select.transform.DOScale(new Vector3(0.7f,0.7f,0.7f), 0.5f);
 
 
 		//Change Current Select Value
 		curr_Select = UI_Board[m_uiCheck];
 
 		//Current Scale Change
-		if (curr_Select.name == "UnitSelect") {
-			curr_Select.transform.DOScale(new Vector3(1.3f,1.3f,1.3f), 0.5f);
+		if (curr_Select.name == "Campaign_Board") {
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_on") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_off") as Texture;
+			curr_Select.transform.DOScale (new Vector3 (0.9f, 0.9f, 0.9f), 0.5f);
+		} else if (curr_Select.name == "Multi_Board") {
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_off") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_on") as Texture;
+			curr_Select.transform.DOScale (new Vector3 (0.9f, 0.9f, 0.9f), 0.5f);
 		} else {
+			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_off") as Texture;
+			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_off") as Texture;
 			curr_Select.transform.DOScale (new Vector3 (0.9f, 0.9f, 0.9f), 0.5f);
 		}
 		//Change Old Scale Value
