@@ -89,7 +89,7 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 0
       lastFrame: 200
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -155,7 +155,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

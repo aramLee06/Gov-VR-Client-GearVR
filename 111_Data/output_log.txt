@@ -1,0 +1,136 @@
+Initialize engine version: 5.3.5f1 (960ebf59018a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 750 Ti (ID=0x1380)
+    Vendor:   NVIDIA
+    VRAM:     1992 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\DOTween.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\DOTween.dll into Unity Child Domain
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\DOTween43.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\DOTween43.dll into Unity Child Domain
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\DOTween46.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\DOTween46.dll into Unity Child Domain
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\DOTween50.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\DOTween50.dll into Unity Child Domain
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\csp\Desktop\GearVR\111_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.194 seconds
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\csp\Desktop\GearVR\111_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1200 59Hz; virtual: 3840x1200 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.890259 ms
+Joystick connected ("Controller (XBOX 360 For Windows)").
+ 
+(Filename:  Line: 1353)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Player_Tank.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Setting up 3 worker threads for Enlighten.
+  Thread -> id: 2434 -> priority: 1 
+  Thread -> id: 7d4 -> priority: 1 
+  Thread -> id: 18d8 -> priority: 1 

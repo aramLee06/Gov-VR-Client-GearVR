@@ -107,7 +107,7 @@ public class F3DBeam : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
 
         // Calculate default beam proportion multiplier based on default scale and maximum length
-        float propMult = MaxBeamLength * (beamScale / 2f);
+        float propMult = MaxBeamLength * (beamScale / 10f);
 
         // Raycast
         if (Physics.Raycast(ray, out hitPoint, MaxBeamLength, layerMask))
@@ -117,7 +117,7 @@ public class F3DBeam : MonoBehaviour
             lineRenderer.SetPosition(1, new Vector3(0f, 0f, beamLength));
 
             // Calculate default beam proportion multiplier based on default scale and current length
-            propMult = beamLength * (beamScale / 2f);
+            propMult = beamLength * (beamScale / 10f);
 
             // Spawn prefabs and apply force
             switch (fxType)

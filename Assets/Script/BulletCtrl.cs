@@ -4,7 +4,7 @@ using System.Collections;
 public class BulletCtrl : MonoBehaviour {
 
     float speed = 30f;
-
+    public Player_Tank shoot_player;
     // Use this for initialization
     void Start()
     {
@@ -22,12 +22,14 @@ public class BulletCtrl : MonoBehaviour {
         var hit = collision.gameObject;
         Destroy(gameObject);
         var hitPlayer = hit.GetComponent<Player_Tank>();
+        //Debug.Log("" + hitPlayer.ToString());
         if (hitPlayer != null)
         {
             var combat = hit.GetComponent<Combat>();
             combat.TakeDamage(10);
-
             Destroy(gameObject);
+
+            //Invoke("HitPlayer", 0.20f);
         }
     }
 }

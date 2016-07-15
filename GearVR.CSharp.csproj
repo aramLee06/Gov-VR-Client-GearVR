@@ -81,10 +81,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Combat.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
-    <Compile Include="Assets\HealthBar.cs" />
     <Compile Include="Assets\OVR\Moonlight\Scripts\OVRDebugHeadController.cs" />
     <Compile Include="Assets\OVR\Moonlight\Scripts\OVROverlay.cs" />
     <Compile Include="Assets\OVR\Moonlight\Scripts\OVRPlatformMenu.cs" />
@@ -116,6 +114,8 @@
     <Compile Include="Assets\Script\CameraChase.cs" />
     <Compile Include="Assets\Script\CampaignSelect.cs" />
     <Compile Include="Assets\Script\CampaignStageManager.cs" />
+    <Compile Include="Assets\Script\Combat.cs" />
+    <Compile Include="Assets\Script\HealthBar.cs" />
     <Compile Include="Assets\Script\LayerSortingOnBoard.cs" />
     <Compile Include="Assets\Script\LobbyManager.cs" />
     <Compile Include="Assets\Script\MovingSrc.cs" />
