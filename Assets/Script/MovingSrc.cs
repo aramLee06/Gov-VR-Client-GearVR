@@ -15,6 +15,10 @@ public class MovingSrc : MonoBehaviour {
 	public void RotateUnit(){
 		Vector3 rotateSet = new Vector3 (0, 360.0f, 0);
 
-		/*unitSelect*/this.transform.DORotate(rotateSet, 25.0f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Yoyo).SetRelative(true);
+		if (this.tag == "UNIT") {
+			this.transform.DORotate (rotateSet, 25.0f, RotateMode.FastBeyond360).SetLoops (-1, LoopType.Yoyo).SetRelative (true);
+		} else if (this.tag == "WEAPON") {
+			this.transform.DORotate (rotateSet, 15.0f, RotateMode.FastBeyond360).SetLoops (-1, LoopType.Yoyo).SetRelative (true);
+		}
 	}
 }

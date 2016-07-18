@@ -114,7 +114,7 @@ public class LobbyManager : MonoBehaviour {
 			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_on") as Texture;
 
 			StartCoroutine(SetNonActive());
-			//MultiLobby.SetActive (true);
+			MultiLobby.SetActive (true);
 			break;
 		/*
 		case "UnitSelect":
@@ -133,12 +133,12 @@ public class LobbyManager : MonoBehaviour {
 		multiBoard.SetActive (true);
 		campaignBoard.SetActive (true);
 
-		multiBoard.transform.DOMove (new Vector3 (0.45f, 0.7f, 0.6f), 1.0f);
-		campaignBoard.transform.DOMove (new Vector3 (-0.45f, 0.7f, 0.6f), 1.0f);
+		multiBoard.transform.DOMove (new Vector3 (0.6f, 0.7f, 0.6f), 1.0f);
+		campaignBoard.transform.DOMove (new Vector3 (-0.6f, 1.0f, 0.5f), 1.0f);
 		OVRCamera.transform.DOMove (new Vector3 (0, 0.85f, -0.73f), 1.0f);
 
-		UnitsBoard.transform.DOMoveX (-2.0f, 1.0f);
-		WeaponsBoard.transform.DOMoveX (2.0f, 1.0f);
+		UnitsBoard.transform.DOMoveX (-2.2f, 1.0f);
+		WeaponsBoard.transform.DOMoveX (2.2f, 1.0f);
 
 		CampaignLobby.SetActive (false);
 		MultiLobby.SetActive (false);
@@ -150,21 +150,22 @@ public class LobbyManager : MonoBehaviour {
 		}
 
 		stageChk = true;
+		WeaponBoardManager.time_check = true;
 	}
 
 	public void UnitSelectActive(){
 		multiBoard.transform.DOMoveX (2.0f, 1.0f);
 		campaignBoard.transform.DOMoveX (-2.0f, 1.0f);
 
-		unitSelect.transform.DOScale (new Vector3 (0.8f, 0.8f, 0.8f), 1.0f);
-		OVRCamera.transform.DOMove (new Vector3 (0, 0.45f, 0.2f), 1.0f);
+		unitSelect.transform.DOScale (new Vector3 (2.5f, 2.5f, 2.5f), 1.0f);
+		OVRCamera.transform.DOMove (new Vector3 (0, 0.8f, 0.5f), 1.0f);
 
 		CampaignLobby.SetActive (false);
 		UnitsBoard.SetActive (true);
 		WeaponsBoard.SetActive (true);
 
-		UnitsBoard.transform.DOMoveX (-0.8f, 1.0f);
-		WeaponsBoard.transform.DOMoveX (0.8f, 1.0f);
+		UnitsBoard.transform.DOMoveX (-2.0f, 1.0f);
+		WeaponsBoard.transform.DOMoveX (2.0f, 1.0f);
 	}
 
 	IEnumerator SetNonActive() {

@@ -21,7 +21,7 @@ public class CampaignStageManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-			GamePadControl ();
+		GamePadControl ();
 	}
 	void OnEnable() {
 		
@@ -86,7 +86,7 @@ public class CampaignStageManager : MonoBehaviour {
 		for ( int i = 0; i < stageBoardList.Length; i++) {
 			if (i == currentStage) {
 				stageBoardList [i].GetComponent<Renderer> ().sortingLayerName = "ActiveStage";
-				stageBoardList [i].transform.DOScale (new Vector3 (0.7f, 0.6f, 1.0f), 0.5f);
+				stageBoardList [i].transform.DOScale (new Vector3 (0.9f, 0.7f, 1.0f), 0.5f);
 				stageBoardList [i].transform.DOMoveZ (0.3f,0.5f);
 				OnChangeActiveStage (stageBoardList [i].name);
 				continue;

@@ -16,6 +16,7 @@ public class WeaponBoardManager : MonoBehaviour {
 	public GameObject[] weap;
 
 	public bool weapChk;
+	public static bool time_check = true;
 
 	//Renderer onoffRend;
 	Renderer[] rend = new Renderer[6];
@@ -47,9 +48,6 @@ public class WeaponBoardManager : MonoBehaviour {
 		uni_Manager = GameObject.Find ("UnitBoard").GetComponent<UnitBoardManager> ();
 		cs_Manager = GameObject.Find ("CampaignLobbyBoard").GetComponent<CampaignStageManager> ();
 
-		//onoffRend = weapOnOff.GetComponent<Renderer> ();
-		//onoffRend.material.mainTexture = Resources.Load ("weapon_button_on") as Texture;
-
 		weapons = new List<GameObject> ();
 
 		foreach(Transform t in this.transform){
@@ -62,37 +60,11 @@ public class WeaponBoardManager : MonoBehaviour {
 		for (int i = 0; i < 6; i++) {
 			rend[i] = weap[i].GetComponent<Renderer> ();
 		}
-
-		for (int j = 0; j < 6; j++) {
-			rend [j].material.mainTexture = Resources.Load ("weapon_Name_Base_off") as Texture;
-			if (j == 0) {
-				rend [j].material.mainTexture = Resources.Load	("weapon_Name_Base_on") as Texture;
-				weap [j].transform.DOScale (new Vector3 (1.1f, 0.5f, 0.3f), 0.3f);
-				if (cs_Manager.currentStage == 0) {
-					weapons [j].SetActive (true);
-				} else if(cs_Manager.currentStage == 1){
-					weapons [j].SetActive (false);
-				}
-			} else {
-				weap [j].transform.DOScale (new Vector3 (1.0f, 0.45f, 0.3f), 0.3f);
-			}
-		}
 	}
 
 	void Update(){
-		for (int j = 0; j < 6; j++) {
-			rend [j].material.mainTexture = Resources.Load ("weapon_Name_Base_off") as Texture;
-			if (j == 0) {
-				rend [j].material.mainTexture = Resources.Load	("weapon_Name_Base_on") as Texture;
-				weap [j].transform.DOScale (new Vector3 (1.1f, 0.5f, 0.3f), 0.3f);
-				if (cs_Manager.currentStage == 0) {
-					weapons [j].SetActive (true);
-				} else if(cs_Manager.currentStage == 1){
-					weapons [j].SetActive (false);
-				}
-			} else {
-				weap [j].transform.DOScale (new Vector3 (1.0f, 0.45f, 0.3f), 0.3f);
-			}
+		if (time_check == true) {
+			SelectTorA ();
 		}
 	}
 		
@@ -143,8 +115,10 @@ public class WeaponBoardManager : MonoBehaviour {
 				if (j == 3) {
 					rend[j].material.mainTexture = Resources.Load	("weapon_Name_Base_on") as Texture;
 					weap [j].transform.DOScale (new Vector3(1.1f, 0.5f,0.3f), 0.3f);
+					weapons [j].SetActive (true);
 				}else {
 					weap [j].transform.DOScale (new Vector3 (1.0f, 0.45f, 0.3f), 0.3f);
+					weapons [j].SetActive (false);
 				}
 			}
 			break;
@@ -154,8 +128,10 @@ public class WeaponBoardManager : MonoBehaviour {
 				if (j == 4) {
 					rend[j].material.mainTexture = Resources.Load	("weapon_Name_Base_on") as Texture;
 					weap [j].transform.DOScale (new Vector3(1.1f, 0.5f,0.3f), 0.3f);
+					weapons [j].SetActive (true);
 				}else {
 					weap [j].transform.DOScale (new Vector3 (1.0f, 0.45f, 0.3f), 0.3f);
+					weapons [j].SetActive (false);
 				}
 			}
 			break;
@@ -165,12 +141,14 @@ public class WeaponBoardManager : MonoBehaviour {
 				if (j == 5) {
 					rend[j].material.mainTexture = Resources.Load	("weapon_Name_Base_on") as Texture;
 					weap [j].transform.DOScale (new Vector3(1.1f, 0.5f,0.3f), 0.3f);
+					weapons [j].SetActive (true);
 				}else {
 					weap [j].transform.DOScale (new Vector3 (1.0f, 0.45f, 0.3f), 0.3f);
+					weapons [j].SetActive (false);
 				}
 			}
 			break;
-			/*
+			/* Weapon Board On/Off 
 		case "Weapons":
 			if (weapChk == true) {
 				onoffRend.material.mainTexture = Resources.Load ("weapon_select_off") as Texture;
@@ -189,12 +167,37 @@ public class WeaponBoardManager : MonoBehaviour {
 				weapChk = true;
 			}
 			break;
-
-		default:
-			OnTapObject (weapName);
-			break;
 			*/
 		}
+	}
+
+	void SelectTorA(){
+		if (cs_Manager.currentStage == 0) {
+			for (int j = 0; j < 6; j++) {
+				rend [j].material.mainTexture = Resources.Load ("weapon_Name_Base_off") as Texture;
+				if (j == 0) {
+					rend [j].material.mainTexture = Resources.Load	("weapon_Name_Base_on") as Texture;
+					weap [j].transform.DOScale (new Vector3 (1.1f, 0.5f, 0.3f), 0.3f);
+					weapons [j].SetActive (true);
+				} else {
+					weapons [j].SetActive (false);
+				}
+				weapons [j].transform.DOMoveX (-0.1f, 1.0f);
+			}
+		} else if (cs_Manager.currentStage == 1) {
+			for (int j = 0; j < 6; j++) {
+				rend [j].material.mainTexture = Resources.Load ("weapon_Name_Base_off") as Texture;
+				if (j == 3) {
+					rend [j].material.mainTexture = Resources.Load	("weapon_Name_Base_on") as Texture;
+					weap [j].transform.DOScale (new Vector3 (1.1f, 0.5f, 0.3f), 0.3f);
+					weapons [j].SetActive (true);
+				} else {
+					weapons [j].SetActive (false);
+				}
+				weapons [j].transform.DOMoveX (-0.1f, 1.0f);
+			}
+		}
+		time_check = false;
 	}
 }
 

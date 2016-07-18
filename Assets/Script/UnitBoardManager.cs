@@ -112,11 +112,7 @@ public class UnitBoardManager : MonoBehaviour {
 				airDBoard.SetActive (true);
 			}
 			break;
-			/*
-		default :
-			OnTapObject (unitName);
-			break;
-			*/
+
 		}
 	}
 }

@@ -13,11 +13,13 @@ public class AirDBaordManager : MonoBehaviour {
 	Renderer[] rend = new Renderer[4];
 
 	void OnEnable(){
+
 		lob_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
 		lob_Manager.OnTapObject += OnTapObject;
 	}
 
 	void OnDisable(){
+
 		lob_Manager.OnTapObject -= OnTapObject;
 	}
 
@@ -100,4 +102,5 @@ public class AirDBaordManager : MonoBehaviour {
 			break;
 		}
 	}
+		
 }

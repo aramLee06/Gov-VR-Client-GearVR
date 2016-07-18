@@ -13,11 +13,13 @@ public class TankBoardManager : MonoBehaviour {
 	Renderer[] rend = new Renderer[4];
 
 	void OnEnable(){
+
 		lob_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
 		lob_Manager.OnTapObject += OnTapObject;
 	}
 
 	void OnDisable(){
+
 		lob_Manager.OnTapObject -= OnTapObject;
 	}
 
@@ -28,7 +30,7 @@ public class TankBoardManager : MonoBehaviour {
 			//System.Threading.Thread.Sleep (150);
 		}
 	}
-		
+
 	void Start () {
 		trk_Manager = GameObject.Find ("aim").GetComponent<TrackingManager> ();
 		t_Chk = 0;
@@ -100,5 +102,4 @@ public class TankBoardManager : MonoBehaviour {
 			break;
 		}
 	}
-
 }
