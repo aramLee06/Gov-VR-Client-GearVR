@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyDrone : MonoBehaviour
+public class EnemyTank : MonoBehaviour
 {
 
     private Transform targetTr;
     public GameObject shot; //미사일
     public GameObject SpawnPoint; //미사일발사위치
+    public GameObject turret;
     public Transform[] wayPointList;
+    public Transform targetWayPoint; //다음 위치
     public int myRouteNum;
     public int currentWayPoint; //현재 위치
-    Transform targetWayPoint; //다음 위치
     private WayPoints wp;
 
     // 상태 정보: 탐색, 접촉, 공격, 죽음
@@ -25,18 +26,19 @@ public class EnemyDrone : MonoBehaviour
 
     void Start()
     {
-        targetTr = GameObject.Find("blue_tank_01_Test").GetComponent<Transform>();
+        targetTr = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         state = State.idle;
-        GetWaypoints();
-        currentWayPoint = 1;
+        //GetWaypoints();
+        targetWayPoint = wayPointList[currentWayPoint];
         StartCoroutine(this.CheckState());
         StartCoroutine(this.Action());
     }
 
-    void GetWaypoints()
+    public void GetWaypoints()
     {
         Debug.Log(myRouteNum);
-        if (myRouteNum != 0)
+        //targetWayPoint = wayPointList[2];
+       /* if (myRouteNum != 0)
         {
             if (myRouteNum == 1)
                 wayPointList = GameObject.Find("EnemyRouteA").GetComponentsInChildren<Transform>();
@@ -44,13 +46,12 @@ public class EnemyDrone : MonoBehaviour
                 wayPointList = GameObject.Find("EnemyRouteA (2)").GetComponentsInChildren<Transform>();
             if (myRouteNum == 3)
                 wayPointList = GameObject.Find("EnemyRouteA (3)").GetComponentsInChildren<Transform>();
-            targetWayPoint = wayPointList[2];
-        }
+        }*/
     }
 
     void Aim()
     {
-        transform.LookAt(targetTr);
+        turret.transform.LookAt(targetTr);
     }
 
 
@@ -103,6 +104,7 @@ public class EnemyDrone : MonoBehaviour
                     walk();
                     Aim();
                     Attack();
+                    state = State.idle;
                     break;
             }
             yield return null;
@@ -119,11 +121,11 @@ public class EnemyDrone : MonoBehaviour
 
     void walk()
     {
-        Debug.Log(targetWayPoint.position);
+        //Debug.Log(targetWayPoint.position);
         //Vector3 dir = targetWayPoint.position - transform.position;
-        Vector3 dirXZ = new Vector3(targetWayPoint.position.x, 4f, targetWayPoint.position.z);
-        transform.forward = Vector3.RotateTowards(transform.forward, dirXZ - transform.position, 3f * Time.deltaTime, 0.0f);
-        transform.position = Vector3.MoveTowards(transform.position, dirXZ, 3f * Time.deltaTime);
+        Vector3 dirXZ = new Vector3(targetWayPoint.position.x, 0f, targetWayPoint.position.z);
+        transform.forward = Vector3.RotateTowards(transform.forward, dirXZ - transform.position, 0.5f * Time.deltaTime, 0.0f);
+        transform.position = Vector3.MoveTowards(transform.position, dirXZ, 0.5f * Time.deltaTime);
         //Debug.Log(dir);
         if (targetWayPoint.position.x - 0.3f <= transform.position.x && transform.position.x <= targetWayPoint.position.x + 0.3f && targetWayPoint.position.z - 0.3f <= transform.position.z && transform.position.z + 0.3f <= targetWayPoint.position.z + 0.3f)
         {
