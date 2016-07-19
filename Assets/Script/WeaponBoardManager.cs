@@ -56,7 +56,6 @@ public class WeaponBoardManager : MonoBehaviour {
 				t.gameObject.SetActive (false);
 			}
 		}
-
 		for (int i = 0; i < 6; i++) {
 			rend[i] = weap[i].GetComponent<Renderer> ();
 		}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using DG.Tweening;
 using VR = UnityEngine.VR;
@@ -6,7 +7,6 @@ using VR = UnityEngine.VR;
 public class LobbyManager : MonoBehaviour {
 
 	GamepadConnectionManager gpdManager;
-	//CampaignSelect cpgSelect;
 	TrackingManager trackingManager;
 
 	public GameObject campaignBoard;
@@ -102,8 +102,9 @@ public class LobbyManager : MonoBehaviour {
 			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_on") as Texture;
 			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_off") as Texture;
 
-			StartCoroutine(SetNonActive());
+			StartCoroutine (SetNonActive ());
 			CampaignLobby.SetActive (true);
+			stageChk = false;
 			break;
 
 		case "Multi_Board":
@@ -113,14 +114,13 @@ public class LobbyManager : MonoBehaviour {
 			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_off") as Texture;
 			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_on") as Texture;
 
-			StartCoroutine(SetNonActive());
-			MultiLobby.SetActive (true);
-			break;
-		/*
-		case "UnitSelect":
+			Invoke ("SceneMove", 1.0f);
 
+			StartCoroutine (SetNonActive ());
+			//MultiLobby.SetActive (true);
+			stageChk = false;
 			break;
-		*/
+
 		default :
 			OnTapObject (itemName);
 			break;
@@ -134,8 +134,8 @@ public class LobbyManager : MonoBehaviour {
 		campaignBoard.SetActive (true);
 
 		multiBoard.transform.DOMove (new Vector3 (0.6f, 0.7f, 0.6f), 1.0f);
-		campaignBoard.transform.DOMove (new Vector3 (-0.6f, 1.0f, 0.5f), 1.0f);
-		OVRCamera.transform.DOMove (new Vector3 (0, 0.85f, -0.73f), 1.0f);
+		campaignBoard.transform.DOMove (new Vector3 (-0.6f, 0.7f, 0.5f), 1.0f);
+		OVRCamera.transform.DOMove (new Vector3 (0, 0.85f, -1.2f), 1.0f);
 
 		UnitsBoard.transform.DOMoveX (-2.2f, 1.0f);
 		WeaponsBoard.transform.DOMoveX (2.2f, 1.0f);
@@ -151,6 +151,8 @@ public class LobbyManager : MonoBehaviour {
 
 		stageChk = true;
 		WeaponBoardManager.time_check = true;
+
+		System.Threading.Thread.Sleep (300);
 	}
 
 	public void UnitSelectActive(){
@@ -175,4 +177,7 @@ public class LobbyManager : MonoBehaviour {
 		campaignBoard.SetActive (false);
 	}
 
+	void SceneMove(){
+		SceneManager.LoadScene ("03_Multi_Lobby");
+	}
 }

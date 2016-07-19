@@ -19,11 +19,15 @@ public class UnitSelection : MonoBehaviour {
 				t.gameObject.SetActive (false);
 			}
 		}
-		Selections ();
+
+			Selections ();
+
 	}
 
 	void Update(){
-		Selections ();
+		
+			Selections ();
+
 	}
 
 	public void Selections(){

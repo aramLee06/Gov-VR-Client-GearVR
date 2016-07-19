@@ -5,8 +5,9 @@ using DG.Tweening;
 
 public class MultiLobbyManager : MonoBehaviour {
 
-	LobbyManager lobbyManager; 
+	LobbyManager lobbyManager;
 
+	public GameObject UnitModel;
 	public GameObject CreateRoom;
 	public GameObject WaitRoom;
 	public GameObject CreateRoomBoard;
@@ -14,8 +15,8 @@ public class MultiLobbyManager : MonoBehaviour {
 	public GameObject OVRCamera;
 
 	public GameObject[] stageBoardList;
-	public List<GameObject> multi_unit;
 	public int currentStage = 0;
+	public bool flag=true;
 
 	void OnEnable() {
 		OVRTouchpad.Create();
@@ -42,24 +43,26 @@ public class MultiLobbyManager : MonoBehaviour {
 		//GameObject.Find ("TestText").GetComponent<TextMesh> ().text = boardName;
 		switch (boardName) {
 		case "CreateRoomBoard": 
-			CreateRoomBoard.transform.DOLocalMoveX (-2.0f, 2.0f);
-			WaitRoomBoard.transform.DOLocalMoveX (2.0f, 2.0f);
-
-			StartCoroutine(SetNonActive());
+			//CreateRoomBoard.transform.DOLocalMoveX (-2.0f, 2.0f);
+			//WaitRoomBoard.transform.DOLocalMoveX (2.0f, 2.0f);
+			flag = false;
+			StartCoroutine (SetNonActive ());
 			CreateRoomBoard.SetActive (false);
 			WaitRoomBoard.SetActive (false);
 			CreateRoom.SetActive (true);
-			OVRCamera.transform.DOMove (new Vector3 (0, 1.0f, -0.2f), 1.0f);
+			UnitModel.SetActive (false);
+			OVRCamera.transform.DOMove (new Vector3 (0, 1.0f, -0.6f), 1.0f);
 			break;
 		case "WaitRoomBoard":
-			CreateRoomBoard.transform.DOLocalMoveX (-2.0f, 2.0f);
-			WaitRoomBoard.transform.DOLocalMoveX (2.0f, 2.0f);
-
-			StartCoroutine(SetNonActive());
+			//CreateRoomBoard.transform.DOLocalMoveX (-2.0f, 2.0f);
+			//WaitRoomBoard.transform.DOLocalMoveX (2.0f, 2.0f);
+			flag = false;
+			StartCoroutine (SetNonActive ());
 			CreateRoomBoard.SetActive (false);
 			WaitRoomBoard.SetActive (false);
 			WaitRoom.SetActive (true);
-			OVRCamera.transform.DOMove (new Vector3 (0, 1.0f, -0.2f), 1.0f);
+			UnitModel.SetActive (false);
+			OVRCamera.transform.DOMove (new Vector3 (0, 1.0f, -0.6f), 1.0f);
 			break;
 		}
 
@@ -89,14 +92,6 @@ public class MultiLobbyManager : MonoBehaviour {
 	}
 
 	void Start () {
-		multi_unit = new List<GameObject> ();
-
-		foreach(Transform t in GameObject.Find("UnitSelect").transform){
-			if (t.gameObject.name != "Spotlight" && t.gameObject.name != "UnitBoard" && t.gameObject.name != "WeaponBoard"/* && t.gameObject.name.Substring(7) != "missile"*/) {
-				multi_unit.Add (t.gameObject);
-				t.gameObject.SetActive (false);
-			}
-		}
 
 		SortStateBoard ();
 	}
@@ -110,9 +105,9 @@ public class MultiLobbyManager : MonoBehaviour {
 	}
 
 	void ToMainLobby() {
-		CreateRoomBoard.transform.localPosition = new Vector3 (-0.5f, 0.0f, 0.0f);
-		WaitRoomBoard.transform.localPosition = new Vector3 (0.5f, 0.0f, 0.0f);
-		OVRCamera.transform.DOMove (new Vector3 (0, 0.85f, -0.73f), 1.0f);
+		//CreateRoomBoard.transform.localPosition = new Vector3 (-0.5f, 0.0f, 0.0f);
+		//WaitRoomBoard.transform.localPosition = new Vector3 (0.5f, 0.0f, 0.0f);
+		OVRCamera.transform.DOMove (new Vector3 (0, 0.85f, -1.2f), 1.0f);
 		CreateRoomBoard.SetActive (true);
 		WaitRoomBoard.SetActive (true);
 		CreateRoom.SetActive (false);
@@ -143,5 +138,7 @@ public class MultiLobbyManager : MonoBehaviour {
 
 	}
 
+	void SelectUnits(string unitName){
 
+	}
 }
