@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class RoomManager : MonoBehaviour {
-	LobbyManager lob_Manager;
+	MainLobbyManager lob_Manager;
 	TrackingManager trk_Manager;
 
 	public GameObject UnitModel;
@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviour {
 	Renderer[] unit_rend = new Renderer[8];
 
 	void OnEnable(){
-		lob_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lob_Manager = GameObject.Find ("GameManager").GetComponent<MainLobbyManager> ();
 		lob_Manager.OnTapObject += OnTapObject;
 	}
 

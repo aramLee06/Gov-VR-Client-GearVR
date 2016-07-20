@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class MultiLobbyManager : MonoBehaviour {
 
-	LobbyManager lobbyManager;
+	MainLobbyManager lobbyManager;
 
 	public GameObject UnitModel;
 	public GameObject CreateRoom;
@@ -22,7 +22,7 @@ public class MultiLobbyManager : MonoBehaviour {
 		OVRTouchpad.Create();
 		OVRTouchpad.TouchHandler += GearTouchHandler;
 
-		lobbyManager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lobbyManager = GameObject.Find ("GameManager").GetComponent<MainLobbyManager> ();
 		lobbyManager.OnTapObject += OnTapObject;
 
 		CreateRoom.SetActive (false);

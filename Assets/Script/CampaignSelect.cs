@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class CampaignSelect : MonoBehaviour {
 
-	LobbyManager lobbyManager; 
+	MainLobbyManager lobbyManager; 
 
 	void OnEnable() {
-		lobbyManager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lobbyManager = GameObject.Find ("GameManager").GetComponent<MainLobbyManager> ();
 		lobbyManager.OnTapObject += OnTapObject;
 	}
 

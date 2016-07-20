@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BGMManager : MonoBehaviour {
 
-	LobbyManager lob_Manager;
+	MainLobbyManager lob_Manager;
 	TrackingManager trk_Manager;
 
 	public GameObject bgmOn;
@@ -13,7 +13,7 @@ public class BGMManager : MonoBehaviour {
 	Renderer off_Rend;
 
 	void OnEnable(){
-		lob_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lob_Manager = GameObject.Find ("GameManager").GetComponent<MainLobbyManager> ();
 		lob_Manager.OnTapObject += OnTapObject;
 	}
 

@@ -4,17 +4,15 @@ using System.Collections;
 using DG.Tweening;
 using VR = UnityEngine.VR;
 
-public class LobbyManager : MonoBehaviour {
+public class MainLobbyManager : MonoBehaviour {
 
 	GamepadConnectionManager gpdManager;
 	TrackingManager trackingManager;
 
+	public GameObject OVRCamera;
 	public GameObject campaignBoard;
 	public GameObject multiBoard;
 	public GameObject unitSelect;
-
-	public GameObject OVRCamera;
-	public GameObject UnitSelectLobby;
 	public GameObject CampaignLobby;
 	public GameObject MultiLobby;
 	public GameObject UnitsBoard;
@@ -65,14 +63,13 @@ public class LobbyManager : MonoBehaviour {
 			break;
 		}
 	}
-		
+
 
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.Escape)) {
 			ToMainLobby ();
 		}
-
 	}
 
 	//Gamepad Left Right Trigger Control
@@ -110,6 +107,7 @@ public class LobbyManager : MonoBehaviour {
 		case "Multi_Board":
 			multiBoard.transform.DOMoveX (2.0f, 2.0f);
 			campaignBoard.transform.DOMoveX (-2.0f, 2.0f);
+			OVRCamera.transform.DOMoveZ (-0.9f, 1.0f);
 
 			c_Rend.material.mainTexture = Resources.Load ("Campaign_Main_off") as Texture;
 			m_Rend.material.mainTexture = Resources.Load ("Multiplay_Main_on") as Texture;
@@ -178,6 +176,8 @@ public class LobbyManager : MonoBehaviour {
 	}
 
 	void SceneMove(){
+		//SceneManager.LoadScene (1);
 		SceneManager.LoadScene ("03_Multi_Lobby");
+		LobbyBacktoPreviousScene.sc_check = false;
 	}
 }

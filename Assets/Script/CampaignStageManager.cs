@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class CampaignStageManager : MonoBehaviour {
 
-	LobbyManager lobbyManager; 
+	MainLobbyManager lobbyManager; 
 	GameObject activeStage;
 
 	public delegate void OnChangeActiveStageHandler(string stageName);
@@ -28,7 +28,7 @@ public class CampaignStageManager : MonoBehaviour {
 		OVRTouchpad.Create();
 		OVRTouchpad.TouchHandler += GearTouchHandler;
 
-		lobbyManager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lobbyManager = GameObject.Find ("GameManager").GetComponent<MainLobbyManager> ();
 		lobbyManager.OnTapObject += OnTapObject;
 
 	}

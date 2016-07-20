@@ -6,7 +6,7 @@ using DG.Tweening;
 public class WeaponBoardManager : MonoBehaviour {
 
 	TrackingManager trk_Manager;
-	LobbyManager lob_Manager;
+	MainLobbyManager lob_Manager;
 	UnitBoardManager uni_Manager;
 	CampaignStageManager cs_Manager;
 
@@ -25,7 +25,7 @@ public class WeaponBoardManager : MonoBehaviour {
 	private List<GameObject> weapons;
 
 	void OnEnable(){
-		lob_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lob_Manager = GameObject.Find ("GameManager").GetComponent<MainLobbyManager> ();
 		lob_Manager.OnTapObject += OnTapObject;
 	}
 

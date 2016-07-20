@@ -17,6 +17,7 @@ public class UnitSelection : MonoBehaviour {
 			if (t.gameObject.name != "Spotlight" && t.gameObject.name != "UnitBoard" && t.gameObject.name != "WeaponBoard"/* && t.gameObject.name.Substring(7) != "missile"*/) {
 				units.Add (t.gameObject);
 				t.gameObject.SetActive (false);
+
 			}
 		}
 

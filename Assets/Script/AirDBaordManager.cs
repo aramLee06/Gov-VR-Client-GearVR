@@ -5,7 +5,7 @@ using DG.Tweening;
 public class AirDBaordManager : MonoBehaviour {
 
 	TrackingManager trk_Manager;
-	LobbyManager lob_Manager;
+	MainLobbyManager lob_Manager;
 
 	public GameObject[] airD;
 	public int a_Chk;
@@ -14,7 +14,7 @@ public class AirDBaordManager : MonoBehaviour {
 
 	void OnEnable(){
 
-		lob_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lob_Manager = GameObject.Find ("GameManager").GetComponent<MainLobbyManager> ();
 		lob_Manager.OnTapObject += OnTapObject;
 	}
 

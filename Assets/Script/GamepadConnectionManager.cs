@@ -5,7 +5,7 @@ using VR = UnityEngine.VR;
 
 public class GamepadConnectionManager : MonoBehaviour {
 
-	LobbyManager lb_Manager;
+	MainLobbyManager lb_Manager;
 	public GameObject[] UI_Board; 	//Option, CampaignBoard, UnitSelect, Multi Board, PlayerName
 	public GameObject curr_Select;
 	public GameObject old_Select;
@@ -18,7 +18,7 @@ public class GamepadConnectionManager : MonoBehaviour {
 	Renderer m_Rend;
 
 	void Start () {
-		lb_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lb_Manager = GameObject.Find ("GameManager").GetComponent<MainLobbyManager> ();
 		m_uiCheck = 1;
 
 		c_Rend = GameObject.Find ("Campaign_Board").GetComponent<Renderer>();

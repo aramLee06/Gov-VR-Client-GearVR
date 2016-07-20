@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SoundManager : MonoBehaviour {
 
-	LobbyManager lob_Manager;
+	MainLobbyManager lob_Manager;
 	TrackingManager trk_Manager;
 
 	public GameObject sdOn;
@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour {
 	Renderer off_Rend;
 
 	void OnEnable(){
-		lob_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lob_Manager = GameObject.Find ("GameManager").GetComponent<MainLobbyManager> ();
 		lob_Manager.OnTapObject += OnTapObject;
 	}
 

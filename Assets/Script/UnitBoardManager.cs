@@ -6,7 +6,7 @@ using VR = UnityEngine.VR;
 public class UnitBoardManager : MonoBehaviour {
 
 	TrackingManager trk_Manager;
-	LobbyManager lob_Manager;
+	MainLobbyManager lob_Manager;
 	CampaignStageManager cs_Manager;
 	WeaponBoardManager weap_Manager;
 
@@ -39,7 +39,7 @@ public class UnitBoardManager : MonoBehaviour {
 	}
 	
 	void OnEnable(){
-		lob_Manager = GameObject.Find ("GameManager").GetComponent<LobbyManager> ();
+		lob_Manager = GameObject.Find ("GameManager").GetComponent<MainLobbyManager> ();
 		lob_Manager.OnTapObject += OnTapObject;
 	}
 
