@@ -18,8 +18,12 @@ public class BigBadBoss : MonoBehaviour
         if (spotcontainer != null)
             spotpoint = spotcontainer.GetComponentsInChildren<Transform>();
         isDead = false;
-        StartCoroutine(MakeMissile());
         targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
+    }
+
+    public void battlemod()
+    {
+        StartCoroutine(MakeMissile());
     }
 
     IEnumerator MakeMissile()

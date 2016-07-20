@@ -6,10 +6,8 @@ public class BossMissileCtrl : MonoBehaviour
 
     public GameObject expEffect;
     public float speed = 1000.0f;
-    public float fireRate = 10.5f; //미사일 발사 딜레이
-    private float nextFire;
     private Transform targetTr;
-    private float myTimer = 5.0f;
+    private float myTimer = 6.0f;
     public Transform mypoint;
 
 
@@ -27,7 +25,7 @@ public class BossMissileCtrl : MonoBehaviour
 
     IEnumerator FireMissile()
     {
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(myTimer);
 
         Debug.Log("발사");
         GetComponent<Rigidbody>().AddForce(transform.forward * speed);
@@ -39,7 +37,6 @@ public class BossMissileCtrl : MonoBehaviour
         this.transform.LookAt(targetTr);
         transform.Rotate(new Vector3(0, 0, 1) * 60 * Time.deltaTime);
         transform.position = Vector3.MoveTowards(transform.position, mypoint.position, 1f * Time.deltaTime);
-
     }
 
 

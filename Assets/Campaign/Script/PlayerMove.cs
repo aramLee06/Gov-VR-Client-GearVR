@@ -63,6 +63,7 @@ public class PlayerMove : MonoBehaviour
             if (currentWayPoint >= wayPointList.Length)
             {
                 bossbattle = true;
+                GameObject.FindWithTag("Boss").GetComponent<BigBadBoss>().battlemod();
                 return;
             }
             targetWayPoint = wayPointList[currentWayPoint];
