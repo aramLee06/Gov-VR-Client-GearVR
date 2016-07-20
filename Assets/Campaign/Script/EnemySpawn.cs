@@ -8,11 +8,13 @@ public class EnemySpawn : MonoBehaviour
 
     public GameObject enemy;
     public GameObject enemydrone;
+    public GameObject boss;
     private WayPoints wp;
     public Transform[] wayPointList;
     private int currentSpawnPoint;
     public GameObject targetObj;
     public Transform waypointContainer;
+    public Transform bossspot;
     public Transform EnemywayPointsList1;
     public Transform EnemywayPointsList2;
     public Transform EnemywayPointsList3;
@@ -57,17 +59,19 @@ public class EnemySpawn : MonoBehaviour
         Debug.Log("테스트");
         //this.transform.position = A.transform.position;
         //currentSpawnPoint = wp.currentWayPoint;
-        GameObject temp1 = Instantiate(enemy, EnemywayPointsList1.transform.position, EnemywayPointsList1.transform.rotation) as GameObject;
-        temp1.GetComponent<EnemyTank>().wayPointList = EnemywayPointsList1.GetComponentsInChildren<Transform>();
+        //GameObject temp1 = Instantiate(enemy, EnemywayPointsList1.transform.position, EnemywayPointsList1.transform.rotation) as GameObject;
+        //temp1.GetComponent<EnemyTank>().wayPointList = EnemywayPointsList1.GetComponentsInChildren<Transform>();
 
-        GameObject tempDrone1 = Instantiate(enemydrone, EnemywayPointsList1.transform.position, EnemywayPointsList1.transform.rotation) as GameObject;
-        tempDrone1.GetComponent<EnemyDrone>().wayPointList = EnemywayPointsList1.GetComponentsInChildren<Transform>();
+        Instantiate(boss, bossspot.transform.position, bossspot.transform.rotation);
 
-        GameObject temp2 = Instantiate(enemy, EnemywayPointsList2.transform.position, EnemywayPointsList2.transform.rotation) as GameObject;
-        temp2.GetComponent<EnemyTank>().wayPointList = EnemywayPointsList2.GetComponentsInChildren<Transform>();
+        //GameObject tempDrone1 = Instantiate(enemydrone, EnemywayPointsList1.transform.position, EnemywayPointsList1.transform.rotation) as GameObject;
+        //tempDrone1.GetComponent<EnemyDrone>().wayPointList = EnemywayPointsList1.GetComponentsInChildren<Transform>();
 
-        GameObject temp3 = Instantiate(enemy, EnemywayPointsList3.transform.position, EnemywayPointsList3.transform.rotation) as GameObject;
-        temp3.GetComponent<EnemyTank>().wayPointList = EnemywayPointsList3.GetComponentsInChildren<Transform>();
+        //GameObject temp2 = Instantiate(enemy, EnemywayPointsList2.transform.position, EnemywayPointsList2.transform.rotation) as GameObject;
+        //temp2.GetComponent<EnemyTank>().wayPointList = EnemywayPointsList2.GetComponentsInChildren<Transform>();
+
+        //GameObject temp3 = Instantiate(enemy, EnemywayPointsList3.transform.position, EnemywayPointsList3.transform.rotation) as GameObject;
+        //temp3.GetComponent<EnemyTank>().wayPointList = EnemywayPointsList3.GetComponentsInChildren<Transform>();
         //Debug.Log(wayPointList[wp.currentWayPoint + 2].transform.position);
         //Instantiate(enemy, wayPointList[wp.currentWayPoint+2].transform.position, Quaternion.identity);
 

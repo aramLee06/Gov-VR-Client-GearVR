@@ -13,13 +13,14 @@ public class EnemyTank : MonoBehaviour
     public int myRouteNum;
     public int currentWayPoint; //현재 위치
     private WayPoints wp;
+    private float speed = 1f; //이동 속도
 
     // 상태 정보: 탐색, 접촉, 공격, 죽음
     public enum State { idle = 0, contact, attack, die };
     State state;
     // 공격 사정거리.
-    public float contactDist = 10.0f;
-    public float attackDist = 0.2f;
+    public float contactDist = 2.0f;
+    public float attackDist = 3.0f;
     // 죽음 여부.
     private bool isDie = false;
 
@@ -57,9 +58,10 @@ public class EnemyTank : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("발사");
+        //Debug.Log("발사");
         Instantiate(shot, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
         state = State.idle;
+        StopCoroutine(CheckState());
     }
 
     void OnCollisionEnter(Collision coll)
@@ -75,10 +77,11 @@ public class EnemyTank : MonoBehaviour
         while (!isDie)
         {
             yield return new WaitForSeconds(0.2f);
+            Debug.Log(state);
             float dist = Vector3.Distance(targetTr.position, transform.position);
-            if (dist <= contactDist) // 공격거리 범위 이내로 들어왔는지 확인.
+            if (dist <= contactDist) 
                 state = State.contact;
-            if (state == State.contact && dist > attackDist)
+            else if (state == State.contact && dist >= attackDist) 
                 state = State.attack;
             Debug.Log(dist);
         }
@@ -94,7 +97,7 @@ public class EnemyTank : MonoBehaviour
                     walk();
                     break;
 
-                case State.contact:
+                case State.contact: //만남
                     walk();
                     Aim();
                     break;
@@ -122,8 +125,8 @@ public class EnemyTank : MonoBehaviour
         //Debug.Log(targetWayPoint.position);
         //Vector3 dir = targetWayPoint.position - transform.position;
         Vector3 dirXZ = new Vector3(targetWayPoint.position.x, 0f, targetWayPoint.position.z);
-        transform.forward = Vector3.RotateTowards(transform.forward, dirXZ - transform.position, 0.5f * Time.deltaTime, 0.0f);
-        transform.position = Vector3.MoveTowards(transform.position, dirXZ, 0.5f * Time.deltaTime);
+        transform.forward = Vector3.RotateTowards(transform.forward, dirXZ - transform.position, speed * Time.deltaTime, 0.0f);
+        transform.position = Vector3.MoveTowards(transform.position, dirXZ, speed * Time.deltaTime);
         //Debug.Log(dir);
         if (targetWayPoint.position.x - 0.3f <= transform.position.x && transform.position.x <= targetWayPoint.position.x + 0.3f && targetWayPoint.position.z - 0.3f <= transform.position.z && transform.position.z + 0.3f <= targetWayPoint.position.z + 0.3f)
         {

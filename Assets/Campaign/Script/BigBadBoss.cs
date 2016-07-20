@@ -3,42 +3,42 @@ using System.Collections;
 
 public class BigBadBoss : MonoBehaviour
 {
-    public float missileduration = 1.0f; //미사일 소환 주기
+    public float missileduration = 10.0f; //미사일 소환 주기
     private float nextFire;
     public Transform spotcontainer;
     public Transform[] spotpoint;
     public GameObject bbMissile;
     private bool isDead;
+    private Transform targetTr;
 
     // Use this for initialization
     void Start()
     {
+        Debug.Log("시작");
         if (spotcontainer != null)
             spotpoint = spotcontainer.GetComponentsInChildren<Transform>();
-        StartCoroutine(MakeMissile());
         isDead = false;
-}
+        StartCoroutine(MakeMissile());
+        targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
+    }
 
     IEnumerator MakeMissile()
     {
         while (!isDead)
         {
-            Debug.Log(spotpoint.Length);
+            yield return new WaitForSeconds(missileduration);
             for (int bbm = 1; bbm < spotpoint.Length; bbm++)
             {
-                Instantiate(bbMissile, spotpoint[bbm].transform.position, spotpoint[bbm].transform.rotation);
+                GameObject spawnMissile = Instantiate(bbMissile, spotcontainer.transform.position, spotcontainer.transform.rotation) as GameObject;
+                spawnMissile.GetComponent<BossMissileCtrl>().mypoint = spotpoint[bbm].transform;
             }
-            yield return new WaitForSeconds(missileduration); //0.2초간 실행을 보류한다.
+            Debug.Log("생성");
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > nextFire)
-        {
-            nextFire = Time.time + missileduration;
-
-        }
+        this.transform.LookAt(targetTr);
     }
 }
