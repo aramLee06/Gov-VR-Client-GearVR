@@ -12,11 +12,9 @@ public class LobbyBacktoPreviousScene : MonoBehaviour {
 	void Update(){
 		OVRCamera1 = GameObject.Find("OVRCameraRig");
 		if (sc_check == false) {
-			this.transform.DOMoveY (0.8f, 1.0f);
-			Debug.Log ("bb");
+			this.transform.DOMoveY (1.2f, 1.0f);
 		} else if(sc_check == true){
 			this.transform.DOMoveY (5f, 1.0f);
-			Debug.Log ("aa");
 		}
 	}
 

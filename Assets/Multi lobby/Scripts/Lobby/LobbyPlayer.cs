@@ -40,8 +40,18 @@ namespace Prototype.NetworkLobby
 
         //static Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
         //static Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
+		/*
+		private static LobbyPlayer main = null;
 
-
+		public static LobbyPlayer Instane
+		{
+			get {
+				if (main == null)
+					main = new LobbyPlayer ();
+				return main;
+			}
+		}
+*/
         public override void OnClientEnterLobby()
         {
             base.OnClientEnterLobby();
@@ -187,7 +197,7 @@ namespace Prototype.NetworkLobby
             playerName = newName;
             nameInput.text = playerName;
         }
-
+			
         public void OnMyColor(Color newColor)
         {
             playerColor = newColor;

@@ -39,6 +39,8 @@ namespace Prototype.NetworkLobby
         public Text statusInfo;
         public Text hostInfo;
 
+		public Color teamColor;
+
         //Client numPlayers from NetworkManager is always 0, so we count (throught connect/destroy in LobbyPlayer) the number
         //of players, so that even client know how many player there is.
         [HideInInspector]
@@ -49,6 +51,8 @@ namespace Prototype.NetworkLobby
         public bool _isMatchmaking = false;
 
         protected bool _disconnectServer = false;
+
+		public string _teamCheck;
         
         protected ulong _currentMatchID;
 
@@ -166,9 +170,26 @@ namespace Prototype.NetworkLobby
 
         // ----------------- Server management
 
+		public void ChangeRedTeamUnit()
+		{
+			teamColor = Color.red;
+			//lobbyPanel = LobbyPlayer.Instane.OnMyColor(teamColor);
+			//Debug.Log ("red");
+			//gameObject.SendMessage ("OnMyColor", teamColor);
+			//Debug.Log ("You're Red Team");
+		}
+
+		public void ChangeBlueTeamUnit()
+		{
+			teamColor = Color.blue;
+			//Debug.Log ("blue");
+			gameObject.SendMessage ("OnMyColor", teamColor);
+			//Debug.Log ("You're Blue Team");
+		}
+
         public void AddLocalPlayer()
         {
-            TryToAddPlayer();
+			TryToAddPlayer ();
         }
 
         public void RemovePlayer(LobbyPlayer player)
