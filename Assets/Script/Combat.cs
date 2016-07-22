@@ -4,19 +4,24 @@ using UnityEngine.UI;
 
 public class Combat : NetworkBehaviour
 {
-    public const int maxHealth = 100;
-    float hp;
+    public GameObject HPbar;
+    public Sprite HPoff;
+    public Sprite HPon;
+    public const int maxHealth = 10;
 
-    [SyncVar(hook = "OnChangeHealth")]
+    [SyncVar]
     public int health = maxHealth;
 
-    public RectTransform healthBar;
+    void Start()
+    {
+    }
 
     public void TakeDamage(int amount)
     {
         if (!isServer)
             return;
         health -= amount;
+        RpcChangeHealth(health);
         if (health <= 0)
         {
             health = maxHealth;
@@ -35,8 +40,19 @@ public class Combat : NetworkBehaviour
         }
     }
 
-    void OnChangeHealth(int health)
+    [ClientRpc]
+    void RpcChangeHealth(int health)
     {
-        healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
+        int num = 10 - health;
+        string numString = "HP" + num;
+        HPbar.transform.FindChild(numString).GetComponent<Image>().sprite = HPoff;
+        if (health <= 0)
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                numString = "HP" + i;
+                HPbar.transform.FindChild(numString).GetComponent<Image>().sprite = HPon;
+            }
+        }
     }
 }

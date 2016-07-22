@@ -45,10 +45,11 @@ public class F3DBeam : MonoBehaviour
     // OnSpawned called by pool manager 
     void OnSpawned()
     {
+        /*
         // Do one time raycast in case of one shot flag
         if (OneShot)
             Raycast();
-
+            */
         // Start animation sequence if beam frames array has more than 2 elements
         if (BeamFrames.Length > 1)
             Animate();
@@ -98,7 +99,7 @@ public class F3DBeam : MonoBehaviour
                 break;
         }        
     }
-
+    
     // Hit point calculation
     void Raycast()
     {
@@ -168,7 +169,7 @@ public class F3DBeam : MonoBehaviour
 
         // Set beam scaling according to its length
         lineRenderer.material.SetTextureScale("_MainTex", new Vector2(propMult, 1f));
-    }   
+    }  
 
     // Advance texture frame
     void OnFrameStep()
@@ -211,8 +212,10 @@ public class F3DBeam : MonoBehaviour
         if (AnimateUV)        
             lineRenderer.material.SetTextureOffset("_MainTex", new Vector2(Time.time * UVTime + initialBeamOffset, 0f));
 
+        /*
         // Raycast for laser beams
         if (!OneShot)        
             Raycast();       
+            */
     }
 }

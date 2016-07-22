@@ -48,7 +48,7 @@ public class F3DDespawn : MonoBehaviour {
     // Despawn game object this script attached to
     public void Despawn()
     {
-        F3DPool.instance.Despawn(transform);
+        //F3DPool.instance.Despawn(transform);
     }
 
     void Update()
