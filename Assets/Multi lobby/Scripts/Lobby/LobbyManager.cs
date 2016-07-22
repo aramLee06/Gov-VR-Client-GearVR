@@ -24,6 +24,7 @@ namespace Prototype.NetworkLobby
         [Space]
         [Header("UI Reference")]
         public LobbyTopPanel topPanel;
+		public LobbyPlayer lobPlayer;
 
         public RectTransform mainMenuPanel;
         public RectTransform lobbyPanel;
@@ -39,7 +40,7 @@ namespace Prototype.NetworkLobby
         public Text statusInfo;
         public Text hostInfo;
 
-		public Color teamColor;
+		//public Color teamColor;
 
         //Client numPlayers from NetworkManager is always 0, so we count (throught connect/destroy in LobbyPlayer) the number
         //of players, so that even client know how many player there is.
@@ -62,6 +63,7 @@ namespace Prototype.NetworkLobby
         {
             s_Singleton = this;
             _lobbyHooks = GetComponent<Prototype.NetworkLobby.LobbyHook>();
+
             currentPanel = mainMenuPanel;
 
             backButton.gameObject.SetActive(false);
@@ -72,6 +74,10 @@ namespace Prototype.NetworkLobby
             SetServerInfo("Offline", "None");
         }
 
+		void Update()
+		{
+			lobPlayer = GameObject.Find ("PlayerInfo(Clone)").GetComponent<LobbyPlayer> ();
+		}
         public override void OnLobbyClientSceneChanged(NetworkConnection conn)
         {
             if (SceneManager.GetSceneAt(0).name == lobbyScene)
@@ -163,28 +169,37 @@ namespace Prototype.NetworkLobby
 
         public delegate void BackButtonDelegate();
         public BackButtonDelegate backDelegate;
+
         public void GoBackButton()
         {
             backDelegate();
         }
 
-        // ----------------- Server management
-
-		public void ChangeRedTeamUnit()
+		public void InitializePlayerList()
 		{
-			teamColor = Color.red;
-			//lobbyPanel = LobbyPlayer.Instane.OnMyColor(teamColor);
-			//Debug.Log ("red");
-			//gameObject.SendMessage ("OnMyColor", teamColor);
-			//Debug.Log ("You're Red Team");
+			Debug.Log ("Unfortunately");	
+			lobPlayer.OnDestroy ();
+			Debug.Log ("Good");
 		}
 
+        // ----------------- Server management
+
+		/// <summary>
+		/// Red Team Select
+		/// TryToAddPlayer -> Just Change your Team (New Function);
+		/// </summary>
+		public void ChangeRedTeamUnit()
+		{
+			TryToAddPlayer ();
+		}
+
+		/// <summary>
+		/// BlueTeam Select
+		/// TryToAddPlayer -> Just Change your Team (New Function);
+		/// </summary>
 		public void ChangeBlueTeamUnit()
 		{
-			teamColor = Color.blue;
-			//Debug.Log ("blue");
-			gameObject.SendMessage ("OnMyColor", teamColor);
-			//Debug.Log ("You're Blue Team");
+			TryToAddPlayer ();
 		}
 
         public void AddLocalPlayer()

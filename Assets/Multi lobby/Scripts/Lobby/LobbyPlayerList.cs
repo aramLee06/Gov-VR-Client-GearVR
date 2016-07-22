@@ -11,6 +11,7 @@ namespace Prototype.NetworkLobby
         public static LobbyPlayerList _instance = null;
 
         public RectTransform playerListContentTransform;
+
         public GameObject warningDirectPlayServer;
         public Transform addButtonRow;
 
@@ -34,8 +35,8 @@ namespace Prototype.NetworkLobby
             //this dirty the layout to force it to recompute evryframe (a sync problem between client/server
             //sometime to child being assigned before layout was enabled/init, leading to broken layouting)
             
-            if(_layout)
-                _layout.childAlignment = Time.frameCount%2 == 0 ? TextAnchor.UpperCenter : TextAnchor.UpperLeft;
+            //if(_layout)
+              //  _layout.childAlignment = Time.frameCount%2 == 0 ? TextAnchor.UpperCenter : TextAnchor.UpperLeft;
         }
 
         public void AddPlayer(LobbyPlayer player)
@@ -45,12 +46,13 @@ namespace Prototype.NetworkLobby
 
             _players.Add(player);
 
-            player.transform.SetParent(playerListContentTransform, false);
+			player.transform.SetParent (playerListContentTransform, false);
+
             addButtonRow.transform.SetAsLastSibling();
 
             PlayerListModified();
         }
-
+			
         public void RemovePlayer(LobbyPlayer player)
         {
             _players.Remove(player); 
