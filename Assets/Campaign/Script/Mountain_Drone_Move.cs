@@ -19,12 +19,16 @@ public class Mountain_Drone_Move : MonoBehaviour
     public Transform waypointContainer;
     public int currentWayPoint; //현재 위치
     public Transform targetWayPoint; //다음 위치
+    public Transform spotcontainer;
+    public Transform[] spotpoint;
 
     public float speed = 0.5f; //이동 속도
 
     private Rigidbody rb;
     void Start()
     {
+        if (spotcontainer != null)
+            spotpoint = spotcontainer.GetComponentsInChildren<Transform>();
         currentWayPoint = 1;
         //rb = GetComponent<Rigidbody>();
         if (waypointContainer != null)
@@ -40,6 +44,14 @@ public class Mountain_Drone_Move : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            for (int bbm = 1; bbm < spotpoint.Length; bbm++)
+            {
+                Instantiate(shot, spotpoint[bbm].transform.position, spotpoint[bbm].transform.rotation);
+            }
+        }
         if (targetWayPoint == null)
             return;
         transform.forward = Vector3.RotateTowards(transform.forward, targetWayPoint.position - transform.position, 1 * Time.deltaTime, 0.0f);
@@ -56,13 +68,14 @@ public class Mountain_Drone_Move : MonoBehaviour
             targetWayPoint = wayPointList[currentWayPoint];
         }
 
-       /* turret.transform.Rotate(new Vector3(0.0f, Input.GetAxis("Horizontal") * Mathf.Rad2Deg, 0.0f) * Time.deltaTime);
-        gun.transform.Rotate(new Vector3(Input.GetAxis("Vertical") * Mathf.Rad2Deg, 0.0f, 0.0f) * Time.deltaTime);
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            Instantiate(shot, shotSpawn.transform.position, shotSpawn.transform.rotation);
-        }*/
+
+        /* turret.transform.Rotate(new Vector3(0.0f, Input.GetAxis("Horizontal") * Mathf.Rad2Deg, 0.0f) * Time.deltaTime);
+         gun.transform.Rotate(new Vector3(Input.GetAxis("Vertical") * Mathf.Rad2Deg, 0.0f, 0.0f) * Time.deltaTime);
+         if (Input.GetButton("Fire1") && Time.time > nextFire)
+         {
+             nextFire = Time.time + fireRate;
+             Instantiate(shot, shotSpawn.transform.position, shotSpawn.transform.rotation);
+         }*/
     }
 
     void walk()

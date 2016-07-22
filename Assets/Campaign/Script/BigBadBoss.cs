@@ -10,6 +10,8 @@ public class BigBadBoss : MonoBehaviour
     public GameObject bbMissile;
     private bool isDead;
     private Transform targetTr;
+    private int hp;
+    public GameObject expEffect;
 
     // Use this for initialization
     void Start()
@@ -19,11 +21,23 @@ public class BigBadBoss : MonoBehaviour
             spotpoint = spotcontainer.GetComponentsInChildren<Transform>();
         isDead = false;
         targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        hp = 20;
     }
 
     public void battlemod()
     {
+        Debug.Log("보스전");
         StartCoroutine(MakeMissile());
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        hp = hp - 1;
+        if (hp <= 0)
+        {
+            Instantiate(expEffect, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 
     IEnumerator MakeMissile()

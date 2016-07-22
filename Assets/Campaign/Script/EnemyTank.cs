@@ -77,13 +77,13 @@ public class EnemyTank : MonoBehaviour
         while (!isDie)
         {
             yield return new WaitForSeconds(0.2f);
-            Debug.Log(state);
+            //Debug.Log(state);
             float dist = Vector3.Distance(targetTr.position, transform.position);
             if (dist <= contactDist) 
                 state = State.contact;
             else if (state == State.contact && dist >= attackDist) 
                 state = State.attack;
-            Debug.Log(dist);
+            //Debug.Log(dist);
         }
     }
 

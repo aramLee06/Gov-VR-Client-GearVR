@@ -6,7 +6,8 @@ public class EnemyDrone : MonoBehaviour
 
     private Transform targetTr;
     public GameObject shot; //미사일
-    public GameObject SpawnPoint; //미사일발사위치
+    public Transform spotcontainer;
+    public Transform[] spotpoint;
     public Transform[] wayPointList;
     public int myRouteNum;
     public int currentWayPoint; //현재 위치
@@ -16,37 +17,22 @@ public class EnemyDrone : MonoBehaviour
     public GameObject expEffect;
     // 상태 정보: 탐색, 접촉, 공격, 죽음
     public enum State { idle = 0, contact, attack, die };
-    // 추적 사정거리.
-    public float traceDist = 10.0f;
     State state;
     // 공격 사정거리.
-    public float attackDist = 10.0f;
+    float contactDist = 10.0f;
+    float attackDist = 11.0f;
     // 죽음 여부.
     private bool isDie = false;
 
     void Start()
     {
+        if (spotcontainer != null)
+            spotpoint = spotcontainer.GetComponentsInChildren<Transform>();
         targetTr = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         state = State.idle;
-        //GetWaypoints();
         targetWayPoint = wayPointList[currentWayPoint];
         StartCoroutine(this.CheckState());
         StartCoroutine(this.Action());
-    }
-
-    void GetWaypoints()
-    {
-        Debug.Log(myRouteNum);
-        if (myRouteNum != 0)
-        {
-            if (myRouteNum == 1)
-                wayPointList = GameObject.Find("EnemyRouteA").GetComponentsInChildren<Transform>();
-            if (myRouteNum == 2)
-                wayPointList = GameObject.Find("EnemyRouteA (2)").GetComponentsInChildren<Transform>();
-            if (myRouteNum == 3)
-                wayPointList = GameObject.Find("EnemyRouteA (3)").GetComponentsInChildren<Transform>();
-            targetWayPoint = wayPointList[2];
-        }
     }
 
     void Aim()
@@ -57,7 +43,11 @@ public class EnemyDrone : MonoBehaviour
 
     void Attack()
     {
-        //Instantiate(shot, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+        for (int bbm = 1; bbm < spotpoint.Length; bbm++)
+        {
+            spotpoint[bbm].LookAt(targetTr);
+            Instantiate(shot, spotpoint[bbm].transform.position, spotpoint[bbm].transform.rotation);
+        }
     }
 
     void OnCollisionEnter(Collision coll)
@@ -79,10 +69,12 @@ public class EnemyDrone : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
             float dist = Vector3.Distance(targetTr.position, transform.position);
-            if (dist <= attackDist) // 공격거리 범위 이내로 들어왔는지 확인.
+            if (dist <= contactDist)
                 state = State.contact;
-            else if (state == State.contact && dist > attackDist)
+            else if (state == State.contact && dist >= attackDist)
                 state = State.attack;
+            Debug.Log(state);
+            Debug.Log(dist);
         }
     }
 
@@ -133,7 +125,7 @@ public class EnemyDrone : MonoBehaviour
         {
             currentWayPoint++;
             if (currentWayPoint >= wayPointList.Length)
-            { 
+            {
                 Destroy(this.gameObject);
                 return;
             }

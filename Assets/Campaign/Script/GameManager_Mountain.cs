@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class MountainRouteObject
@@ -35,10 +36,36 @@ public class GameManager_Mountain : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (Demo.routenum == 1)
+        //if (GUI.Button(new Rect(20, 40, 80, 20), "루트 A"))
+        {
+            route = Route.A;
+            selectedroute = routeobject.RouteA;
+            //CreateRoute(selectedroute);
+            SetRoute();
+            Spawntank();
+            //Instantiate(spawnobject.SpawnPointA, spawnobject.SpawnPointA.transform.position, spawnobject.SpawnPointA.transform.rotation);
 
+        }
+        // if (GUI.Button(new Rect(20, 70, 80, 20), "루트 B"))
+        if (Demo.routenum == 2)
+        {
+            route = Route.B;
+            selectedroute = routeobject.RouteB;
+            SetRoute();
+            Spawntank();
+        }
+        //if (GUI.Button(new Rect(20, 100, 80, 20), "루트 C"))
+        if (Demo.routenum == 3)
+        {
+            route = Route.C;
+            selectedroute = routeobject.RouteC;
+            SetRoute();
+            Spawntank();
+        }
     }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         if (route == Route.None)
         {
@@ -67,7 +94,7 @@ public class GameManager_Mountain : MonoBehaviour
                 Spawntank();
             }
         }
-    }
+    }*/
 
     void CreateRoute(GameObject A)
     {
@@ -89,5 +116,12 @@ public class GameManager_Mountain : MonoBehaviour
         selecteddrone.GetComponent<Mountain_Drone_Move>().targetWayPoint = wayPointList[2];
         selecteddrone.transform.rotation = rotation;
         //GameObject.Find("CameraContainer").GetComponent<CameraChase>().Unit = spawnDrone.transform;
+    }
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Demo", LoadSceneMode.Single);
+        }
     }
 }
