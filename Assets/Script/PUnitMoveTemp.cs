@@ -14,12 +14,16 @@ public class PUnitMoveTemp : MonoBehaviour
     private float shaking;
     private float movetime;
     public GameObject gun;
+    public Transform spotcontainer;
+    public Transform[] spotpoint;
 
     // Use this for initialization
     void Start()
     {
-       // shaking = 1f;
-       // movetime = 1f;
+        if (spotcontainer != null)
+            spotpoint = spotcontainer.GetComponentsInChildren<Transform>();
+        // shaking = 1f;
+        // movetime = 1f;
         targetTr = GameObject.Find("blue_tank_01_Test").GetComponent<Transform>();
         //iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath("New Path 1"), "time", 20, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.loop, "orienttopath", true));
     }
@@ -29,13 +33,18 @@ public class PUnitMoveTemp : MonoBehaviour
     {
         
         //transform.Translate(new Vector3(0, Input.GetAxis("Vertical"), 0) * Time.deltaTime);
-        turret.transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis("Horizontal") * Mathf.Rad2Deg) * Time.deltaTime);
-        gun.transform.Rotate(new Vector3(Input.GetAxis("Vertical") * Mathf.Rad2Deg, 0.0f, 0.0f) * Time.deltaTime);
+        //this.transform.Rotate(new Vector3(0.0f, Input.GetAxis("Horizontal") * Mathf.Rad2Deg, 0.0f) * Time.deltaTime);
+        turret.transform.Rotate(new Vector3(Input.GetAxis("Vertical") * Mathf.Rad2Deg, 0.0f, 0.0f) * Time.deltaTime);
+        turret.transform.Rotate(new Vector3(0.0f, Input.GetAxis("Horizontal") * Mathf.Rad2Deg, 0.0f) * Time.deltaTime);
+        //gun.transform.Rotate(new Vector3(Input.GetAxis("Vertical") * Mathf.Rad2Deg, 0.0f, 0.0f) * Time.deltaTime);
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
 //            Debug.Log(Time.time);
             nextFire = Time.time + fireRate;
-            Transform myBullet = (Transform)Instantiate(shot, shotSpawn.transform.position, shotSpawn.transform.rotation);
+            for (int bbm = 1; bbm < spotpoint.Length; bbm++)
+            {
+                Instantiate(shot, spotpoint[bbm].transform.position, spotpoint[bbm].transform.rotation);
+            }
         }
         //turret.transform.forward = Vector3.RotateTowards(transform.forward, targetTr.position - transform.position, Time.deltaTime, 0.0f);
         /*{

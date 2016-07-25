@@ -26,6 +26,8 @@ public class PlayerMove : MonoBehaviour
 
     {
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"), true);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Missile"), LayerMask.NameToLayer("Player"), true);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss_Missile"), LayerMask.NameToLayer("Player"), true);
         //targetWayPoint = wayPointList[currentWayPoint];
         //Debug.Log(targetWayPoint);
     }
@@ -36,6 +38,10 @@ public class PlayerMove : MonoBehaviour
         {
             walk();
         }
+        Vector3 ang = gun.transform.eulerAngles;
+        if (ang.x > 180) ang.x -= 360;
+        ang.x = Mathf.Clamp(ang.x, -15, 5);
+        gun.transform.eulerAngles = ang;
 
         turret.transform.Rotate(new Vector3(0.0f, Input.GetAxis("Horizontal") * Mathf.Rad2Deg, 0.0f) * Time.deltaTime);
         gun.transform.Rotate(new Vector3(Input.GetAxis("Vertical") * Mathf.Rad2Deg, 0.0f, 0.0f) * Time.deltaTime);
