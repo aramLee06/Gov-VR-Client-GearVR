@@ -19,7 +19,7 @@ public class BossMissileCtrl : MonoBehaviour
     {
         targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
         //자기 위치로 가야해 어떻게?
-        Debug.Log(mypoint.position);
+        //Debug.Log(mypoint.position);
         StartCoroutine(FireMissile());
     }
 

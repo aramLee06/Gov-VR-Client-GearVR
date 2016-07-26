@@ -27,10 +27,15 @@ public class GameMgr : MonoBehaviour
     public SpawnObject spawnobject;
     public enum Route { None = 0, A, B, C };
     public enum Tank { None = 0, B1, B2, R1 };
+    public int enemycount;
+    public int enemykillcount;
     GameObject selectedroute;
     GameObject selectedtank;
     Route route;
     Tank tank;
+    GameObject spawnTank;
+    //CanvasGroup canvasGroup;
+    GameObject canvas;
 
     public Transform[] wayPointList; //루트 좌표
     public Transform waypointContainer;
@@ -39,7 +44,10 @@ public class GameMgr : MonoBehaviour
     // Use this for initialization
     void Start()
     { //여기서 루트랑 탱크 설정
-
+        canvas = GameObject.Find("Canvas");
+        enemycount = 0;
+            enemykillcount = 0;
+        //canvasGroup = GetComponent<CanvasGroup>();
     }
 
     void OnGUI()
@@ -71,7 +79,7 @@ public class GameMgr : MonoBehaviour
                 Instantiate(spawnobject.SpawnPointC, transform.position, transform.rotation);
             }
         }
-        else if(tank == Tank.None)
+        else if (tank == Tank.None)
         {
             if (GUI.Button(new Rect(20, 40, 80, 20), "블루 탱크 1"))
             {
@@ -98,7 +106,27 @@ public class GameMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (spawnTank.GetComponent<PlayerMove>().isdead)
+        {
+            //check
+            GameObject.Find("UIManager").SendMessage("setFirstStar");
+            //GameObject.FindWithTag("Boss").GetComponent<BigBadBoss>().battlemod();
+        }
+        //canvas.alpha=1; //플레이어가 죽으면 캔버스 보이기
+        if (spawnTank.GetComponent<PlayerMove>().bossbattle)
+            //GameObject.Find("UIManager").GetComponent<UIMgr>().setFirstStar();
+            GameObject.Find("UIManager").SendMessage("setFirstStar");
+    }
 
+    public void countingenemy()
+    {
+        enemycount++;
+    }
+
+    public void countingkill()
+    {
+        enemykillcount++;
+        secondstar();
     }
 
     void CreateRoute(GameObject A)
@@ -126,10 +154,20 @@ public class GameMgr : MonoBehaviour
     {
         Vector3 dir = wayPointList[1].transform.position - selectedroute.transform.position;
         Quaternion rotation = Quaternion.LookRotation(new Vector3(dir.x, dir.y, dir.z));
-        GameObject spawnTank = Instantiate(selectedtank, selectedroute.transform.position, rotation) as GameObject;
+        spawnTank = Instantiate(selectedtank, selectedroute.transform.position, rotation) as GameObject;
         spawnTank.GetComponent<PlayerMove>().wayPointList = wayPointList;
         spawnTank.GetComponent<PlayerMove>().targetWayPoint = wayPointList[1];
         spawnTank.transform.rotation = rotation;
         GameObject.Find("CameraContainer").GetComponent<CameraChase>().Unit = spawnTank.transform;
+    }
+    
+    void secondstar()
+    {
+        //죽인수 ÷ 적수 X 100
+        int score = enemykillcount / enemycount * 100;
+        if (score >= 95)
+           GameObject.Find("UIManager").SendMessage("setThirdStar");
+        if (score >= 85)
+            GameObject.Find("UIManager").SendMessage("setSecondStar");
     }
 }

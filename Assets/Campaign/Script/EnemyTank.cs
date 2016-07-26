@@ -66,7 +66,7 @@ public class EnemyTank : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-        if (coll.gameObject.tag == "MISSILE")
+        if (coll.gameObject.tag == "Missile")
         {
             Die();
         }
@@ -114,6 +114,7 @@ public class EnemyTank : MonoBehaviour
 
     void Die()
     {
+        GameObject.Find("GameManager").SendMessage("countingkill");
         StopAllCoroutines();
         isDie = true;
         state = State.die;

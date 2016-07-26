@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     public float fireRate = 0.5f; //미사일 발사 딜레이
     private float nextFire;
     public float power = 2000;
+    public GameObject expEffect;
     public GameObject gun;
     //--------------------------------------
 
@@ -21,15 +22,48 @@ public class PlayerMove : MonoBehaviour
 
     private float speed = 3f; //이동 속도
     public bool bossbattle = false;
+    public bool isdead = false;
+    private int hp=11;
 
     void Start()
 
     {
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"), true);
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Missile"), LayerMask.NameToLayer("Player"), true);
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss_Missile"), LayerMask.NameToLayer("Player"), true);
+        //Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Missile"), LayerMask.NameToLayer("Player"), true);
+        //Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss_Missile"), LayerMask.NameToLayer("Player"), true);
         //targetWayPoint = wayPointList[currentWayPoint];
         //Debug.Log(targetWayPoint);
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.tag == "Missile")
+        {
+            this.GetComponent<Rigidbody>().isKinematic = true;
+            HP();
+            isdead = true;
+            Debug.Log(isdead);
+        }
+        else if (coll.gameObject.tag == "Boss_Missile")
+        {
+            this.GetComponent<Rigidbody>().isKinematic = true;
+            HP();
+            isdead = true;
+            Debug.Log(isdead);
+        }
+        else
+            this.GetComponent<Rigidbody>().isKinematic = false;
+    }
+    
+    void HP()
+    {
+        hp = hp - 1;
+        if (hp <= 0)
+        {
+            Instantiate(expEffect, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            GameObject.Find("UIManager").SendMessage("UISHOW");
+        }
     }
 
     void Update()

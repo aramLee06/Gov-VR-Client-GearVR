@@ -61,6 +61,7 @@ public class EnemySpawn : MonoBehaviour
         //currentSpawnPoint = wp.currentWayPoint;
         GameObject temp1 = Instantiate(enemy, EnemywayPointsList1.transform.position, EnemywayPointsList1.transform.rotation) as GameObject;
         temp1.GetComponent<EnemyTank>().wayPointList = EnemywayPointsList1.GetComponentsInChildren<Transform>();
+        GameObject.Find("GameManager").SendMessage("countingenemy");
 
         Instantiate(boss, bossspot.transform.position, bossspot.transform.rotation);
 
@@ -69,9 +70,11 @@ public class EnemySpawn : MonoBehaviour
 
         GameObject temp2 = Instantiate(enemy, EnemywayPointsList2.transform.position, EnemywayPointsList2.transform.rotation) as GameObject;
         temp2.GetComponent<EnemyTank>().wayPointList = EnemywayPointsList2.GetComponentsInChildren<Transform>();
-        
+        GameObject.Find("GameManager").SendMessage("countingenemy");
+
         GameObject temp3 = Instantiate(enemy, EnemywayPointsList3.transform.position, EnemywayPointsList3.transform.rotation) as GameObject;
         temp3.GetComponent<EnemyTank>().wayPointList = EnemywayPointsList3.GetComponentsInChildren<Transform>();
+        GameObject.Find("GameManager").SendMessage("countingenemy");
         //Debug.Log(wayPointList[wp.currentWayPoint + 2].transform.position);
         //Instantiate(enemy, wayPointList[wp.currentWayPoint+2].transform.position, Quaternion.identity);
 

@@ -52,7 +52,7 @@ public class EnemyDrone : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-        if (coll.gameObject.tag == "MISSILE")
+        if (coll.gameObject.tag == "Missle")
         {
             Debug.Log("아야");
             Die();
@@ -73,8 +73,8 @@ public class EnemyDrone : MonoBehaviour
                 state = State.contact;
             else if (state == State.contact && dist >= attackDist)
                 state = State.attack;
-            Debug.Log(state);
-            Debug.Log(dist);
+            //Debug.Log(state);
+            //Debug.Log(dist);
         }
     }
 
