@@ -43,10 +43,37 @@ public class GameMgr : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    { //여기서 루트랑 탱크 설정
-        canvas = GameObject.Find("Canvas");
+    { //여기서 루트랑 탱크 설정 if (Demo.routenum == 1)
+      //if (GUI.Button(new Rect(20, 40, 80, 20), "루트 A"))
+        if (Demo.routenum == 1)
+        {
+            route = Route.A;
+            selectedroute = routeobject.RouteA;
+            CreateRoute(selectedroute);
+            SetRoute();
+            Instantiate(spawnobject.SpawnPointA, spawnobject.SpawnPointA.transform.position, spawnobject.SpawnPointA.transform.rotation);
+        }
+        if (Demo.routenum == 2)
+        {
+            route = Route.B;
+            selectedroute = routeobject.RouteB;
+            CreateRoute(selectedroute);
+            SetRoute();
+            Instantiate(spawnobject.SpawnPointB, spawnobject.SpawnPointB.transform.position, spawnobject.SpawnPointB.transform.rotation);
+        }
+        if (Demo.routenum == 3)
+        {
+            route = Route.C;
+            selectedroute = routeobject.RouteC;
+            CreateRoute(selectedroute);
+            SetRoute();
+            Instantiate(spawnobject.SpawnPointC, transform.position, transform.rotation);
+        }
+
+        selectedtank = tankobject.BlueTank1;
+        Spawntank();
         enemycount = 0;
-            enemykillcount = 0;
+        enemykillcount = 0;
         //canvasGroup = GetComponent<CanvasGroup>();
     }
 
@@ -160,13 +187,13 @@ public class GameMgr : MonoBehaviour
         spawnTank.transform.rotation = rotation;
         GameObject.Find("CameraContainer").GetComponent<CameraChase>().Unit = spawnTank.transform;
     }
-    
+
     void secondstar()
     {
         //죽인수 ÷ 적수 X 100
         int score = enemykillcount / enemycount * 100;
         if (score >= 95)
-           GameObject.Find("UIManager").SendMessage("setThirdStar");
+            GameObject.Find("UIManager").SendMessage("setThirdStar");
         if (score >= 85)
             GameObject.Find("UIManager").SendMessage("setSecondStar");
     }

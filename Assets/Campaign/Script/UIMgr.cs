@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIMgr : MonoBehaviour
 {
@@ -40,7 +41,11 @@ public class UIMgr : MonoBehaviour
     void Update()
     {
         //if (trk_Manager.trackedItem.name != null)
-          //  CheckBGM(trk_Manager.trackedItem.name);
+        //  CheckBGM(trk_Manager.trackedItem.name);        
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Demo 1", LoadSceneMode.Single);
+        }
     }
 
     void CheckBGM(string bName)
@@ -82,5 +87,15 @@ public class UIMgr : MonoBehaviour
     public void UISHOW()
     {
         UIcanvas.SetActive(true);
+    }
+
+    public void onReplayButton()
+    {
+        SceneManager.LoadScene("Campaign_Mars", LoadSceneMode.Single);
+    }
+    
+    public void onExitButton()
+    {
+        SceneManager.LoadScene("Demo 1", LoadSceneMode.Single);
     }
 }
