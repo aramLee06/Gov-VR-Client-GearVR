@@ -132,6 +132,11 @@ public class EnemyTank : MonoBehaviour
         if (targetWayPoint.position.x - 0.3f <= transform.position.x && transform.position.x <= targetWayPoint.position.x + 0.3f && targetWayPoint.position.z - 0.3f <= transform.position.z && transform.position.z + 0.3f <= targetWayPoint.position.z + 0.3f)
         {
             currentWayPoint++;
+            if (currentWayPoint >= wayPointList.Length)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
             targetWayPoint = wayPointList[currentWayPoint];
         }
     }

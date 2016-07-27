@@ -13,6 +13,8 @@ public class PlayerMove : MonoBehaviour
     public float power = 2000;
     public GameObject expEffect;
     public GameObject gun;
+    GameObject aim;
+    float turnspeed = 0.5f;
     //--------------------------------------
 
     public Transform[] wayPointList; //루트 좌표
@@ -20,7 +22,7 @@ public class PlayerMove : MonoBehaviour
     public int currentWayPoint; //현재 위치
     public Transform targetWayPoint; //다음 위치
 
-    private float speed = 3f; //이동 속도
+    private float speed = 0.5f; //이동 속도
     public bool bossbattle = false;
     public bool isdead = false;
     private int hp=11;
@@ -28,15 +30,20 @@ public class PlayerMove : MonoBehaviour
     void Start()
 
     {
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"), true);
+        //Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
         //Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Missile"), LayerMask.NameToLayer("Player"), true);
         //Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss_Missile"), LayerMask.NameToLayer("Player"), true);
         //targetWayPoint = wayPointList[currentWayPoint];
         //Debug.Log(targetWayPoint);
+        aim = GameObject.Find("aim");
     }
 
     void OnCollisionEnter(Collision coll)
     {
+        if (coll.gameObject.tag == "Enemy")
+        {
+            //Physics.IgnoreCollision(GetComponent<Collider>(), coll.gameObject.GetComponent<Collider>());
+        }
         if (coll.gameObject.tag == "Missile")
         {
             this.GetComponent<Rigidbody>().isKinematic = true;
@@ -61,7 +68,7 @@ public class PlayerMove : MonoBehaviour
         if (hp <= 0)
         {
             Instantiate(expEffect, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
             GameObject.Find("UIManager").SendMessage("UISHOW");
         }
     }
@@ -72,13 +79,23 @@ public class PlayerMove : MonoBehaviour
         {
             walk();
         }
-        Vector3 ang = gun.transform.eulerAngles;
+        /*Vector3 ang = gun.transform.eulerAngles;
         if (ang.x > 180) ang.x -= 360;
         ang.x = Mathf.Clamp(ang.x, -15, 5);
-        gun.transform.eulerAngles = ang;
+        gun.transform.eulerAngles = ang;*/
+        Vector3 aim_ang;
+        aim_ang.x = aim.transform.position.x;
+        aim_ang.y = aim.transform.position.y;
+        if (aim_ang.x > 180) aim_ang.x -= 360;
+        if (aim_ang.y > 180) aim_ang.y -= 360;
 
-        turret.transform.Rotate(new Vector3(0.0f, Input.GetAxis("Horizontal") * Mathf.Rad2Deg, 0.0f) * Time.deltaTime);
-        gun.transform.Rotate(new Vector3(Input.GetAxis("Vertical") * Mathf.Rad2Deg, 0.0f, 0.0f) * Time.deltaTime);
+        turret.transform.localEulerAngles = new Vector3(0.0f, aim_ang.y * Mathf.Rad2Deg, 0.0f);
+        gun.transform.localEulerAngles = new Vector3(aim_ang.x * Mathf.Rad2Deg, 0.0f, 0.0f);
+        //turret.transform.Rotate(new Vector3(0.0f, aim_ang.y * Mathf.Rad2Deg, 0.0f) * turnspeed * Time.deltaTime);
+        //gun.transform.Rotate(new Vector3(aim_ang.x * Mathf.Rad2Deg, 0.0f, 0.0f) * 5f * Time.deltaTime);
+        //Input.GetAxis("Horizontal") * Mathf.Rad2Deg Input.GetAxis("Vertical")
+        //turret.transform.Rotate(new Vector3(0.0f, aim.transform.eulerAngles.x * Mathf.Rad2Deg, 0.0f) * turnspeed * Time.deltaTime);
+        //gun.transform.Rotate(new Vector3(aim.transform.eulerAngles.y * Mathf.Rad2Deg, 0.0f, 0.0f) * turnspeed * Time.deltaTime);
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;

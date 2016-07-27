@@ -141,8 +141,11 @@ public class GameMgr : MonoBehaviour
         }
         //canvas.alpha=1; //플레이어가 죽으면 캔버스 보이기
         if (spawnTank.GetComponent<PlayerMove>().bossbattle)
-            //GameObject.Find("UIManager").GetComponent<UIMgr>().setFirstStar();
+        {
             GameObject.Find("UIManager").SendMessage("setFirstStar");
+        }
+            //GameObject.Find("UIManager").GetComponent<UIMgr>().setFirstStar();
+            
     }
 
     public void countingenemy()

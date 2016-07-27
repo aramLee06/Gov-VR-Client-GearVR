@@ -19,8 +19,8 @@ public class EnemyDrone : MonoBehaviour
     public enum State { idle = 0, contact, attack, die };
     State state;
     // 공격 사정거리.
-    float contactDist = 10.0f;
-    float attackDist = 11.0f;
+    float contactDist = 5.0f;
+    float attackDist = 6.0f;
     // 죽음 여부.
     private bool isDie = false;
 

@@ -28,6 +28,7 @@ public class BigBadBoss : MonoBehaviour
     {
         //Debug.Log("보스전");
         StartCoroutine(MakeMissile());
+        GameObject.FindGameObjectWithTag("Spawner").GetComponent<EnemySpawn>().bossbattle = true;
     }
 
     void OnCollisionEnter(Collision coll)
@@ -40,6 +41,7 @@ public class BigBadBoss : MonoBehaviour
             {
                 Instantiate(expEffect, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
+                Time.timeScale = 0;
                 GameObject.Find("UIManager").SendMessage("setComplete");
                 GameObject.Find("UIManager").SendMessage("UISHOW");
             }
