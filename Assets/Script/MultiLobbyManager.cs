@@ -52,6 +52,7 @@ public class MultiLobbyManager : MonoBehaviour {
 			CreateRoom.SetActive (true);
 			UnitModel.SetActive (false);
 			OVRCamera.transform.DOMove (new Vector3 (0, 1.0f, -0.6f), 1.0f);
+			Debug.Log (boardName);
 			break;
 		case "WaitRoomBoard":
 			//CreateRoomBoard.transform.DOLocalMoveX (-2.0f, 2.0f);
@@ -63,6 +64,7 @@ public class MultiLobbyManager : MonoBehaviour {
 			WaitRoom.SetActive (true);
 			UnitModel.SetActive (false);
 			OVRCamera.transform.DOMove (new Vector3 (0, 1.0f, -0.6f), 1.0f);
+			Debug.Log (boardName);
 			break;
 		}
 
