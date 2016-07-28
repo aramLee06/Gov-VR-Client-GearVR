@@ -13,10 +13,8 @@ public class UIMgr : MonoBehaviour
     public GameObject firststar;
     public GameObject secondstar;
     public GameObject thirdstar;
-    public GameObject replay;
-    public GameObject exit;
     public GameObject complete;
-    public GameObject test;
+    public GameObject BackGround;
 
     Image firststar_Rend;
     Image secondstar_Rend;
@@ -31,8 +29,9 @@ public class UIMgr : MonoBehaviour
     void Start()
     {
         //trk_Manager = GameObject.Find("aim").GetComponent<TrackingManager>();
-        //UIcanvas.SetActive(false);
-        //spause_menu.SetActive(false);
+        UIcanvas.SetActive(false);
+        pause_menu.SetActive(false);
+        BackGround.SetActive(false);
         //replay_Rend = replay.GetComponent<Renderer>();
         //exit_Rend = exit.GetComponent<Renderer
         firststar_Rend = firststar.GetComponent<Image>();
@@ -50,8 +49,15 @@ public class UIMgr : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             //pause_menu.SetActive(true);
-            Transform camera = GameObject.Find("CenterEyeAnchor").transform;
-            Instantiate(pause_menu, camera.transform.position, camera.transform.rotation);
+            Vector3 camera = GameObject.FindGameObjectWithTag("Player").transform.position;
+            //camera.x = camera.x + 1f;
+            camera.y = camera.y + 1.3f;
+            //camera.z = camera.z + 1f;
+            BackGround.SetActive(true);
+            pause_menu.SetActive(true);
+            pause_menu.transform.rotation = GameObject.FindGameObjectWithTag("Player").transform.rotation;
+            pause_menu.transform.position = camera;
+            //Instantiate(pause_menu, camera, GameObject.Find("Camera").transform.rotation);
             Time.timeScale = 0;
             //SceneManager.LoadScene("Campaign_Mars", LoadSceneMode.Single);
             /* if (isPause)
@@ -108,21 +114,32 @@ public class UIMgr : MonoBehaviour
     {
 
         Time.timeScale = 0;
+        Vector3 camera = GameObject.FindGameObjectWithTag("Player").transform.position;
+        //camera.x = camera.x + 1f;
+        camera.y = camera.y + 1.3f;
+        //camera.z = camera.z + 1f;
+        BackGround.SetActive(true);
         UIcanvas.SetActive(true);
+        UIcanvas.transform.rotation = GameObject.FindGameObjectWithTag("Player").transform.rotation;
+        UIcanvas.transform.position = camera;
     }
 
     public void onReplayButton()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Campaign_Mars", LoadSceneMode.Single);
     }
     
     public void onExitButton()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Demo 1", LoadSceneMode.Single);
     }
 
     public void onContinueButton()
     {
+        BackGround.SetActive(false);
+        pause_menu.SetActive(false);
         Time.timeScale = 1;
     }
 }

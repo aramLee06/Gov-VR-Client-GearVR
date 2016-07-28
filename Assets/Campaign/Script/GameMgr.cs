@@ -135,8 +135,9 @@ public class GameMgr : MonoBehaviour
     {
         if (spawnTank.GetComponent<PlayerMove>().isdead)
         {
+            GameObject.Find("UIManager").SendMessage("UISHOW");
             //check
-            GameObject.Find("UIManager").SendMessage("setFirstStar");
+            //GameObject.Find("UIManager").SendMessage("setFirstStar");
             //GameObject.FindWithTag("Boss").GetComponent<BigBadBoss>().battlemod();
         }
         //canvas.alpha=1; //플레이어가 죽으면 캔버스 보이기

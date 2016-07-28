@@ -48,8 +48,6 @@ public class PlayerMove : MonoBehaviour
         {
             this.GetComponent<Rigidbody>().isKinematic = true;
             HP();
-            isdead = true;
-            Debug.Log(isdead);
         }
         else if (coll.gameObject.tag == "Boss_Missile")
         {
@@ -68,7 +66,8 @@ public class PlayerMove : MonoBehaviour
         if (hp <= 0)
         {
             Instantiate(expEffect, transform.position, Quaternion.identity);
-            //Destroy(this.gameObject);
+            isdead = true;
+            Debug.Log(isdead);
             GameObject.Find("UIManager").SendMessage("UISHOW");
         }
     }
@@ -83,16 +82,18 @@ public class PlayerMove : MonoBehaviour
         if (ang.x > 180) ang.x -= 360;
         ang.x = Mathf.Clamp(ang.x, -15, 5);
         gun.transform.eulerAngles = ang;*/
-        Vector3 aim_ang;
-        aim_ang.x = aim.transform.position.x;
-        aim_ang.y = aim.transform.position.y;
-        if (aim_ang.x > 180) aim_ang.x -= 360;
-        if (aim_ang.y > 180) aim_ang.y -= 360;
+        Vector3 aim_ang = aim.transform.localPosition;
+        //aim_ang.x = aim.transform.position.x;
+        //aim_ang.y = aim.transform.position.y;
+        //if (aim_ang.x > 180) aim_ang.x -= 360;
+        //if (aim_ang.y > 180) aim_ang.y -= 360;
 
-        turret.transform.localEulerAngles = new Vector3(0.0f, aim_ang.y * Mathf.Rad2Deg, 0.0f);
-        gun.transform.localEulerAngles = new Vector3(aim_ang.x * Mathf.Rad2Deg, 0.0f, 0.0f);
-        //turret.transform.Rotate(new Vector3(0.0f, aim_ang.y * Mathf.Rad2Deg, 0.0f) * turnspeed * Time.deltaTime);
-        //gun.transform.Rotate(new Vector3(aim_ang.x * Mathf.Rad2Deg, 0.0f, 0.0f) * 5f * Time.deltaTime);
+        //turret.transform.localEulerAngles = new Vector3(0.0f, aim_ang.y * Mathf.Rad2Deg, 0.0f);
+        //gun.transform.localEulerAngles = new Vector3(aim_ang.x * Mathf.Rad2Deg, 0.0f, 0.0f);
+        // turret.transform.Rotate(new Vector3(0.0f, test.y * Mathf.Rad2Deg, 0.0f) * turnspeed * Time.deltaTime);
+        turretmove();
+        gunmove();
+        //gun.transform.Rotate(new Vector3(test.x * Mathf.Rad2Deg, 0.0f, 0.0f) * turnspeed * Time.deltaTime);
         //Input.GetAxis("Horizontal") * Mathf.Rad2Deg Input.GetAxis("Vertical")
         //turret.transform.Rotate(new Vector3(0.0f, aim.transform.eulerAngles.x * Mathf.Rad2Deg, 0.0f) * turnspeed * Time.deltaTime);
         //gun.transform.Rotate(new Vector3(aim.transform.eulerAngles.y * Mathf.Rad2Deg, 0.0f, 0.0f) * turnspeed * Time.deltaTime);
@@ -101,6 +102,25 @@ public class PlayerMove : MonoBehaviour
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.transform.position, shotSpawn.transform.rotation);
         }
+    }
+    void turretmove()
+    {
+        //Debug.Log();
+        Vector3 lookPos = aim.transform.position - turret.transform.position;
+        //lookPos.x = turret.transform.position.x;
+        //lookPos.z = turret.transform.position.z;
+        Quaternion rotation = Quaternion.LookRotation(lookPos);
+        turret.transform.rotation = Quaternion.Slerp(turret.transform.rotation, rotation, turnspeed * Time.deltaTime);
+    }
+
+    void gunmove()
+    {
+        Vector3 lookPos = aim.transform.position - gun.transform.position;
+        //lookPos.x = lookPos.y;
+        //lookPos.y = gun.transform.position.y;
+        //lookPos.z = gun.transform.position.z;
+        Quaternion rotation = Quaternion.LookRotation(lookPos);
+        gun.transform.rotation = Quaternion.Slerp(gun.transform.rotation, rotation, turnspeed * Time.deltaTime);
     }
 
     void walk()
