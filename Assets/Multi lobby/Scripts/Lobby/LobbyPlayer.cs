@@ -11,6 +11,8 @@ namespace Prototype.NetworkLobby
     //Any LobbyHook can then grab it and pass those value to the game player prefab (see the Pong Example in the Samples Scenes)
     public class LobbyPlayer : NetworkLobbyPlayer
     {
+		LobbyManager lobManager;
+
 		static Color[] Colors = new Color[] { Color.white, Color.red, Color.blue};
         //used on server to avoid assigning the same color to two player
         static List<int> _colorInUse = new List<int>();
@@ -38,9 +40,26 @@ namespace Prototype.NetworkLobby
         static Color ReadyColor = new Color(0.0f, 204.0f / 255.0f, 204.0f / 255.0f, 1.0f);
         static Color TransparentColor = new Color(0, 0, 0, 0);
 
-		public static int _teamFlags = 0;
+		private int _teamFlags = 0;
+		private int _unitFlags = 0;
+
         //static Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
         //static Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
+
+		void Start()
+		{
+			lobManager = GameObject.Find ("LobbyManager").GetComponent<LobbyManager> ();
+			//PlayerPrefs.SetInt ("SelectedTeam", 0);
+		}
+
+		void Update()
+		{
+			CmdColorChange ();
+			_teamFlags = lobManager._teamChk;
+			_unitFlags = lobManager._unitNum;
+			//_teamFlags = PlayerPrefs.GetInt ("SelectedTeam");
+			//_unitNum = PlayerPrefs.GetInt ("SelectedUnit");
+		}
 
         public override void OnClientEnterLobby()
         {
@@ -270,7 +289,8 @@ namespace Prototype.NetworkLobby
             while (alreadyInUse);
                 
 			_colorInUse.Add(idx);
-            playerColor = Colors[0]; //Before Value = idx, this index affect Player's Team Colors
+
+			this.playerColor = Colors[_teamFlags]; //Before Index Value = idx, this index affect Player's Team Colors
         }
 
 		//Change Name

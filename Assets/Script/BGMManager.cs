@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BGMManager : MonoBehaviour {
 
+	public AudioSource audioBGM; //You need to insert your BGM to here
+
 	MainLobbyManager lob_Manager;
 	TrackingManager trk_Manager;
 
@@ -31,6 +33,7 @@ public class BGMManager : MonoBehaviour {
 		
 	void Start () {
 		trk_Manager = GameObject.Find ("aim").GetComponent<TrackingManager> ();
+		audioBGM = GetComponent<AudioSource> ();
 
 		on_Rend = bgmOn.GetComponent<Renderer> ();
 		off_Rend = bgmOff.GetComponent<Renderer> ();
@@ -41,10 +44,12 @@ public class BGMManager : MonoBehaviour {
 		case "BGMon":
 			on_Rend.material.mainTexture = Resources.Load ("On_Button_on") as Texture;
 			off_Rend.material.mainTexture = Resources.Load ("off_Button_off") as Texture;
+			audioBGM.mute = false;
 			break;
 		case "BGMoff":
 			on_Rend.material.mainTexture = Resources.Load ("On_Button_off") as Texture;
 			off_Rend.material.mainTexture = Resources.Load ("off_Button_on") as Texture;
+			audioBGM.mute = true;
 			break;
 		}
 	}

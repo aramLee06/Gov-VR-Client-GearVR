@@ -24,7 +24,7 @@ public class LobbyBacktoPreviousScene : MonoBehaviour {
 		} else if(sc_check == true){
 			this.transform.DOMoveY (6f, 1.0f);
 			optionBoard.transform.DOMove (new Vector3(-1.5f, 0.7f, 0.13f), 1.0f);
-			nameBoard.transform.DOMove (new Vector3(1.5f, 0.75f, 0.13f), 1.0f);
+			nameBoard.transform.DOMove (new Vector3(1.5f, 0.7f, 0.13f), 1.0f);
 		}
 	}
 

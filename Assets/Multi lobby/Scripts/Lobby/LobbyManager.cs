@@ -10,7 +10,7 @@ using DG.Tweening;
 
 namespace Prototype.NetworkLobby
 {
-    public class LobbyManager : NetworkLobbyManager 
+	public class LobbyManager : NetworkLobbyManager
     {
         static short MsgKicked = MsgType.Highest + 1;
 
@@ -47,13 +47,16 @@ namespace Prototype.NetworkLobby
         [HideInInspector]
         public int _playerNumber = 0;
 
+		public int _unitNum = 0;
+		public int _teamChk = 0;
+
         //used to disconnect a client properly when exiting the matchmaker
         [HideInInspector]
         public bool _isMatchmaking = false;
 
         protected bool _disconnectServer = false;
 
-		public string _teamCheck;
+		//public string _teamCheck;
         
         protected ulong _currentMatchID;
 
@@ -78,6 +81,7 @@ namespace Prototype.NetworkLobby
 		{
 			lobPlayer = GameObject.Find ("PlayerInfo(Clone)").GetComponent<LobbyPlayer> ();
 		}
+
         public override void OnLobbyClientSceneChanged(NetworkConnection conn)
         {
             if (SceneManager.GetSceneAt(0).name == lobbyScene)
@@ -177,29 +181,23 @@ namespace Prototype.NetworkLobby
 
 		public void InitializePlayerList()
 		{
-			Debug.Log ("Unfortunately");	
 			lobPlayer.OnDestroy ();
-			Debug.Log ("Good");
 		}
 
         // ----------------- Server management
 
-		/// <summary>
-		/// Red Team Select
-		/// TryToAddPlayer -> Just Change your Team (New Function);
-		/// </summary>
 		public void ChangeRedTeamUnit()
 		{
-			TryToAddPlayer ();
+			_teamChk = 1;
+			//LobbyPlayer._teamFlags = 1;
+			//PlayerPrefs.SetInt ("SelectedTeam", 1);
 		}
 
-		/// <summary>
-		/// BlueTeam Select
-		/// TryToAddPlayer -> Just Change your Team (New Function);
-		/// </summary>
 		public void ChangeBlueTeamUnit()
 		{
-			TryToAddPlayer ();
+			_teamChk = 2;
+			//LobbyPlayer._teamFlags = 2;
+			//PlayerPrefs.SetInt ("SelectedTeam", 2);
 		}
 
         public void AddLocalPlayer()

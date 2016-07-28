@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SoundManager : MonoBehaviour {
 
+	public AudioSource audioSound; //You need to insert your Sound to here
+
 	MainLobbyManager lob_Manager;
 	TrackingManager trk_Manager;
 
@@ -41,10 +43,12 @@ public class SoundManager : MonoBehaviour {
 		case "Sdon":
 			on_Rend.material.mainTexture = Resources.Load ("On_Button_on") as Texture;
 			off_Rend.material.mainTexture = Resources.Load ("off_Button_off") as Texture;
+			audioSound.mute = false;
 			break;
 		case "Sdoff":
 			on_Rend.material.mainTexture = Resources.Load ("On_Button_off") as Texture;
 			off_Rend.material.mainTexture = Resources.Load ("off_Button_on") as Texture;
+			audioSound.mute = true;
 			break;
 		}
 	}
