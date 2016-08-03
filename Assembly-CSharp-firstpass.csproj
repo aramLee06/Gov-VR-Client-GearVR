@@ -45,6 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\Pixelplacement\iTween\Sample\MoveSample.cs" />
+     <Compile Include="Assets\Plugins\Pixelplacement\iTween\Sample\RotateSample.cs" />
+     <Compile Include="Assets\Plugins\Pixelplacement\iTween\Sample\SampleInfo.cs" />
+     <Compile Include="Assets\Plugins\Pixelplacement\iTween\iTween.cs" />
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
@@ -89,17 +93,66 @@
      <Compile Include="Assets\Standard Assets\Utility\TimedObjectDestructor.cs" />
      <Compile Include="Assets\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\Standard Assets\Utility\WaypointProgressTracker.cs" />
+     <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\AlphaBlended.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\ShadowWithLinearFalloff.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Blit\Downsample.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\Dynamic\MipmappedShadow.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\ExhaustFlame.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\WarpJumpDistortion.shader" />
+     <None Include="Assets\DynamicShadowProjector\Readme.txt" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Blit\DownsampleFallback.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Burnout.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\Dynamic\ShadowWithoutFalloff.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Blit\Blit.shader" />
      <None Include="Assets\OVR\Moonlight\Shaders\OVRColorRampAlpha.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\Dynamic\LightxShadowWithLinearFalloff.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Shadow\ShadowTransparent.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Trail.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Shadow\ShadowOpaque.shader" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\MipmappedShadow.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Caps\tex2DlodExtensionCheck.shader" />
      <None Include="Assets\Art_Resource\font\Readme.txt" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Holographic.shader" />
      <None Include="Assets\OVR\Moonlight\Shaders\Unlit Crosshair.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\SmokeTurbulent.shader" />
+     <None Include="Assets\BezierCurves\readme.txt" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\LightxShadowWithoutFalloff.shader" />
      <None Include="Assets\OVR\Moonlight\Resources\Unlit Transparent Color.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\WarpTunnelDistortion.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\WarpJumpTwist.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\WarpJump.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Debris.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\LightxShadowWithLinearFalloff.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\LightWithLinearFalloff.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\ShadowWithoutFalloff.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\Dynamic\LightxShadowWithoutFalloff.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\NebulaStaticBoard.shader" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Shadow\ShadowForReplacement.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Caps\glslCheck.shader" />
      <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Surface.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Billboard.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Heat.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\DSPProjector.cginc" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\LightWithoutFalloff.shader" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\WarpTunnel.shader" />
+     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Projector\Dynamic\ShadowWithLinearFalloff.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Blit\Blur.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Blit\CopyMipmap.shader" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Blit\EraseShadow.shader" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Blit\Downsample.cginc" />
+     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
+     <None Include="Assets\DynamicShadowProjector\Shaders\Shadow\DSPShadow.cginc" />
+     <None Include="Assets\Unit_Prefab\MissileEffect\Shaders\Additive.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
