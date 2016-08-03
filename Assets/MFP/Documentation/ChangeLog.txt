@@ -1,0 +1,88 @@
+MFP:  Multiplayer First Person.
+Lovatto Studio 2015.
+
+Version 1.5.6
+Fix: Only Master Client can use Door.
+Improve: Add rotation lerp to Door system.
+Add: PickUp Multiplayer System.
+Add: Example Item PickUp in scene.
+Add: Pickup UI Notifier.
+Add: Pickup event delgate (over network) for sync callbacks when pickup a item.
+
+Version 1.5
+Add: Kick Player in Pre-Room Scene.
+Fix: Some grammar errors.
+Improve: Text for Doors now can be assigned in inspector for each.
+Add: Move plataforms with advance synchronization.
+Add: bl_PhotonStatics script.
+Add: Server Statics UI in lobby.
+Improve: Fade text when update room list.
+Improve: Small style improvements.
+Update: Last Photon PUN Version.
+
+Version 1.4
+Fix: The map name and preview in the Host Room UI does not update until you press one of the arrows.
+Fix: Some grammar errors.
+Fix: In-game options menu doesn't change resolution.
+Add: Smooth Head Bob effect.
+Improved: Many scripts now get component automatically on start instead of assign it on inspector.
+Fix: Left and Right arrows for changing map in lobby, change the match time instead of the map.
+Fix: Local player not get controlled when mouse is unfocus without pause.
+Improved: Vehicles Managers scripts.
+Improved: Add log error when 'NetworkPlayer' tag is not added in tag list.
+Improved: Documentation.
+Improved: Update for last Photon Unity Networkin (PUN).
+Change: Now Image effect are disable by default, because that causes crashing on low-end computers.
+
+Version 1.3
+- Add: Air Jet vehicle Sync.
+- Impromoved: Car Sync.
+- Fix: Final Round Text Show again in start when 1 round is finished.
+- Impromoved: Final Round Text Animation.
+- Impromoved: Minor Lobby UI.
+- Impromoved: More smooth follow of Draw Name UI;
+- Fix: 'Crate' photonView Log Error on start.
+- Impromoved: Car Engine Sound is heard from a long distance.
+- Impromoved: SyncObject's now take request view owner from masterclient for one more authoritative synchronization.
+- Impromoved: Car now take Masterclient as first owner.
+- Fix: All scroll view for Unity 5.2
+- Impromoved: Animator for player.
+- Fix: Player prefab not destroy on leave for remote players.
+- Fix: Player apply force to vehicles.
+- Fix: When enter in a room and pause static bool in still true.
+- Fix: When remote player exit from vehicle this cause collision with car.
+- Update: With last photon version.
+- Fix: Fade image scale.
+- Impromoved: Now players loaded room scene in same time with master, when this enter after countdown is started.
+
+Version 1.2
+- Update: Photon Cloud v1.60
+- Impromoved: PlayerName Input now have a default prefix.
+- Fix: When leave the car in movement this crashed movement.
+- Impromoved: Photon Log Debug option in lobby.
+- Impromoved: Car brake Light.
+
+Version 1.0.1:
+
+- Add: Select Server to connect menu.
+- Add: Option in lobby to select server.
+- Update: To Photon Unity Networking 1.58.
+- Impromoved: Now all [RPC] atributtes change to [PunRPC] Atributte, this for avoid warning deprecated in Unity 5.1++
+- New: Log Window system.
+- Add: Log Window UI for notify important events to all players in the room with text.
+- Add: New ColorHelper script: with some functions to facilitate the collection of colors and color serialization.
+- Add: KickPlayer: A Kick Button for each player in playerList of room only avaible for master client.
+- Impromoved: SpawnPoint: Now you do not need to add these manually to the list, as they automatically get in runtime.
+- Add: New Spawn Mode "RoundRobin": which allows the player spawn every spawn point in order.
+- Fix: When press Tab key, the game crashed and inputs not work.
+- Fix: Animator state not return to crouch idle when move in crouch.
+- Impromoved: Pause Menu now show / hide with 'Escape' key, this can change from inspector of GameManager.
+- Add: Show / Hide Player List when press 'Tab' key.
+- Add: Respawn Button.
+
+Version 1.0
+-Initial Version.
+
+Contact:
+Email: lovatto@lovattostudio.com	
+Forum: http://lovattostudio.com/Forum/index.php
