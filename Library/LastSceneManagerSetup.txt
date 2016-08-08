@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/MapTest_WP.unity
+- path: Assets/Campaign/Scene/Campaign_Mars.unity
   isLoaded: 1
   isActive: 1
