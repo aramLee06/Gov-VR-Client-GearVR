@@ -91,17 +91,22 @@ public class PlayerMove : MonoBehaviour
         //turret.transform.localEulerAngles = new Vector3(0.0f, aim_ang.y * Mathf.Rad2Deg, 0.0f);
         //gun.transform.localEulerAngles = new Vector3(aim_ang.x * Mathf.Rad2Deg, 0.0f, 0.0f);
         // turret.transform.Rotate(new Vector3(0.0f, test.y * Mathf.Rad2Deg, 0.0f) * turnspeed * Time.deltaTime);
-        turretmove();
-        gunmove();
+
+        //turretmove();
+        //gunmove();
+
         //gun.transform.Rotate(new Vector3(test.x * Mathf.Rad2Deg, 0.0f, 0.0f) * turnspeed * Time.deltaTime);
         //Input.GetAxis("Horizontal") * Mathf.Rad2Deg Input.GetAxis("Vertical")
         //turret.transform.Rotate(new Vector3(0.0f, aim.transform.eulerAngles.x * Mathf.Rad2Deg, 0.0f) * turnspeed * Time.deltaTime);
         //gun.transform.Rotate(new Vector3(aim.transform.eulerAngles.y * Mathf.Rad2Deg, 0.0f, 0.0f) * turnspeed * Time.deltaTime);
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        
+		/*
+		if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.transform.position, shotSpawn.transform.rotation);
         }
+        */
     }
     void turretmove()
     {
