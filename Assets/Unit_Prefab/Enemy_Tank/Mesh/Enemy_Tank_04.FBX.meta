@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: 7412cad51af5a44928578c79fb06ee92
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Group048
+    100002: Group049
+    100004: Group050
+    100006: Line207
+    100008: Line214
+    100010: Line217
+    100012: Line221
+    100014: Line233
+    100016: Object002
+    100018: //RootNode
+    100020: body
+    100022: body01
+    100024: body02
+    100026: top
+    100028: top01
+    100030: top02
+    100032: top03
+    100034: top04
+    100036: Gun
+    400000: Group048
+    400002: Group049
+    400004: Group050
+    400006: Line207
+    400008: Line214
+    400010: Line217
+    400012: Line221
+    400014: Line233
+    400016: Object002
+    400018: //RootNode
+    400020: body
+    400022: body01
+    400024: body02
+    400026: top
+    400028: top01
+    400030: top02
+    400032: top03
+    400034: top04
+    400036: Gun
+    2300000: Line207
+    2300002: Line214
+    2300004: Line217
+    2300006: Line221
+    2300008: Line233
+    2300010: Object002
+    2300012: body01
+    2300014: body02
+    2300016: top01
+    2300018: top02
+    2300020: top03
+    2300022: top04
+    2300024: body
+    2300026: Gun
+    3300000: Line207
+    3300002: Line214
+    3300004: Line217
+    3300006: Line221
+    3300008: Line233
+    3300010: Object002
+    3300012: body01
+    3300014: body02
+    3300016: top01
+    3300018: top02
+    3300020: top03
+    3300022: top04
+    3300024: body
+    3300026: Gun
+    4300000: Line233
+    4300002: Line221
+    4300004: Line217
+    4300006: Object002
+    4300008: Line214
+    4300010: Line207
+    4300012: body01
+    4300014: body02
+    4300016: top04
+    4300018: top01
+    4300020: top02
+    4300022: top03
+    4300024: Gun
+    4300026: body
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

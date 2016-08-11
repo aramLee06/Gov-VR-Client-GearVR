@@ -11,7 +11,7 @@ namespace UnityStandardAssets.Utility
         // This script manages the amount to look ahead along the route,
         // and keeps track of progress and laps.
 
-        [SerializeField] private WaypointCircuit circuit; // A reference to the waypoint-based route we should follow
+		[SerializeField] private WaypointCircuit circuit; // A reference to the waypoint-based route we should follow
 
         [SerializeField] private float lookAheadForTargetOffset = 5;
         // The offset ahead along the route that the we will aim for
@@ -48,6 +48,20 @@ namespace UnityStandardAssets.Utility
         private int progressNum; // the current waypoint number, used in point-to-point mode.
         private Vector3 lastPosition; // Used to calculate current speed (since we may not have a rigidbody component)
         private float speed; // current speed of this object (calculated from delta since last frame)
+
+		public int currentNum {
+			get { return this.progressNum; }
+		}
+		public int lastWaypoint {
+			get { return circuit.Waypoints.Length - 1; }
+		}
+
+		public void SetCircuit (WaypointCircuit circuitObj){
+			circuit = circuitObj;
+		}
+		void Enable() {
+
+		}
 
         // setup script properties
         private void Start()
@@ -118,6 +132,7 @@ namespace UnityStandardAssets.Utility
                 Vector3 targetDelta = target.position - transform.position;
                 if (targetDelta.magnitude < pointToPointThreshold)
                 {
+					Debug.Log (circuit.Waypoints.Length);
                     progressNum = (progressNum + 1)%circuit.Waypoints.Length;
                 }
 
