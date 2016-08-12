@@ -147,26 +147,6 @@ public class WeaponBoardManager : MonoBehaviour {
 				}
 			}
 			break;
-			/* Weapon Board On/Off 
-		case "Weapons":
-			if (weapChk == true) {
-				onoffRend.material.mainTexture = Resources.Load ("weapon_select_off") as Texture;
-				tankOnOff.SetActive (false);
-				airdOnOff.SetActive (false);
-				weapChk = false;
-			} else {
-				onoffRend.material.mainTexture = Resources.Load ("weapon_button_on") as Texture;
-				if (uni_Manager.unitChk == true) {
-					tankOnOff.SetActive (true);
-					airdOnOff.SetActive (false);
-				} else {
-					tankOnOff.SetActive (false);
-					airdOnOff.SetActive (true);
-				}
-				weapChk = true;
-			}
-			break;
-			*/
 		}
 	}
 
